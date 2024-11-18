@@ -1,4 +1,4 @@
-package org.sopt.linkareer.ui.theme
+package org.sopt.linkareer.core.designsystem
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme

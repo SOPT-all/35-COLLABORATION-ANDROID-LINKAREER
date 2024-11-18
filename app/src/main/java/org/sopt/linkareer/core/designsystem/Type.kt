@@ -1,4 +1,4 @@
-package org.sopt.linkareer.ui.theme
+package org.sopt.linkareer.core.designsystem
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
