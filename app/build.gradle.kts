@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "org.sopt.linkareer_android"
+    namespace = "org.sopt.linkareer"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "org.sopt.linkareer_android"
+        applicationId = "org.sopt.linkareer"
         minSdk = 28
         targetSdk = 34
         versionCode = 1
