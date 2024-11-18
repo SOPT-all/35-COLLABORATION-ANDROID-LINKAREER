@@ -1,4 +1,4 @@
-package org.sopt.linkareer_android.ui.theme
+package org.sopt.linkareer.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
