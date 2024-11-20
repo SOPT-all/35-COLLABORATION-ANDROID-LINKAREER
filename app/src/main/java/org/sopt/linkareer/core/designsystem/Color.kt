@@ -5,32 +5,32 @@ import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
 
 // gray scale
-val white = Color(0xFFFFFFFF)
-val gray100 = Color(0xFFFAFAFA)
-val gray200 = Color(0xFFF4F4F4)
-val gray300 = Color(0xFFEDEDED)
-val gray400 = Color(0xFFB9B9B9)
-val gray500 = Color(0xFF989898)
-val gray600 = Color(0xFF868686)
-val gray700 = Color(0xFF4E4D4D)
-val gray800 = Color(0xFF323232)
-val gray900 = Color(0xFF202020)
-val black = Color(0xFF000000)
+val White = Color(0xFFFFFFFF)
+val Gray100 = Color(0xFFFAFAFA)
+val Gray200 = Color(0xFFF4F4F4)
+val Gray300 = Color(0xFFEDEDED)
+val Gray400 = Color(0xFFB9B9B9)
+val Gray500 = Color(0xFF989898)
+val Gray600 = Color(0xFF868686)
+val Gray700 = Color(0xFF4E4D4D)
+val Gray800 = Color(0xFF323232)
+val Gray900 = Color(0xFF202020)
+val Black = Color(0xFF000000)
 
 // primary
-val blue50 = Color(0xFFF5F6FA)
-val blue100 = Color(0xFFE0F7FF)
-val blue200 = Color(0xFFBFE8FF)
-val blue = Color(0xFF01A0FE)
+val Blue50 = Color(0xFFF5F6FA)
+val Blue100 = Color(0xFFE0F7FF)
+val Blue200 = Color(0xFFBFE8FF)
+val Blue = Color(0xFF01A0FE)
 
 // alert/red
-val red100 = Color(0xFFFCF0F0)
-val red = Color(0xFFF2272A)
+val Red100 = Color(0xFFFCF0F0)
+val Red = Color(0xFFF2272A)
 
 // alert/yellow
-val yellow = Color(0xFFF3DB43)
-val yellow400 = Color(0xFFFFC942)
-val yellow500 = Color(0xFFFFAE16)
+val Yellow = Color(0xFFF3DB43)
+val Yellow400 = Color(0xFFFFC942)
+val Yellow500 = Color(0xFFFFAE16)
 
 @Immutable
 data class LINKareerColors(
@@ -63,29 +63,29 @@ data class LINKareerColors(
 val defaultLINKareerColors =
     LINKareerColors(
         // gray scale
-        white = white,
-        gray100 = gray100,
-        gray200 = gray200,
-        gray300 = gray300,
-        gray400 = gray400,
-        gray500 = gray500,
-        gray600 = gray600,
-        gray700 = gray700,
-        gray800 = gray800,
-        gray900 = gray900,
-        black = black,
+        white = White,
+        gray100 = Gray100,
+        gray200 = Gray200,
+        gray300 = Gray300,
+        gray400 = Gray400,
+        gray500 = Gray500,
+        gray600 = Gray600,
+        gray700 = Gray700,
+        gray800 = Gray800,
+        gray900 = Gray900,
+        black = Black,
         // primary
-        blue50 = blue50,
-        blue100 = blue100,
-        blue200 = blue200,
-        blue = blue,
+        blue50 = Blue50,
+        blue100 = Blue100,
+        blue200 = Blue200,
+        blue = Blue,
         // alert/red
-        red100 = red100,
-        red = red,
+        red100 = Red100,
+        red = Red,
         // alert/yellow
-        yellow = yellow,
-        yellow400 = yellow400,
-        yellow500 = yellow500,
+        yellow = Yellow,
+        yellow400 = Yellow400,
+        yellow500 = Yellow500,
     )
 
 val LocalLINKareerColors =
