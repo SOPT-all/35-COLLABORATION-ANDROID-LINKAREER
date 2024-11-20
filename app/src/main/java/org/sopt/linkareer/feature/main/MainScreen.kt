@@ -19,6 +19,7 @@ import org.sopt.linkareer.core.designsystem.Gray600
 import org.sopt.linkareer.core.designsystem.Gray900
 import org.sopt.linkareer.core.designsystem.LINKareerTheme
 import org.sopt.linkareer.core.designsystem.White
+import org.sopt.linkareer.core.util.NoRippleInteraction
 import org.sopt.linkareer.feature.chatting.navigation.chattingGraph
 import org.sopt.linkareer.feature.home.navigation.homeNavGraph
 
@@ -80,6 +81,7 @@ private fun MainBottomBar(
     NavigationBar(containerColor = White) {
         tabs.forEach { itemType ->
             NavigationBarItem(
+                interactionSource = NoRippleInteraction,
                 selected = currentTab == itemType,
                 onClick = {
                     onTabSelected(itemType)
