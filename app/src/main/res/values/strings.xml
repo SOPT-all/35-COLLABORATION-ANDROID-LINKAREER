@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">LINKareer-Android</string>
 
+    <!-- Common strings in the app -->
+    <string name="back_content_description">뒤로가기 버튼</string>
+
     <!-- certification common -->
     <string name="certification_name_field">이름</string>
     <string name="certification_phone_field">휴대폰 번호</string>
