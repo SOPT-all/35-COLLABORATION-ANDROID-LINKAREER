@@ -12,11 +12,11 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.compose.NavHost
-import org.sopt.linkareer.core.designsystem.Black
+import org.sopt.linkareer.core.designsystem.Gray600
+import org.sopt.linkareer.core.designsystem.Gray900
 import org.sopt.linkareer.core.designsystem.LINKareerTheme
 import org.sopt.linkareer.core.designsystem.White
 import org.sopt.linkareer.feature.chatting.navigation.chattingGraph
@@ -98,13 +98,13 @@ private fun MainBottomBar(
                 },
                 colors =
                     NavigationBarItemColors(
-                        selectedIconColor = Color.Blue,
-                        selectedTextColor = Black,
+                        selectedIconColor = Gray900,
+                        selectedTextColor = Gray900,
                         selectedIndicatorColor = White,
-                        unselectedIconColor = Black,
-                        unselectedTextColor = Black,
-                        disabledTextColor = Black,
-                        disabledIconColor = Black,
+                        unselectedIconColor = Gray600,
+                        unselectedTextColor = Gray600,
+                        disabledTextColor = Gray600,
+                        disabledIconColor = Gray600,
                     ),
             )
         }
