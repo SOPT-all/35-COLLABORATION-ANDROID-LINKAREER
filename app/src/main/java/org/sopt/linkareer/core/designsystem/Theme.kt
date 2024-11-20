@@ -17,7 +17,13 @@ object LINKareerTheme {
         @Composable
         @ReadOnlyComposable
         get() = LocalLINKareerColors.current
+
+    val typography : LINKareerTypography
+        @Composable
+        @ReadOnlyComposable
+        get() = LocalLINKareerTypography.current
 }
+
 
 @Composable
 fun ProvideLINKareerColorsAndTypography(
