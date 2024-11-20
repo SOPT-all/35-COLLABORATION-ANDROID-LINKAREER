@@ -79,7 +79,7 @@ val defaultLINKareerTypography =
                 fontFamily = FontFamily(Font(R.font.noto_sans_kr_bold)),
                 fontWeight = FontWeight.W700,
                 lineHeight = 1.0.em,
-                letterSpacing = (-2).sp,
+                letterSpacing = (-0.02).em,
             ),
         title2B17 =
             TextStyle(
@@ -87,7 +87,7 @@ val defaultLINKareerTypography =
                 fontFamily = FontFamily(Font(R.font.noto_sans_kr_bold)),
                 fontWeight = FontWeight.W700,
                 lineHeight = 1.0.em,
-                letterSpacing = (-5).sp,
+                letterSpacing = (-0.05).em,
             ),
         title3B16 =
             TextStyle(
@@ -95,7 +95,7 @@ val defaultLINKareerTypography =
                 fontFamily = FontFamily(Font(R.font.noto_sans_kr_bold)),
                 fontWeight = FontWeight.W700,
                 lineHeight = 1.0.em,
-                letterSpacing = (-1).sp,
+                letterSpacing = (-0.01).em,
             ),
         title4B15 =
             TextStyle(
@@ -103,7 +103,7 @@ val defaultLINKareerTypography =
                 fontFamily = FontFamily(Font(R.font.noto_sans_kr_bold)),
                 fontWeight = FontWeight.W700,
                 lineHeight = 1.0.em,
-                letterSpacing = (-2).sp,
+                letterSpacing = (-0.02).em,
             ),
         title5B14 =
             TextStyle(
@@ -111,7 +111,7 @@ val defaultLINKareerTypography =
                 fontFamily = FontFamily(Font(R.font.noto_sans_kr_bold)),
                 fontWeight = FontWeight.W700,
                 lineHeight = 1.0.em,
-                letterSpacing = 1.sp,
+                letterSpacing = 0.01.em,
             ),
         // Body
         body1B16 =
@@ -120,7 +120,7 @@ val defaultLINKareerTypography =
                 fontFamily = FontFamily(Font(R.font.noto_sans_kr_bold)),
                 fontWeight = FontWeight.W700,
                 lineHeight = 1.0.em,
-                letterSpacing = (-1).sp,
+                letterSpacing = (-0.01).em,
             ),
         body2B14 =
             TextStyle(
@@ -128,7 +128,7 @@ val defaultLINKareerTypography =
                 fontFamily = FontFamily(Font(R.font.noto_sans_kr_bold)),
                 fontWeight = FontWeight.W700,
                 lineHeight = 1.0.em,
-                letterSpacing = 1.sp,
+                letterSpacing = 0.01.em,
             ),
         body3B13 =
             TextStyle(
@@ -136,7 +136,7 @@ val defaultLINKareerTypography =
                 fontFamily = FontFamily(Font(R.font.noto_sans_kr_bold)),
                 fontWeight = FontWeight.W700,
                 lineHeight = 1.0.em,
-                letterSpacing = (-3).sp,
+                letterSpacing = (-0.03).em,
             ),
         body4B12 =
             TextStyle(
@@ -144,7 +144,7 @@ val defaultLINKareerTypography =
                 fontFamily = FontFamily(Font(R.font.noto_sans_kr_bold)),
                 fontWeight = FontWeight.W700,
                 lineHeight = 1.5.em,
-                letterSpacing = (-1).sp,
+                letterSpacing = (-0.01).em,
             ),
         body5B11 =
             TextStyle(
@@ -152,7 +152,7 @@ val defaultLINKareerTypography =
                 fontFamily = FontFamily(Font(R.font.noto_sans_kr_bold)),
                 fontWeight = FontWeight.W700,
                 lineHeight = 1.5.em,
-                letterSpacing = (-5).sp,
+                letterSpacing = (-0.05).em,
             ),
         body6M15 =
             TextStyle(
@@ -160,7 +160,7 @@ val defaultLINKareerTypography =
                 fontFamily = FontFamily(Font(R.font.noto_sans_kr_medium)),
                 fontWeight = FontWeight.W500,
                 lineHeight = 1.0.em,
-                letterSpacing = (-3).sp,
+                letterSpacing = (-0.03).em,
             ),
         body7M14 =
             TextStyle(
@@ -168,7 +168,7 @@ val defaultLINKareerTypography =
                 fontFamily = FontFamily(Font(R.font.noto_sans_kr_medium)),
                 fontWeight = FontWeight.W500,
                 lineHeight = 1.0.em,
-                letterSpacing = (-4).sp,
+                letterSpacing = (-0.04).em,
             ),
         body8M13 =
             TextStyle(
@@ -176,7 +176,7 @@ val defaultLINKareerTypography =
                 fontFamily = FontFamily(Font(R.font.noto_sans_kr_medium)),
                 fontWeight = FontWeight.W500,
                 lineHeight = 1.5.em,
-                letterSpacing = (-4).sp,
+                letterSpacing = (-0.04).em,
             ),
         body9M12 =
             TextStyle(
@@ -184,7 +184,7 @@ val defaultLINKareerTypography =
                 fontFamily = FontFamily(Font(R.font.noto_sans_kr_medium)),
                 fontWeight = FontWeight.W500,
                 lineHeight = 1.5.em,
-                letterSpacing = (-5).sp,
+                letterSpacing = (-0.05).em,
             ),
         body10M11 =
             TextStyle(
@@ -192,7 +192,7 @@ val defaultLINKareerTypography =
                 fontFamily = FontFamily(Font(R.font.noto_sans_kr_medium)),
                 fontWeight = FontWeight.W500,
                 lineHeight = 1.75.em,
-                letterSpacing = (-5).sp,
+                letterSpacing = (-0.05).em,
             ),
         body11M10 =
             TextStyle(
@@ -200,7 +200,7 @@ val defaultLINKareerTypography =
                 fontFamily = FontFamily(Font(R.font.noto_sans_kr_medium)),
                 fontWeight = FontWeight.W500,
                 lineHeight = 1.75.em,
-                letterSpacing = (-1).sp,
+                letterSpacing = (-0.01).em,
             ),
         body12R12 =
             TextStyle(
@@ -208,7 +208,7 @@ val defaultLINKareerTypography =
                 fontFamily = FontFamily(Font(R.font.noto_sans_kr_regular)),
                 fontWeight = FontWeight.W400,
                 lineHeight = 1.5.em,
-                letterSpacing = (-3).sp,
+                letterSpacing = (-0.03).em,
             ),
         body13R11 =
             TextStyle(
@@ -216,7 +216,7 @@ val defaultLINKareerTypography =
                 fontFamily = FontFamily(Font(R.font.noto_sans_kr_regular)),
                 fontWeight = FontWeight.W400,
                 lineHeight = 1.75.em,
-                letterSpacing = (-1).sp,
+                letterSpacing = (-0.01).em,
             ),
         body14R10 =
             TextStyle(
@@ -224,7 +224,7 @@ val defaultLINKareerTypography =
                 fontFamily = FontFamily(Font(R.font.noto_sans_kr_regular)),
                 fontWeight = FontWeight.W400,
                 lineHeight = 1.75.em,
-                letterSpacing = (-1).sp,
+                letterSpacing = (-0.01).em,
             ),
         // Label
         label1B11 =
@@ -233,7 +233,7 @@ val defaultLINKareerTypography =
                 fontFamily = FontFamily(Font(R.font.noto_sans_kr_bold)),
                 fontWeight = FontWeight.W700,
                 lineHeight = 1.0.em,
-                letterSpacing = (-3).sp,
+                letterSpacing = (-0.03).em,
             ),
         label2B10 =
             TextStyle(
@@ -241,7 +241,7 @@ val defaultLINKareerTypography =
                 fontFamily = FontFamily(Font(R.font.noto_sans_kr_bold)),
                 fontWeight = FontWeight.W700,
                 lineHeight = 1.0.em,
-                letterSpacing = (-4).sp,
+                letterSpacing = (-0.04).em,
             ),
         label3M11 =
             TextStyle(
@@ -249,7 +249,7 @@ val defaultLINKareerTypography =
                 fontFamily = FontFamily(Font(R.font.noto_sans_kr_medium)),
                 fontWeight = FontWeight.W500,
                 lineHeight = 1.0.em,
-                letterSpacing = (-5).sp,
+                letterSpacing = (-0.05).em,
             ),
         label4M10 =
             TextStyle(
@@ -257,7 +257,7 @@ val defaultLINKareerTypography =
                 fontFamily = FontFamily(Font(R.font.noto_sans_kr_medium)),
                 fontWeight = FontWeight.W500,
                 lineHeight = 1.0.em,
-                letterSpacing = (-4).sp,
+                letterSpacing = (-0.04).em,
             ),
         label5M8 =
             TextStyle(
@@ -265,7 +265,7 @@ val defaultLINKareerTypography =
                 fontFamily = FontFamily(Font(R.font.noto_sans_kr_medium)),
                 fontWeight = FontWeight.W500,
                 lineHeight = 1.0.em,
-                letterSpacing = (-4).sp,
+                letterSpacing = (-0.04).em,
             ),
     )
 
