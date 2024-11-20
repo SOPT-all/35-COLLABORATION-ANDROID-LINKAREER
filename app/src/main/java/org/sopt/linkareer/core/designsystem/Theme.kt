@@ -11,19 +11,17 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
 
-
 object LINKareerTheme {
     val colors: LINKareerColors
         @Composable
         @ReadOnlyComposable
         get() = LocalLINKareerColors.current
 
-    val typography : LINKareerTypography
+    val typography: LINKareerTypography
         @Composable
         @ReadOnlyComposable
         get() = LocalLINKareerTypography.current
 }
-
 
 @Composable
 fun ProvideLINKareerColorsAndTypography(
@@ -32,29 +30,29 @@ fun ProvideLINKareerColorsAndTypography(
 ) {
     CompositionLocalProvider(
         LocalLINKareerColors provides colors,
-        content = content
+        content = content,
     )
 }
 
 @Composable
 fun LINKareerAndroidTheme(
     backgroundColor: Color = defaultLINKareerColors.white,
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) {
     val view = LocalView.current
 
     ProvideLINKareerColorsAndTypography(colors = defaultLINKareerColors) {
-        if (!view.isInEditMode){
+        if (!view.isInEditMode) {
             SideEffect {
                 (view.context as Activity).window.run {
                     statusBarColor = backgroundColor.toArgb()
-                    WindowCompat.getInsetsController(this,view).isAppearanceLightStatusBars = true
+                    WindowCompat.getInsetsController(this, view).isAppearanceLightStatusBars = true
                 }
             }
         }
         MaterialTheme(
             typography = Typography,
-            content = content
+            content = content,
         )
     }
 }
