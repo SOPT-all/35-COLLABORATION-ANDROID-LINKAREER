@@ -2,7 +2,6 @@ package org.sopt.linkareer.feature.chatroom.component
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
@@ -25,55 +24,59 @@ import org.sopt.linkareer.core.designsystem.Gray600
 import org.sopt.linkareer.core.designsystem.Gray900
 import org.sopt.linkareer.core.designsystem.defaultLINKareerTypography
 
-
 @Composable
-fun MyChat (
+fun MyChat(
     sendMessage: String,
     timestamp: String,
 ) {
     Column(
-        modifier = Modifier
-            .padding(end = 8.dp),
-        horizontalAlignment = Alignment.End
+        modifier =
+            Modifier
+                .padding(end = 8.dp),
+        horizontalAlignment = Alignment.End,
     ) {
         Row(
-            modifier = Modifier
-                .wrapContentWidth(),
-            verticalAlignment = Alignment.Bottom
+            modifier =
+                Modifier
+                    .wrapContentWidth(),
+            verticalAlignment = Alignment.Bottom,
         ) {
             Text(
                 text = timestamp,
                 style = defaultLINKareerTypography.body13R11,
                 color = Gray600,
-                modifier = Modifier
-                    .padding(end = 4.dp)
+                modifier =
+                    Modifier
+                        .padding(end = 4.dp),
             )
             Column(
-                modifier = Modifier
-                    .width(IntrinsicSize.Max)
-                    .clip(RoundedCornerShape(10.dp))
-                    .background(Blue50)
-                    .padding(12.dp),
+                modifier =
+                    Modifier
+                        .width(IntrinsicSize.Max)
+                        .clip(RoundedCornerShape(10.dp))
+                        .background(Blue50)
+                        .padding(12.dp),
             ) {
                 Text(
                     text = sendMessage,
                     style = defaultLINKareerTypography.body8M13,
-                    color = Gray900
+                    color = Gray900,
                 )
             }
         }
         Image(
             painter = painterResource(R.drawable.ic_chatting_like_inactive_25),
             contentDescription = stringResource(R.string.chatroom_reply_contentDescription),
-            modifier = Modifier
-                .padding(start = 30.dp, top = 4.dp),
+            modifier =
+                Modifier
+                    .padding(start = 30.dp, top = 4.dp),
         )
     }
 }
 
 @Preview(
     showBackground = true,
-    backgroundColor = 0xFFFFFFFF
+    backgroundColor = 0xFFFFFFFF,
 )
 @Composable
 fun MyChatPreview() {

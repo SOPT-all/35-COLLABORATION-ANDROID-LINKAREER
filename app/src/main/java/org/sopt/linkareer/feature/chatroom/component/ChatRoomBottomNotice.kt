@@ -26,43 +26,46 @@ import org.sopt.linkareer.core.designsystem.Gray100
 import org.sopt.linkareer.core.designsystem.Gray200
 import org.sopt.linkareer.core.designsystem.Gray700
 import org.sopt.linkareer.core.designsystem.LINKareerAndroidTheme
-import org.sopt.linkareer.core.designsystem.White
 import org.sopt.linkareer.core.designsystem.defaultLINKareerTypography
 
 @Composable
 fun ChatRoomBottomNotice(
     onClickToCheck: () -> Unit,
-    onClickDelete: () -> Unit
+    onClickDelete: () -> Unit,
 ) {
     Box(
-        modifier = Modifier
-            .fillMaxWidth()
-            .clip(RoundedCornerShape(10.dp))
-            .background(Gray100)
-            .border(
-                1.dp,
-                color = Gray200,
-                shape = RoundedCornerShape(10.dp)
-            )
-            .padding(8.dp)
+        modifier =
+            Modifier
+                .fillMaxWidth()
+                .clip(RoundedCornerShape(10.dp))
+                .background(Gray100)
+                .border(
+                    1.dp,
+                    color = Gray200,
+                    shape = RoundedCornerShape(10.dp),
+                )
+                .padding(8.dp),
     ) {
         Row(
-            modifier = Modifier
-                .fillMaxWidth(),
-            verticalAlignment = Alignment.CenterVertically
+            modifier =
+                Modifier
+                    .fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically,
         ) {
             Image(
                 painter = painterResource(R.drawable.ic_certification_check_bottom),
-                contentDescription = stringResource(R.string.chatroom_notice_contentDescription)
+                contentDescription = stringResource(R.string.chatroom_notice_contentDescription),
             )
             Spacer(modifier = Modifier.padding(start = 4.dp))
             Text(
-                modifier = Modifier
-                    .clickable { onClickToCheck() },
+                modifier =
+                    Modifier
+                        .clickable { onClickToCheck() },
                 text = stringResource(R.string.chatroom_notice_link),
-                style = defaultLINKareerTypography.body11M10.copy(
-                    textDecoration = TextDecoration.Underline
-                ),
+                style =
+                    defaultLINKareerTypography.body11M10.copy(
+                        textDecoration = TextDecoration.Underline,
+                    ),
                 color = Blue,
             )
             Text(
@@ -83,14 +86,14 @@ fun ChatRoomBottomNotice(
 
 @Preview(
     showBackground = true,
-    backgroundColor = 0xFFFFFFFF
+    backgroundColor = 0xFFFFFFFF,
 )
 @Composable()
 fun ChatRoomBottomNoticePreview() {
     LINKareerAndroidTheme {
         ChatRoomBottomNotice(
             onClickToCheck = {},
-            onClickDelete = {}
+            onClickDelete = {},
         )
     }
 }

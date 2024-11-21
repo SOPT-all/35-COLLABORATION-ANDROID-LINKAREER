@@ -43,45 +43,49 @@ fun OtherUserChat(
             imageUrl = imageUrl,
         )
         Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(start = 30.dp),
-            verticalAlignment = Alignment.Bottom
+            modifier =
+                Modifier
+                    .fillMaxWidth()
+                    .padding(start = 30.dp),
+            verticalAlignment = Alignment.Bottom,
         ) {
             Column(
-                modifier = Modifier
-                    .width(IntrinsicSize.Max)
-                    .clip(RoundedCornerShape(10.dp))
-                    .background(Blue50)
-                    .padding(12.dp),
-                verticalArrangement = Arrangement.spacedBy(space = 8.dp, alignment = Alignment.Bottom)
+                modifier =
+                    Modifier
+                        .width(IntrinsicSize.Max)
+                        .clip(RoundedCornerShape(10.dp))
+                        .background(Blue50)
+                        .padding(12.dp),
+                verticalArrangement = Arrangement.spacedBy(space = 8.dp, alignment = Alignment.Bottom),
             ) {
                 Text(
                     text = sendMessage,
                     style = defaultLINKareerTypography.body8M13,
-                    color = Gray900
+                    color = Gray900,
                 )
             }
             Text(
                 text = timestamp,
                 style = defaultLINKareerTypography.body13R11,
                 color = Gray600,
-                modifier = Modifier
-                    .padding(start = 4.dp)
+                modifier =
+                    Modifier
+                        .padding(start = 4.dp),
             )
         }
         Image(
             painter = painterResource(R.drawable.ic_chatting_like_inactive_25),
             contentDescription = stringResource(R.string.chatroom_reply_contentDescription),
-            modifier = Modifier
-                .padding(start = 30.dp, top = 4.dp),
+            modifier =
+                Modifier
+                    .padding(start = 30.dp, top = 4.dp),
         )
     }
 }
 
 @Preview(
     showBackground = true,
-    backgroundColor = 0xFFFFFFFF
+    backgroundColor = 0xFFFFFFFF,
 )
 @Composable
 fun OtherUserChatPreview() {

@@ -8,13 +8,11 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import org.sopt.linkareer.R
-import org.sopt.linkareer.core.designsystem.Blue
 import org.sopt.linkareer.core.designsystem.Gray200
 import org.sopt.linkareer.core.designsystem.Gray700
 import org.sopt.linkareer.core.designsystem.LINKareerAndroidTheme
@@ -23,11 +21,11 @@ import org.sopt.linkareer.core.designsystem.defaultLINKareerTypography
 @Composable
 fun ChatRoomTopNotice() {
     Row(
-      modifier =
-        Modifier
-            .fillMaxWidth()
-            .background(Gray200)
-            .padding(start = 8.dp, end = 44.dp)
+        modifier =
+            Modifier
+                .fillMaxWidth()
+                .background(Gray200)
+                .padding(start = 8.dp, end = 44.dp),
     ) {
         Image(
             painter = painterResource(R.drawable.ic_megaphone_32),
@@ -37,8 +35,9 @@ fun ChatRoomTopNotice() {
             text = stringResource(R.string.chatroom_notice_top),
             style = defaultLINKareerTypography.label4M10,
             color = Gray700,
-            modifier = Modifier
-                .padding(vertical = 10.dp)
+            modifier =
+                Modifier
+                    .padding(vertical = 10.dp),
         )
     }
 }
