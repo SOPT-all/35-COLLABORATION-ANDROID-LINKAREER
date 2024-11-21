@@ -1,6 +1,7 @@
 package org.sopt.linkareer.feature.chatroom.component
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -14,6 +15,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import org.sopt.linkareer.R
 import org.sopt.linkareer.core.designsystem.Blue
+import org.sopt.linkareer.core.designsystem.Gray200
+import org.sopt.linkareer.core.designsystem.Gray700
 import org.sopt.linkareer.core.designsystem.LINKareerAndroidTheme
 import org.sopt.linkareer.core.designsystem.defaultLINKareerTypography
 
@@ -23,17 +26,19 @@ fun ChatRoomTopNotice() {
       modifier =
         Modifier
             .fillMaxWidth()
+            .background(Gray200)
             .padding(start = 8.dp, end = 44.dp)
     ) {
         Image(
-            painter = painterResource(R.drawable.ic_megaphone_24),
+            painter = painterResource(R.drawable.ic_megaphone_32),
             contentDescription = stringResource(R.string.chatroom_notice_megaphone),
-            colorFilter = ColorFilter.tint(Blue)
         )
         Text(
-            modifier = Modifier.padding(vertical = 2.dp),
             text = stringResource(R.string.chatroom_notice_top),
-            style = defaultLINKareerTypography.label4M10
+            style = defaultLINKareerTypography.label4M10,
+            color = Gray700,
+            modifier = Modifier
+                .padding(vertical = 10.dp)
         )
     }
 }

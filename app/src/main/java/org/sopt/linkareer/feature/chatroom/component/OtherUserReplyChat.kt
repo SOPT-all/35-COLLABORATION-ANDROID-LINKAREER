@@ -5,6 +5,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -130,7 +131,7 @@ fun OtherUserReplyBubble(
     ) {
         Column(
             modifier = Modifier
-                .wrapContentWidth()
+                .width(IntrinsicSize.Max)
                 .clip(RoundedCornerShape(10.dp))
                 .background(Blue50)
                 .padding(12.dp),
@@ -146,20 +147,12 @@ fun OtherUserReplyBubble(
                 style = defaultLINKareerTypography.label3M11,
                 color = Gray600
             )
-            val textWidth = with(LocalDensity.current) {
-                receivedMessage.length * 7.dp.toPx()
-            }
 
-            Box(
-                modifier = Modifier
-                    .width(with(LocalDensity.current) { textWidth.toDp() })
-            ) {
-                HorizontalDivider(
-                    color = Gray400,
-                    thickness = 0.5.dp,
-                    modifier = Modifier.fillMaxWidth()
-                )
-            }
+            HorizontalDivider(
+                color = Gray400,
+                thickness = 0.5.dp,
+            )
+
             Text(
                 text = replyMessage,
                 style = defaultLINKareerTypography.body8M13,
