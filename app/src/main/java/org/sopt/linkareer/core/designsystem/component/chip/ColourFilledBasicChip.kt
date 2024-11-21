@@ -9,6 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import org.sopt.linkareer.core.designsystem.LINKareerTheme
@@ -19,12 +20,13 @@ fun ColourFilledBasicChip(
     textColor: Color,
     backgroundColor: Color,
     paddingValues: PaddingValues,
+    textStyle: TextStyle = LINKareerTheme.typography.label5M8,
     cornerRadius: Dp = 0.dp,
     modifier: Modifier = Modifier,
 ) {
     Text(
         text = text,
-        style = LINKareerTheme.typography.label5M8,
+        style = textStyle,
         color = textColor,
         modifier =
             Modifier
