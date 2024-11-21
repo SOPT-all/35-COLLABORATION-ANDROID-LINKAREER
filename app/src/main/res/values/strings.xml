@@ -4,6 +4,7 @@
     <!-- chatroom -->
     <string name="chatroom_notice_top">폭언, 음란, 불법 행위, 상업적 홍보 등 채팅방 사용을 저해하는 활동에 대해 메시지 삭제 및 계정 정지 조치를 할 수 있습니다.</string>
     <string name="chatroom_notice_megaphone">공지사항</string>
+    <string name="chatroom_notice_bottom_close">하단 공지사항 닫기</string>
     <string name="chatroom_notice_link">합불인증</string>
     <string name="chatroom_notice_link_description">을 거쳐 대화의 신뢰도를 높여보세요</string>
     <string name="chatroom_notice_contentDescription">합불 인증 화면으로 이동하는 링크</string>
