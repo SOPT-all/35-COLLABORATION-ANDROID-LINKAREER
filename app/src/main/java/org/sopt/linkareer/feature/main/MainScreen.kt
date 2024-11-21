@@ -12,8 +12,9 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.res.vectorResource
 import androidx.navigation.compose.NavHost
 import org.sopt.linkareer.core.designsystem.Gray600
 import org.sopt.linkareer.core.designsystem.Gray900
@@ -88,7 +89,7 @@ private fun MainBottomBar(
                 },
                 icon = {
                     Image(
-                        painter = painterResource(id = if (currentTab == itemType) itemType.selectedIcon else itemType.unselectedIcon),
+                        imageVector = ImageVector.vectorResource(id = if (currentTab == itemType) itemType.selectedIcon else itemType.unselectedIcon),
                         contentDescription = stringResource(id = itemType.contentDescription),
                     )
                 },
