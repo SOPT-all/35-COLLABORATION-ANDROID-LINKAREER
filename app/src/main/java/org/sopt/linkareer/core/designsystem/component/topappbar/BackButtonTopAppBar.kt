@@ -12,8 +12,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.vectorResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import org.sopt.linkareer.R
+import org.sopt.linkareer.core.designsystem.theme.LINKareerAndroidTheme
 import org.sopt.linkareer.core.designsystem.theme.White
 
 @Composable
@@ -39,5 +41,15 @@ fun BackTopAppBar(
                 },
         )
         appBarAdditionContent()
+    }
+}
+
+@Preview
+@Composable
+fun BackTopAppBarPreview(){
+    LINKareerAndroidTheme {
+        BackTopAppBar(
+            onBackButtonClick = {}
+        )
     }
 }
