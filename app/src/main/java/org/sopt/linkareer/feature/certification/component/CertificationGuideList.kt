@@ -24,6 +24,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import org.sopt.linkareer.R
+import org.sopt.linkareer.core.designsystem.Gray600
+import org.sopt.linkareer.core.designsystem.Gray900
+import org.sopt.linkareer.core.designsystem.defaultLINKareerTypography
 
 @Composable
 fun CertificationGuideList() {
@@ -33,19 +36,19 @@ fun CertificationGuideList() {
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
         CertificationGuideItem(
-            cardImage = R.drawable.ic_launcher_foreground,
+            cardImage = R.drawable.ic_checklist_person_24,
             cardTitle = R.string.certification_name_field,
             cardDescription = R.string.certification_guide_name_description,
             cardContentDescription = R.string.certification_name_content_description
         )
         CertificationGuideItem(
-            cardImage = R.drawable.ic_launcher_foreground,
+            cardImage = R.drawable.ic_checklist_phone_24,
             cardTitle = R.string.certification_phone_field,
             cardDescription = R.string.certification_guide_phone_description,
             cardContentDescription = R.string.certification_phone_content_description
         )
         CertificationGuideItem(
-            cardImage = R.drawable.ic_launcher_foreground,
+            cardImage = R.drawable.ic_checklist_docu_24,
             cardTitle = R.string.certification_capture_field,
             cardDescription = R.string.certification_guide_capture_description,
             cardContentDescription = R.string.certification_capture_content_description
@@ -82,12 +85,16 @@ fun CertificationGuideItem(
             Column() {
                 Text(
                     text = stringResource(cardTitle),
+                    style = defaultLINKareerTypography.body4B12,
+                    color = Gray900,
                 )
 
                 Spacer(modifier = Modifier.size(4.dp))
 
                 Text(
-                    text = stringResource(cardDescription)
+                    text = stringResource(cardDescription),
+                    style = defaultLINKareerTypography.body11M10,
+                    color = Gray600,
                 )
             }
         }
@@ -98,7 +105,7 @@ fun CertificationGuideItem(
 @Composable
 fun CertificationGuideItemPreview() {
     CertificationGuideItem(
-        cardImage = R.drawable.ic_launcher_foreground,
+        cardImage = R.drawable.ic_checklist_docu_24,
         cardTitle = R.string.certification_name_field,
         cardDescription = R.string.certification_guide_phone_description,
         cardContentDescription = R.string.back_content_description,

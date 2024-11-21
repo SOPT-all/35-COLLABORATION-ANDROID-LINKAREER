@@ -1,8 +1,5 @@
 package org.sopt.linkareer.feature.certification.component
 
-import android.graphics.Color.BLUE
-import android.graphics.Color.GRAY
-import android.graphics.Color.WHITE
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -12,12 +9,15 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import org.sopt.linkareer.R
+import org.sopt.linkareer.core.designsystem.Blue
+import org.sopt.linkareer.core.designsystem.Gray400
 import org.sopt.linkareer.core.designsystem.LINKareerAndroidTheme
+import org.sopt.linkareer.core.designsystem.White
+import org.sopt.linkareer.core.designsystem.defaultLINKareerTypography
 
 @Composable
 fun CertificationConfirmButton(
@@ -32,13 +32,16 @@ fun CertificationConfirmButton(
         onClick = { onClickButton() },
         shape = RoundedCornerShape(8.dp),
         colors = ButtonDefaults.buttonColors(
-            containerColor = Color.Blue,
-            contentColor = Color.White,
-            disabledContentColor = Color.White,
-            disabledContainerColor = Color.Gray
+            containerColor = Blue,
+            contentColor = White,
+            disabledContentColor = White,
+            disabledContainerColor = Gray400
         )
     ) {
-        Text(text = stringResource(buttonText))
+        Text(
+            text = stringResource(buttonText),
+            style = defaultLINKareerTypography.body8M13
+        )
     }
 }
 
