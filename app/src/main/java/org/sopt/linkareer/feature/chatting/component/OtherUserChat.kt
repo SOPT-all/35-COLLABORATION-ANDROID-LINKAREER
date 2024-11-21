@@ -1,4 +1,4 @@
-package org.sopt.linkareer.feature.chatroom.component
+package org.sopt.linkareer.feature.chatting.component
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
