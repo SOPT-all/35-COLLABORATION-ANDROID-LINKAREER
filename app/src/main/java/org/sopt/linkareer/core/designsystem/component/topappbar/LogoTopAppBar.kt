@@ -31,7 +31,7 @@ fun LogoTopAppBar() {
             imageVector = ImageVector.vectorResource(R.drawable.ic_logo),
             contentDescription = null,
         )
-        LogoTopAppBarIconRow()
+        TopAppBarIconRow(iconList = logoTopAppBarIcons)
     }
 }
 
@@ -42,20 +42,6 @@ val logoTopAppBarIcons =
         R.drawable.ic_bookmark_white_36,
         R.drawable.ic_chatting_default_36,
     )
-
-@Composable
-fun LogoTopAppBarIconRow(
-    iconList: List<Int> = logoTopAppBarIcons,
-) {
-    Row {
-        iconList.forEach { iconRes ->
-            Image(
-                imageVector = ImageVector.vectorResource(id = iconRes),
-                contentDescription = null,
-            )
-        }
-    }
-}
 
 @Preview
 @Composable
