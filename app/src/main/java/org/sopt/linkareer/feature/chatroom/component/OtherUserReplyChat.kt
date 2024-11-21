@@ -49,8 +49,7 @@ fun OtherUserReplyChat(
     replyMessage: String,
     timestamp: String,
 ) {
-    Column(
-    ) {
+    Column {
         OtherUserChatProfile(
             nickName = nickName,
             isChecked = isChecked,
@@ -68,50 +67,6 @@ fun OtherUserReplyChat(
             contentDescription = stringResource(R.string.chatroom_reply_contentDescription),
             modifier = Modifier
                 .padding(start = 30.dp, top = 4.dp),
-        )
-    }
-}
-
-@Composable
-fun OtherUserChatProfile(
-    nickName: String,
-    isChecked: Boolean,
-    jobCategory: String,
-    imageUrl: String,
-) {
-    Row(
-        modifier = Modifier
-            .fillMaxWidth(),
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        Image(
-            //model = imageUrl, 추후 , Async 이미지로 변경
-            painter = painterResource(R.drawable.img_newbie_personalitypass),
-            contentDescription = stringResource(R.string.chatroom_profile_image_contentDescription),
-            modifier = Modifier
-                .size(27.dp)
-                .clip(CircleShape),
-            //error = painterResource(R.drawable.ic_checklist_person_24)
-        )
-        Text(
-            text = nickName,
-            style = defaultLINKareerTypography.body5B11,
-            color = Gray900,
-            modifier = Modifier
-                .padding(vertical = 8.dp)
-                .padding(start = 3.dp, end = 8.dp)
-        )
-        if (isChecked) {
-            Image(
-                painter = painterResource(R.drawable.ic_checkbadge_home_inperson_16),
-                contentDescription = stringResource(R.string.chatroom_check_contentDescription),
-                modifier = Modifier.padding(end = 2.dp)
-            )
-        }
-        ChatJobChip(
-            job = jobCategory,
-            textColor = if (isChecked) Blue else Gray200,
-            backGroundColor = if (isChecked) Blue100 else Gray500
         )
     }
 }
