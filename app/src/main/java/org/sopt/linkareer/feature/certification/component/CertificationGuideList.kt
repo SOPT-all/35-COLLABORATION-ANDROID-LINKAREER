@@ -29,27 +29,28 @@ import org.sopt.linkareer.core.designsystem.defaultLINKareerTypography
 @Composable
 fun CertificationGuideList() {
     Column(
-        modifier = Modifier
-            .fillMaxWidth(),
-        verticalArrangement = Arrangement.spacedBy(16.dp)
+        modifier =
+            Modifier
+                .fillMaxWidth(),
+        verticalArrangement = Arrangement.spacedBy(16.dp),
     ) {
         CertificationGuideItem(
             cardImage = R.drawable.ic_checklist_person_24,
             cardTitle = R.string.certification_name_field,
             cardDescription = R.string.certification_guide_name_description,
-            cardContentDescription = R.string.certification_name_content_description
+            cardContentDescription = R.string.certification_name_content_description,
         )
         CertificationGuideItem(
             cardImage = R.drawable.ic_checklist_phone_24,
             cardTitle = R.string.certification_phone_field,
             cardDescription = R.string.certification_guide_phone_description,
-            cardContentDescription = R.string.certification_phone_content_description
+            cardContentDescription = R.string.certification_phone_content_description,
         )
         CertificationGuideItem(
             cardImage = R.drawable.ic_checklist_docu_24,
             cardTitle = R.string.certification_capture_field,
             cardDescription = R.string.certification_guide_capture_description,
-            cardContentDescription = R.string.certification_capture_content_description
+            cardContentDescription = R.string.certification_capture_content_description,
         )
     }
 }
@@ -62,24 +63,26 @@ fun CertificationGuideItem(
     @StringRes cardContentDescription: Int,
 ) {
     Card(
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(72.dp),
-        shape = RoundedCornerShape(10.dp)
+        modifier =
+            Modifier
+                .fillMaxWidth()
+                .height(72.dp),
+        shape = RoundedCornerShape(10.dp),
     ) {
         Row(
-           verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 20.dp, vertical = 16.dp)
+            verticalAlignment = Alignment.CenterVertically,
+            modifier =
+                Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 20.dp, vertical = 16.dp),
         ) {
             Image(
                 painter = painterResource(cardImage),
-                contentDescription = stringResource(cardContentDescription)
+                contentDescription = stringResource(cardContentDescription),
             )
             Spacer(modifier = Modifier.size(16.dp))
 
-            Column() {
+            Column {
                 Text(
                     text = stringResource(cardTitle),
                     style = defaultLINKareerTypography.body4B12,

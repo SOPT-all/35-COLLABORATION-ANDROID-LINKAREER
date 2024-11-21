@@ -1,6 +1,5 @@
 package org.sopt.linkareer.feature.certification.component
 
-import androidx.annotation.DrawableRes
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -21,18 +20,20 @@ import org.sopt.linkareer.core.designsystem.LINKareerAndroidTheme
 fun CertificationTopBar(
     onIconClick: () -> Unit,
 ) {
-    Row (
+    Row(
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically,
-        modifier = Modifier
-            .fillMaxWidth(),
+        modifier =
+            Modifier
+                .fillMaxWidth(),
     ) {
         Icon(
-            modifier = Modifier
-                .padding(horizontal = 17.dp, vertical = 10.dp),
+            modifier =
+                Modifier
+                    .padding(horizontal = 17.dp, vertical = 10.dp),
             painter = painterResource(R.drawable.ic_arrow_left_24),
             contentDescription = stringResource(R.string.back_content_description),
-            tint = Black
+            tint = Black,
         )
     }
 }
@@ -42,7 +43,7 @@ fun CertificationTopBar(
 fun CertificationTopBarPreview() {
     LINKareerAndroidTheme {
         CertificationTopBar(
-            onIconClick = {}
+            onIconClick = {},
         )
     }
 }

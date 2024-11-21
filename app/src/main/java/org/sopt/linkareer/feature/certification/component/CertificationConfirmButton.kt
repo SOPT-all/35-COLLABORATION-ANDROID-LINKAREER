@@ -23,28 +23,29 @@ import org.sopt.linkareer.core.designsystem.defaultLINKareerTypography
 fun CertificationConfirmButton(
     @StringRes buttonText: Int,
     onClickButton: () -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     Button(
-        modifier = Modifier
-            .fillMaxWidth(),
+        modifier =
+            Modifier
+                .fillMaxWidth(),
         contentPadding = PaddingValues(horizontal = 10.dp, vertical = 12.dp),
         onClick = { onClickButton() },
         shape = RoundedCornerShape(8.dp),
-        colors = ButtonDefaults.buttonColors(
-            containerColor = Blue,
-            contentColor = White,
-            disabledContentColor = White,
-            disabledContainerColor = Gray400
-        )
+        colors =
+            ButtonDefaults.buttonColors(
+                containerColor = Blue,
+                contentColor = White,
+                disabledContentColor = White,
+                disabledContainerColor = Gray400,
+            ),
     ) {
         Text(
             text = stringResource(buttonText),
-            style = defaultLINKareerTypography.body8M13
+            style = defaultLINKareerTypography.body8M13,
         )
     }
 }
-
 
 @Preview(showBackground = true)
 @Composable
@@ -53,7 +54,7 @@ fun CertificationConfirmButtonPreview() {
         CertificationConfirmButton(
             buttonText = R.string.certification_confirm_button,
             onClickButton = {},
-            modifier = Modifier
+            modifier = Modifier,
         )
     }
 }
