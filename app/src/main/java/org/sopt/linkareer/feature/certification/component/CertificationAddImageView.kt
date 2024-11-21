@@ -34,36 +34,40 @@ fun CertificationAddImageView(
     val isClicked = remember { mutableStateOf(false) }
 
     Box(
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(160.dp)
-            .clickable {
-                isClicked.value = true
-                onAddImageClick()
-            }
-            .paint(
-                painterResource(
-                    if (isClicked.value && addImage != null)
-                        addImage else R.drawable.img_add_image_background
-                )
-            ),
-        contentAlignment = Alignment.Center
+        modifier =
+            Modifier
+                .fillMaxWidth()
+                .height(160.dp)
+                .clickable {
+                    isClicked.value = true
+                    onAddImageClick()
+                }
+                .paint(
+                    painterResource(
+                        if (isClicked.value && addImage != null) {
+                            addImage
+                        } else {
+                            R.drawable.img_add_image_background
+                        },
+                    ),
+                ),
+        contentAlignment = Alignment.Center,
     ) {
         Column(
             verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally
+            horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Text(
                 text = stringResource(R.string.certification_add_capture),
                 style = defaultLINKareerTypography.body14R10,
-                color = Gray600
+                color = Gray600,
             )
             Spacer(modifier = Modifier.heightIn(12.dp))
             Image(
                 painter = painterResource(id = R.drawable.ic_regist_50),
                 contentDescription = null,
                 Modifier
-                    .clickable { onAddImageClick() }
+                    .clickable { onAddImageClick() },
             )
         }
     }
@@ -75,7 +79,7 @@ fun CertificationAddImageViewViePreview() {
     LINKareerAndroidTheme {
         CertificationAddImageView(
             null,
-            onAddImageClick = {}
+            onAddImageClick = {},
         )
     }
 }

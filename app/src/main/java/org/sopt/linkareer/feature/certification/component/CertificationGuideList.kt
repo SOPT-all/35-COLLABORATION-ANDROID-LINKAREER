@@ -70,9 +70,10 @@ fun CertificationGuideItem(
                 .fillMaxWidth()
                 .height(72.dp),
         shape = RoundedCornerShape(10.dp),
-        colors = CardDefaults.cardColors(
-            containerColor = Gray100
-        ),
+        colors =
+            CardDefaults.cardColors(
+                containerColor = Gray100,
+            ),
     ) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
@@ -119,7 +120,8 @@ fun CertificationGuideItemPreview() {
 
 @Preview(
     showBackground = true,
-    backgroundColor = 0xFFFFFFFF)
+    backgroundColor = 0xFFFFFFFF,
+)
 @Composable
 fun CertificationGuideListPreview() {
     CertificationGuideList()
