@@ -31,7 +31,7 @@ fun LogoTopAppBar() {
             imageVector = ImageVector.vectorResource(R.drawable.ic_logo),
             contentDescription = null,
         )
-        logoTopAppBarIconRow()
+        LogoTopAppBarIconRow()
     }
 }
 
@@ -44,7 +44,7 @@ val logoTopAppBarIcons =
     )
 
 @Composable
-fun logoTopAppBarIconRow(
+fun LogoTopAppBarIconRow(
     iconList: List<Int> = logoTopAppBarIcons,
 ) {
     Row {
