@@ -31,8 +31,9 @@ fun CategoryChipPreview() {
     LINKareerAndroidTheme {
         CategoryChip(
             text = "카테고리 칩",
-            modifier = Modifier
-                .padding(10.dp)
+            modifier =
+                Modifier
+                    .padding(10.dp),
         )
     }
 }
