@@ -10,4 +10,5 @@
 
     <!-- component -->
     <string name="d_day">D - %s</string>
+    <string name="chatting_home_refresh">다른 채팅방 보기</string>
 </resources>
