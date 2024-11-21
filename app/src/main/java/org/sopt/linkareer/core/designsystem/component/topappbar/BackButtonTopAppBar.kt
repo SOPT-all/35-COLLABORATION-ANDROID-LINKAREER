@@ -46,10 +46,10 @@ fun BackTopAppBar(
 
 @Preview
 @Composable
-fun BackTopAppBarPreview(){
+fun BackTopAppBarPreview() {
     LINKareerAndroidTheme {
         BackTopAppBar(
-            onBackButtonClick = {}
+            onBackButtonClick = {},
         )
     }
 }
