@@ -9,10 +9,14 @@
     <string name="chatting">채팅</string>
 
     <!-- chatroom -->
-    <string name="chatroom_notice_top">폭언, 음란, 불법 행위, 상업적 홍보 등 채팅방 사용을 저해하는 활동에 대해 메시지 삭제 및 계정 정지 조치를 할 수 있습니다.</string>
+    <string name="chatroom_apply_to_sender">님에게 답장</string>
+    <string name="chatroom_notice_top">폭언, 음란, 불법 행위, 상업적 홍보 등 채팅방 사용을 저해하는 활동에\n대해 메시지 삭제 및 계정 정지 조치를 할 수 있습니다.</string>
     <string name="chatroom_notice_megaphone">공지사항</string>
+    <string name="chatroom_profile_image_contentDescription">대화 프로필 이미지</string>
+    <string name="chatroom_reply_contentDescription">댓글 좋아요 버튼 이미지</string>
     <string name="chatroom_notice_bottom_close">하단 공지사항 닫기</string>
     <string name="chatroom_notice_link">합불인증</string>
+    <string name="chatroom_check_contentDescription">현직자 인증 체크 이미지</string>
     <string name="chatroom_notice_link_description">을 거쳐 대화의 신뢰도를 높여보세요</string>
     <string name="chatroom_notice_contentDescription">합불 인증 화면으로 이동하는 링크</string>
 
