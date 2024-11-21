@@ -68,22 +68,22 @@ fun LinkareerBasicTextField(
             cursorBrush = cursorBrush,
             keyboardOptions = KeyboardOptions(imeAction = imeAction),
             keyboardActions =
-                KeyboardActions(
-                    onDone = { onDoneAction() },
-                    onSearch = { onSearchAction() },
-                ),
+            KeyboardActions(
+                onDone = { onDoneAction() },
+                onSearch = { onSearchAction() },
+            ),
             modifier = modifier,
             decorationBox = { innerTextField ->
                 Row(
                     modifier =
-                        Modifier
-                            .fillMaxWidth()
-                            .clip(RoundedCornerShape(cornerRadius))
-                            .background(White)
-                            .padding(
-                                vertical = paddingVertical,
-                                horizontal = paddingHorizontal,
-                            ),
+                    Modifier
+                        .fillMaxWidth()
+                        .clip(RoundedCornerShape(cornerRadius))
+                        .background(White)
+                        .padding(
+                            vertical = paddingVertical,
+                            horizontal = paddingHorizontal,
+                        ),
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.Center,
                 ) {
@@ -93,15 +93,15 @@ fun LinkareerBasicTextField(
                             contentDescription = "",
                             tint = leftIconColor,
                             modifier =
-                                Modifier
-                                    .padding(end = 5.dp),
+                            Modifier
+                                .padding(end = 5.dp),
                         )
                     }
                     Box(
                         modifier =
-                            Modifier
-                                .weight(1f)
-                                .align(Alignment.CenterVertically),
+                        Modifier
+                            .weight(1f)
+                            .align(Alignment.CenterVertically),
                     ) {
                         if (value.isEmpty()) {
                             Text(
@@ -116,16 +116,16 @@ fun LinkareerBasicTextField(
                 }
             },
         )
-        if (showHelperMessage) {
-            Text(
-                text = helperMessage,
-                style = LINKareerTheme.typography.label5M8,
-                color = Red,
-                modifier =
-                    Modifier
-                        .padding(top = 4.dp),
-            )
-        }
+
+        Text(
+            text = if (showHelperMessage) helperMessage else "",
+            style = LINKareerTheme.typography.label5M8,
+            color = Red,
+            modifier =
+            Modifier
+                .padding(top = 4.dp),
+        )
+
     }
 }
 
