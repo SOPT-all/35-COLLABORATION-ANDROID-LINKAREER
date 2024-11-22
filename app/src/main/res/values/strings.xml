@@ -43,6 +43,13 @@
     <!-- component -->
     <string name="d_day">D - %s</string>
     <string name="chatting_home_refresh">다른 채팅방 보기</string>
+    <string name="footer_terms_of_use">이용약관</string>
+    <string name="footer_personal_information_policy">개인정보처리방침</string>
+    <string name="footer_customer_inquiry">고객문의</string>
+    <string name="footer_copyright_1">Copyright&#169;</string>
+    <string name="footer_copyright_2">Linkareer Inc.</string>
+    <string name="footer_copyright_3">All Rights Reserved</string>
+
 
     <!-- chatting -->
     <string name="chatting_textfield_hint">메세지 입력</string>
