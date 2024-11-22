@@ -20,15 +20,15 @@ import org.sopt.linkareer.core.designsystem.theme.White
 
 @Composable
 fun BackTopAppBar(
-    appBarAdditionContent: @Composable RowScope.() -> Unit = {},
     onBackButtonClick: () -> Unit,
+    appBarAdditionContent: @Composable RowScope.() -> Unit = {},
 ) {
     Row(
         modifier =
             Modifier
                 .background(color = White)
                 .fillMaxWidth()
-                .padding(17.dp, 10.dp, 8.dp, 11.dp),
+                .padding(start = 17.dp, top = 10.dp, end = 8.dp, bottom = 11.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Image(
@@ -36,7 +36,6 @@ fun BackTopAppBar(
             contentDescription = null,
             modifier =
                 Modifier.clickable {
-                    // Todo : 뒤로 가기 구현
                     onBackButtonClick()
                 },
         )
