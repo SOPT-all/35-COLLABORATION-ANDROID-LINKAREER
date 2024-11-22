@@ -22,9 +22,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import org.sopt.linkareer.R
-import org.sopt.linkareer.core.designsystem.Gray600
-import org.sopt.linkareer.core.designsystem.LINKareerAndroidTheme
-import org.sopt.linkareer.core.designsystem.defaultLINKareerTypography
+import org.sopt.linkareer.core.designsystem.theme.Gray600
+import org.sopt.linkareer.core.designsystem.theme.LINKareerAndroidTheme
+import org.sopt.linkareer.core.designsystem.theme.defaultLINKareerTypography
 
 @Composable
 fun CertificationAddImageView(
