@@ -22,7 +22,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import org.sopt.linkareer.R
 import org.sopt.linkareer.core.designsystem.Blue50
-import org.sopt.linkareer.core.designsystem.Gray400
+import org.sopt.linkareer.core.designsystem.Gray300
 import org.sopt.linkareer.core.designsystem.Gray600
 import org.sopt.linkareer.core.designsystem.Gray900
 import org.sopt.linkareer.core.designsystem.defaultLINKareerTypography
@@ -75,8 +75,8 @@ fun MyReplyChat(
                 )
 
                 HorizontalDivider(
-                    color = Gray400,
-                    thickness = 0.5.dp,
+                    color = Gray300,
+                    thickness = 1.dp,
                 )
 
                 Text(
