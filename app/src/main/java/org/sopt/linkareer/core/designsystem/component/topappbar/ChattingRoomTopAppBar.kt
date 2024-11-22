@@ -4,7 +4,9 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import okhttp3.internal.immutableListOf
@@ -24,23 +26,25 @@ fun BackChattingRoomTopAppBar(
     BackTopAppBar(
         onBackButtonClick = onBackButtonClick,
         appBarAdditionContent = {
-            Row {
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
                 Text(
                     text = chattingRoomName,
-                    modifier = modifier.padding(1.dp),
+                    modifier = Modifier.padding(1.dp),
                     color = Gray900,
                     style = LINKareerTheme.typography.title4B15,
                 )
                 Text(
-                    text = chattingRoomHeadCount.toString() + "명",
+                    text = stringResource(id = R.string.chatting_room_head_count, chattingRoomHeadCount.toString()),
                     modifier =
-                        modifier
+                        Modifier
                             .padding(start = 1.dp, top = 2.dp, bottom = 2.dp)
                             .weight(1f),
                     color = Gray600,
                     style = LINKareerTheme.typography.body7M14,
                 )
-                TopAppBarIconRow(iconList = backChattingRoomTopAppBarIcons, 8.dp)
+                TopAppBarIconRow(iconList = backChattingRoomTopAppBarIcons, iconSpacing = 8.dp)
             }
         },
     )

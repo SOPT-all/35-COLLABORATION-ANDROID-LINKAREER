@@ -14,4 +14,7 @@
 
     <!-- chatting -->
     <string name="chatting_textfield_hint">메세지 입력</string>
+
+    <!-- Top App Bar -->
+    <string name="chatting_room_head_count">%s명</string>
 </resources>
