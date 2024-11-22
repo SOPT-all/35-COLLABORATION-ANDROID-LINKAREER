@@ -1,6 +1,7 @@
 package org.sopt.linkareer.core.designsystem.component.textfield
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -50,6 +51,8 @@ fun LinkareerBasicTextField(
     hintTextColor: Color = Gray600,
     showHelperMessage: Boolean = false,
     helperMessage: String = "",
+    borderColor: Color = Gray600,
+    borderWidth: Dp = 0.dp,
     singleLine: Boolean = true,
     onDoneAction: () -> Unit? = {},
     onSearchAction: () -> Unit? = {},
@@ -79,6 +82,11 @@ fun LinkareerBasicTextField(
                         Modifier
                             .fillMaxWidth()
                             .clip(RoundedCornerShape(cornerRadius))
+                            .border(
+                                width = borderWidth,
+                                shape = RoundedCornerShape(cornerRadius),
+                                color = borderColor,
+                            )
                             .background(White)
                             .padding(
                                 vertical = paddingVertical,
@@ -93,15 +101,15 @@ fun LinkareerBasicTextField(
                             contentDescription = "",
                             tint = leftIconColor,
                             modifier =
-                                Modifier
-                                    .padding(end = 5.dp),
+                            Modifier
+                                .padding(end = 5.dp),
                         )
                     }
                     Box(
                         modifier =
-                            Modifier
-                                .weight(1f)
-                                .align(Alignment.CenterVertically),
+                        Modifier
+                            .weight(1f)
+                            .align(Alignment.CenterVertically),
                     ) {
                         if (value.isEmpty()) {
                             Text(
@@ -122,8 +130,8 @@ fun LinkareerBasicTextField(
             style = LINKareerTheme.typography.label5M8,
             color = Red,
             modifier =
-                Modifier
-                    .padding(top = 4.dp),
+            Modifier
+                .padding(top = 4.dp),
         )
     }
 }

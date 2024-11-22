@@ -3,7 +3,9 @@ package org.sopt.linkareer.core.designsystem.component.textfield
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import org.sopt.linkareer.core.designsystem.theme.Gray300
 import org.sopt.linkareer.core.designsystem.theme.Gray600
 import org.sopt.linkareer.core.designsystem.theme.Gray900
 import org.sopt.linkareer.core.designsystem.theme.LINKareerTheme
@@ -29,6 +31,8 @@ fun CertificationTextField(
         helperMessage = helperMessage,
         cursorBrush = SolidColor(Gray900),
         cornerRadius = 4.dp,
+        borderColor = Gray300,
+        borderWidth = Dp.Hairline,
         paddingHorizontal = 9.dp,
         paddingVertical = 10.dp,
         modifier = modifier,

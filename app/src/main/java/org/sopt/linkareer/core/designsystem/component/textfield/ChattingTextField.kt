@@ -7,9 +7,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import org.sopt.linkareer.R
 import org.sopt.linkareer.core.designsystem.theme.Blue
+import org.sopt.linkareer.core.designsystem.theme.Gray300
 import org.sopt.linkareer.core.designsystem.theme.Gray400
 import org.sopt.linkareer.core.designsystem.theme.Gray600
 import org.sopt.linkareer.core.designsystem.theme.Gray900
@@ -31,6 +33,8 @@ fun ChattingTextField(
         hintTextStyle = LINKareerTheme.typography.body13R11,
         cursorBrush = SolidColor(Gray900),
         cornerRadius = 4.dp,
+        borderColor = Gray300,
+        borderWidth = Dp.Hairline,
         paddingHorizontal = 8.dp,
         paddingVertical = 8.dp,
         rightIcon = {
