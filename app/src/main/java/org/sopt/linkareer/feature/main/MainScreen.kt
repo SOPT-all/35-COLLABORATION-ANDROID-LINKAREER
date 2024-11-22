@@ -16,10 +16,10 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.navigation.compose.NavHost
-import org.sopt.linkareer.core.designsystem.Gray600
-import org.sopt.linkareer.core.designsystem.Gray900
-import org.sopt.linkareer.core.designsystem.LINKareerTheme
-import org.sopt.linkareer.core.designsystem.White
+import org.sopt.linkareer.core.designsystem.theme.Gray600
+import org.sopt.linkareer.core.designsystem.theme.Gray900
+import org.sopt.linkareer.core.designsystem.theme.LINKareerTheme
+import org.sopt.linkareer.core.designsystem.theme.White
 import org.sopt.linkareer.core.util.NoRippleInteraction
 import org.sopt.linkareer.feature.chatting.navigation.chattingGraph
 import org.sopt.linkareer.feature.home.navigation.homeNavGraph
