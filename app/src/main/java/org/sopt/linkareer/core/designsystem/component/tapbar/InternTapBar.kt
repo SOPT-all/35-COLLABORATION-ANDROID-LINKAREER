@@ -1,5 +1,6 @@
 package org.sopt.linkareer.core.designsystem.component.tapbar
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
@@ -18,6 +19,7 @@ import org.sopt.linkareer.R
 import org.sopt.linkareer.core.designsystem.theme.Blue
 import org.sopt.linkareer.core.designsystem.theme.Gray900
 import org.sopt.linkareer.core.designsystem.theme.LINKareerAndroidTheme
+import org.sopt.linkareer.core.designsystem.theme.White
 import org.sopt.linkareer.core.designsystem.theme.defaultLINKareerTypography
 
 @Composable
@@ -28,6 +30,7 @@ fun InternTapBar(
         modifier =
             Modifier
                 .fillMaxWidth()
+                .background(White)
                 .padding(start = 17.dp, end = 120.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
