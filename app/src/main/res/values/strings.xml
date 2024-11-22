@@ -1,6 +1,38 @@
 <resources>
     <string name="app_name">LINKareer-Android</string>
 
+    <!-- Common strings in the app -->
+    <string name="back_content_description">뒤로가기 버튼</string>
+
+    <!-- certification common -->
+    <string name="certification_name_field">이름</string>
+    <string name="certification_phone_field">휴대폰 번호</string>
+    <string name="certification_capture_field">합불 화면 캡쳐본</string>
+    <string name="certification_confirm_button">완료</string>
+
+    <!-- certification Guide -->
+    <string name="certification_guide_title">대화의 신뢰도를 높이기 위해\n세가지 정보를 여쭤보고 있어요</string>
+    <string name="certification_ok_button">확인</string>
+    <string name="certification_guide_name_description">실명 인증을 통해 본인인지 확인해요</string>
+    <string name="certification_guide_phone_description">확실한 실명 인증을 위해 확인해요</string>
+    <string name="certification_guide_capture_description">대화의 신뢰도를 높이기 위해 확인해요</string>
+    <string name="certification_name_content_description">이름 입력 관련 안내 이미지</string>
+    <string name="certification_phone_content_description">휴대폰 번호 입력 관련 안내 이미지</string>
+    <string name="certification_capture_content_description">합불 화면 캡쳐본 추가 안내 이미지</string>
+
+    <!-- certification write -->
+    <string name="certification_write_title">인증에 필요한 정보들을\n입력해주세요</string>
+    <string name="certification_name_placeholder">이름을 입력해주세요</string>
+    <string name="certification_phone_placeholder">휴대폰 번호를 입력해주세요</string>
+    <string name="certification_write_capture_desc">반드시 이름과 합격/불합격이라는 단어가 잘 보이도록 촬영해주세요</string>
+    <string name="certification_add_capture">합격 화면 캡쳐본 등록하기</string>
+    <string name="certification_add_capture_content_description">합격 화면 캡쳐본 추가 이미지</string>
+
+    <!-- certification check-->
+    <string name="certification_check_title">인증에 필요한 정보들이\n모두 입력되었어요</string>
+    <string name="certification_check_subtitle">합격 인증 완료까지 최소 3일 소요되는 점 참고해주세요</string>
+    <string name="certification_check_success">인증 정보 입력 성공을 의미하는 이미지</string>
+
     <!-- bottom navigation -->
     <string name="menu">메뉴</string>
     <string name="community">커뮤니티</string>
