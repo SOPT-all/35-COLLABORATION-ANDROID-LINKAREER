@@ -19,7 +19,7 @@ import org.sopt.linkareer.core.designsystem.theme.LINKareerAndroidTheme
 @Composable
 fun CertificationTopBar(
     onIconClick: () -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     Row(
         horizontalArrangement = Arrangement.SpaceBetween,

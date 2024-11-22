@@ -27,34 +27,39 @@ fun CertificationGuideRoute() {
 @Composable
 fun CertificationGuideScreen() {
     Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(White)
-    ){
+        modifier =
+            Modifier
+                .fillMaxSize()
+                .background(White),
+    ) {
         CertificationTopBar(
-            onIconClick = {}, // 클릭 시 뒤로가기 수행
-            modifier = Modifier
-                .padding(top = 27.dp)
+            onIconClick = {},
+            modifier =
+                Modifier
+                    .padding(top = 27.dp),
         )
         Text(
             text = stringResource(R.string.certification_guide_title),
             style = defaultLINKareerTypography.title3B16,
             color = Gray900,
-            modifier = Modifier
-                .padding(start = 17.dp, top = 16.dp)
+            modifier =
+                Modifier
+                    .padding(start = 17.dp, top = 16.dp),
         )
         CertificationGuideList(
-            modifier = Modifier
-                .padding(horizontal = 17.dp)
-                .padding(top = 32.dp)
+            modifier =
+                Modifier
+                    .padding(horizontal = 17.dp)
+                    .padding(top = 32.dp),
         )
         Spacer(modifier = Modifier.weight(1f))
         CertificationConfirmButton(
             buttonText = R.string.certification_ok_button,
             onClickButton = {},
-            modifier = Modifier
-                .padding(horizontal = 17.dp)
-                .padding(bottom = 32.dp)
+            modifier =
+                Modifier
+                    .padding(horizontal = 17.dp)
+                    .padding(bottom = 32.dp),
         )
     }
 }

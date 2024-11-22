@@ -30,89 +30,100 @@ fun CertificationEnterInformationRoute() {
 @Composable
 fun CertificationEnterInformationScreen() {
     Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(White)
-    ){
+        modifier =
+            Modifier
+                .fillMaxSize()
+                .background(White),
+    ) {
         CertificationTopBar(
-            onIconClick = {}, // 클릭 시 뒤로가기 수행
-            modifier = Modifier
-                .padding(top = 27.dp)
+            onIconClick = {},
+            modifier =
+                Modifier
+                    .padding(top = 27.dp),
         )
         Text(
             text = stringResource(R.string.certification_write_title),
             style = defaultLINKareerTypography.title3B16,
             color = Gray900,
-            modifier = Modifier
-                .padding(start = 17.dp, top = 16.dp)
+            modifier =
+                Modifier
+                    .padding(start = 17.dp, top = 16.dp),
         )
 
         Text(
             text = stringResource(R.string.certification_name_field),
             style = defaultLINKareerTypography.body4B12,
             color = Gray900,
-            modifier = Modifier
-                .padding(start = 17.dp, top = 32.dp)
+            modifier =
+                Modifier
+                    .padding(start = 17.dp, top = 32.dp),
         )
         CertificationTextField(
             value = "",
             onValueChange = {},
             hintText = stringResource(R.string.certification_name_placeholder),
-            helperMessage = "", // 무엇을 의미하는지 모르겟음
-            showHelperMessage = false, // 무엇을 의미하는지 모르겟음
-            modifier = Modifier
-                .padding(horizontal = 17.dp)
-                .padding(top = 12.dp)
+            helperMessage = "",
+            showHelperMessage = false,
+            modifier =
+                Modifier
+                    .padding(horizontal = 17.dp)
+                    .padding(top = 12.dp),
         )
 
         Text(
             text = stringResource(R.string.certification_phone_field),
             style = defaultLINKareerTypography.body4B12,
             color = Gray900,
-            modifier = Modifier
-                .padding(start = 17.dp, top = 32.dp)
+            modifier =
+                Modifier
+                    .padding(start = 17.dp, top = 32.dp),
         )
         CertificationTextField(
             value = "",
             onValueChange = {},
             hintText = stringResource(R.string.certification_phone_placeholder),
-            helperMessage = "", // 무엇을 의미하는지 모르겟음
+            helperMessage = "",
             showHelperMessage = false,
-            modifier = Modifier
-                .padding(horizontal = 17.dp)
-                .padding(top = 12.dp)
+            modifier =
+                Modifier
+                    .padding(horizontal = 17.dp)
+                    .padding(top = 12.dp),
         )
 
         Text(
             text = stringResource(R.string.certification_capture_field),
             style = defaultLINKareerTypography.body4B12,
             color = Gray900,
-            modifier = Modifier
-                .padding(horizontal = 17.dp)
-                .padding(top = 32.dp)
+            modifier =
+                Modifier
+                    .padding(horizontal = 17.dp)
+                    .padding(top = 32.dp),
         )
         Text(
             text = stringResource(R.string.certification_write_capture_desc),
             style = defaultLINKareerTypography.label4M10,
             color = Gray600,
-            modifier = Modifier
-                .padding(horizontal = 17.dp)
-                .padding(top = 4.dp)
+            modifier =
+                Modifier
+                    .padding(horizontal = 17.dp)
+                    .padding(top = 4.dp),
         )
         CertificationAddImageView(
             addImage = R.drawable.img_chatting_validation,
-            onAddImageClick = {}, // 클릭시 이미지 addImage로 변경
-            modifier = Modifier
-                .padding(top = 12.dp)
+            onAddImageClick = {},
+            modifier =
+                Modifier
+                    .padding(top = 12.dp),
         )
 
         Spacer(modifier = Modifier.weight(1f))
         CertificationConfirmButton(
             buttonText = R.string.certification_confirm_button,
             onClickButton = {},
-            modifier = Modifier
-                .padding(horizontal = 17.dp)
-                .padding(bottom = 32.dp)
+            modifier =
+                Modifier
+                    .padding(horizontal = 17.dp)
+                    .padding(bottom = 32.dp),
         )
     }
 }

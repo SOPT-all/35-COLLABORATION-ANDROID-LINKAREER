@@ -26,49 +26,54 @@ import org.sopt.linkareer.feature.certification.component.CertificationTopBar
 
 @Composable
 fun CertificationCheckSuccessRoute() {
-
 }
 
 @Composable
 fun CertificationCheckSuccessScreen() {
     Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(White)
+        modifier =
+            Modifier
+                .fillMaxSize()
+                .background(White),
     ) {
         CertificationTopBar(
-            onIconClick = {}, // 클릭 시 뒤로가기 수행
-            modifier = Modifier
-                .padding(top = 27.dp)
+            onIconClick = {},
+            modifier =
+                Modifier
+                    .padding(top = 27.dp),
         )
         Text(
             text = stringResource(R.string.certification_check_title),
             style = defaultLINKareerTypography.title3B16,
             color = Gray900,
-            modifier = Modifier
-                .padding(start = 17.dp, top = 16.dp)
+            modifier =
+                Modifier
+                    .padding(start = 17.dp, top = 16.dp),
         )
         Text(
             text = stringResource(R.string.certification_check_subtitle),
             style = defaultLINKareerTypography.body10M11,
             color = Gray700,
-            modifier = Modifier
-                .padding(start = 17.dp, top = 8.dp)
+            modifier =
+                Modifier
+                    .padding(start = 17.dp, top = 8.dp),
         )
         Image(
             imageVector = ImageVector.vectorResource(R.drawable.ic_check_circle_144),
             contentDescription = stringResource(R.string.certification_check_success),
-            modifier = Modifier
-                .align(Alignment.CenterHorizontally)
-                .padding(top = 147.dp)
+            modifier =
+                Modifier
+                    .align(Alignment.CenterHorizontally)
+                    .padding(top = 147.dp),
         )
         Spacer(modifier = Modifier.weight(1f))
         CertificationConfirmButton(
             buttonText = R.string.certification_confirm_button,
             onClickButton = {},
-            modifier = Modifier
-                .padding(horizontal = 17.dp)
-                .padding(bottom = 32.dp)
+            modifier =
+                Modifier
+                    .padding(horizontal = 17.dp)
+                    .padding(bottom = 32.dp),
         )
     }
 }
