@@ -1,4 +1,4 @@
-package org.sopt.linkareer.core.designsystem
+package org.sopt.linkareer.core.designsystem.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.runtime.Immutable
