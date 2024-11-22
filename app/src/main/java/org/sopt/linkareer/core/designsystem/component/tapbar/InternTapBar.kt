@@ -22,12 +22,13 @@ import org.sopt.linkareer.core.designsystem.theme.defaultLINKareerTypography
 
 @Composable
 fun InternTapBar(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(start = 17.dp, end = 120.dp),
+        modifier =
+            Modifier
+                .fillMaxWidth()
+                .padding(start = 17.dp, end = 120.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         InternTabItem(
@@ -56,16 +57,18 @@ fun InternTabItem(
     tapName: String,
 ) {
     Box(
-        modifier = Modifier
-            .width(IntrinsicSize.Max),
+        modifier =
+            Modifier
+                .width(IntrinsicSize.Max),
         contentAlignment = Alignment.Center,
     ) {
         Text(
             text = tapName,
             style = defaultLINKareerTypography.body7M14,
             color = if (tapName == stringResource(R.string.newbie_tab_home)) Blue else Gray900,
-            modifier = Modifier
-                .padding(vertical = 12.dp)
+            modifier =
+                Modifier
+                    .padding(vertical = 12.dp),
         )
     }
 }
