@@ -1,4 +1,4 @@
-package org.sopt.linkareer.core.designsystem
+package org.sopt.linkareer.core.designsystem.theme
 
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.staticCompositionLocalOf

@@ -8,6 +8,13 @@
     <string name="calendar">공고달력</string>
     <string name="chatting">채팅</string>
 
+    <!-- component -->
+    <string name="d_day">D - %s</string>
+    <string name="chatting_home_refresh">다른 채팅방 보기</string>
+
+    <!-- chatting -->
+    <string name="chatting_textfield_hint">메세지 입력</string>
+
     <!-- chatroom -->
     <string name="chatroom_apply_to_sender">님에게 답장</string>
     <string name="chatroom_notice_top">폭언, 음란, 불법 행위, 상업적 홍보 등 채팅방 사용을 저해하는 활동에\n대해 메시지 삭제 및 계정 정지 조치를 할 수 있습니다.</string>
