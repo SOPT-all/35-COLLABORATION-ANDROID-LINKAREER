@@ -27,7 +27,7 @@ fun CertificationConfirmButton(
 ) {
     Button(
         modifier =
-            Modifier
+            modifier
                 .fillMaxWidth(),
         contentPadding = PaddingValues(horizontal = 10.dp, vertical = 12.dp),
         onClick = { onClickButton() },
