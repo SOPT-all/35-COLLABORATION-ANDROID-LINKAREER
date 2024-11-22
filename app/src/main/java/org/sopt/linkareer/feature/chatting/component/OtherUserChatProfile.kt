@@ -15,12 +15,12 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import org.sopt.linkareer.R
-import org.sopt.linkareer.core.designsystem.Blue
-import org.sopt.linkareer.core.designsystem.Blue100
-import org.sopt.linkareer.core.designsystem.Gray200
-import org.sopt.linkareer.core.designsystem.Gray500
-import org.sopt.linkareer.core.designsystem.Gray900
-import org.sopt.linkareer.core.designsystem.defaultLINKareerTypography
+import org.sopt.linkareer.core.designsystem.theme.Blue
+import org.sopt.linkareer.core.designsystem.theme.Blue100
+import org.sopt.linkareer.core.designsystem.theme.Gray200
+import org.sopt.linkareer.core.designsystem.theme.Gray500
+import org.sopt.linkareer.core.designsystem.theme.Gray900
+import org.sopt.linkareer.core.designsystem.theme.defaultLINKareerTypography
 
 @Composable
 fun OtherUserChatProfile(
