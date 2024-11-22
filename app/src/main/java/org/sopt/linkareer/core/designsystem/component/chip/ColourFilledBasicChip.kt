@@ -12,7 +12,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import org.sopt.linkareer.core.designsystem.LINKareerTheme
+import org.sopt.linkareer.core.designsystem.theme.LINKareerTheme
 
 @Composable
 fun ColourFilledBasicChip(
