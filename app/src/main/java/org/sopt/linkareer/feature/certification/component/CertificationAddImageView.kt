@@ -30,14 +30,14 @@ import org.sopt.linkareer.core.designsystem.theme.defaultLINKareerTypography
 fun CertificationAddImageView(
     @DrawableRes addImage: Int?,
     onAddImageClick: () -> Unit,
+    modifier: Modifier = Modifier
 ) {
     val isClicked = remember { mutableStateOf(false) }
 
     Box(
         modifier =
-            Modifier
+            modifier
                 .fillMaxWidth()
-                .height(160.dp)
                 .clickable {
                     isClicked.value = true
                     onAddImageClick()
