@@ -1,5 +1,6 @@
 package org.sopt.linkareer.core.designsystem.component.textfield
 
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.SolidColor
@@ -33,8 +34,7 @@ fun CertificationTextField(
         cornerRadius = 4.dp,
         borderColor = Gray300,
         borderWidth = Dp.Hairline,
-        paddingHorizontal = 9.dp,
-        paddingVertical = 10.dp,
+        paddingValues = PaddingValues(vertical = 10.dp, horizontal = 9.dp),
         modifier = modifier,
     )
 }

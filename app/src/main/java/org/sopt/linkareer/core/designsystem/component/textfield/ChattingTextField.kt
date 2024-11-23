@@ -1,5 +1,6 @@
 package org.sopt.linkareer.core.designsystem.component.textfield
 
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
@@ -35,8 +36,7 @@ fun ChattingTextField(
         cornerRadius = 4.dp,
         borderColor = Gray300,
         borderWidth = Dp.Hairline,
-        paddingHorizontal = 8.dp,
-        paddingVertical = 8.dp,
+        paddingValues = PaddingValues(vertical = 10.dp, horizontal = 8.dp),
         rightIcon = {
             Icon(
                 painter = painterResource(R.drawable.ic_messagesend_active_24),

@@ -5,6 +5,7 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -45,8 +46,7 @@ fun LinkareerBasicTextField(
     hintTextStyle: TextStyle,
     cursorBrush: Brush,
     cornerRadius: Dp,
-    paddingVertical: Dp,
-    paddingHorizontal: Dp,
+    paddingValues: PaddingValues,
     inputTextColor: Color = Black,
     hintTextColor: Color = Gray600,
     showHelperMessage: Boolean = false,
@@ -88,10 +88,7 @@ fun LinkareerBasicTextField(
                                 color = borderColor,
                             )
                             .background(White)
-                            .padding(
-                                vertical = paddingVertical,
-                                horizontal = paddingHorizontal,
-                            ),
+                            .padding(paddingValues),
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.Center,
                 ) {
@@ -101,15 +98,15 @@ fun LinkareerBasicTextField(
                             contentDescription = "",
                             tint = leftIconColor,
                             modifier =
-                            Modifier
-                                .padding(end = 5.dp),
+                                Modifier
+                                    .padding(end = 5.dp),
                         )
                     }
                     Box(
                         modifier =
-                        Modifier
-                            .weight(1f)
-                            .align(Alignment.CenterVertically),
+                            Modifier
+                                .weight(1f)
+                                .align(Alignment.CenterVertically),
                     ) {
                         if (value.isEmpty()) {
                             Text(
@@ -130,8 +127,8 @@ fun LinkareerBasicTextField(
             style = LINKareerTheme.typography.label5M8,
             color = Red,
             modifier =
-            Modifier
-                .padding(top = 4.dp),
+                Modifier
+                    .padding(top = 4.dp),
         )
     }
 }
@@ -148,8 +145,7 @@ fun LinkareerBasicTextFieldPreview() {
             hintTextStyle = LINKareerTheme.typography.label4M10,
             cursorBrush = SolidColor(Black),
             cornerRadius = 5.dp,
-            paddingHorizontal = 5.dp,
-            paddingVertical = 5.dp,
+            paddingValues = PaddingValues(4.dp),
             leftIcon = R.drawable.ic_search_24,
             rightIcon = {
                 Icon(
