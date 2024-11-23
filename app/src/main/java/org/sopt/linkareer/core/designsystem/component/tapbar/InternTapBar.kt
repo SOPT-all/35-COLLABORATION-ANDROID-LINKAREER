@@ -28,7 +28,7 @@ fun InternTapBar(
 ) {
     Row(
         modifier =
-            Modifier
+            modifier
                 .fillMaxWidth()
                 .background(White)
                 .padding(start = 17.dp, end = 120.dp),
