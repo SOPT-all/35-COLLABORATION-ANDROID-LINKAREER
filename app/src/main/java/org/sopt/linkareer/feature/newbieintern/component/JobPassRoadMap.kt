@@ -27,32 +27,33 @@ fun JobPassRoadMap(
     modifier: Modifier = Modifier,
 ) {
     Column(
-        modifier = Modifier
-            .then(modifier)
-            .background(color = Gray200, shape = RoundedCornerShape(10.dp)),
-
-        ) {
+        modifier =
+            Modifier
+                .then(modifier)
+                .background(color = Gray200, shape = RoundedCornerShape(10.dp)),
+    ) {
         Text(
             text = subTitle,
             style = LINKareerTheme.typography.label5M8,
             color = Gray600,
-            modifier = Modifier
-                .padding(start = 12.dp, top = 16.dp, end = 15.dp)
+            modifier =
+                Modifier
+                    .padding(start = 12.dp, top = 16.dp, end = 15.dp),
         )
         Text(
             text = mainTitle,
             style = LINKareerTheme.typography.body5B11,
             color = Gray900,
             modifier =
-            Modifier
-                .padding(start = 12.dp, top = 2.dp)
+                Modifier
+                    .padding(start = 12.dp, top = 2.dp),
         )
         AsyncImage(
             model = ImageVector.vectorResource(image),
             contentDescription = null,
             modifier =
-            Modifier
-                .padding(start = 55.dp, top = 7.dp, end = 4.dp, bottom = 12.dp)
+                Modifier
+                    .padding(start = 55.dp, top = 7.dp, end = 4.dp, bottom = 12.dp),
         )
     }
 }
@@ -64,7 +65,7 @@ fun JobPassRoadMapPreview() {
         JobPassRoadMap(
             subTitle = "합격을 위한 꿀팁과 전략",
             mainTitle = "인/적성\n합격후기",
-            image = R.drawable.ex_jobpassroadmap
+            image = R.drawable.ex_jobpassroadmap,
         )
     }
 }

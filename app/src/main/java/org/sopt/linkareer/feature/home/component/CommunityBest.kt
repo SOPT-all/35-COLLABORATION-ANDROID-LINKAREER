@@ -36,24 +36,27 @@ fun CommunityBest(
     favorites: Int,
     comments: Int,
     views: Int,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     Column(
-        modifier = Modifier
-            .background(color = LINKareerTheme.colors.gray100)
-            .padding(horizontal = 8.dp, vertical = 12.dp),
+        modifier =
+            Modifier
+                .background(color = LINKareerTheme.colors.gray100)
+                .padding(horizontal = 8.dp, vertical = 12.dp),
     ) {
         CommunityNameChip(text = community)
         Row(
-            modifier = Modifier
-                .padding(top = 8.dp),
+            modifier =
+                Modifier
+                    .padding(top = 8.dp),
             horizontalArrangement = Arrangement.spacedBy(0.dp, Alignment.CenterHorizontally),
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Column(
-                modifier = Modifier
-                    .weight(248f/310f)
-                    .fillMaxWidth()
+                modifier =
+                    Modifier
+                        .weight(248f / 310f)
+                        .fillMaxWidth(),
             ) {
                 PostTitle(title = title)
                 PostContent(content = content)
@@ -64,9 +67,9 @@ fun CommunityBest(
             Image(
                 imageVector = ImageVector.vectorResource(imageUrl),
                 contentDescription = null,
-                modifier = Modifier
-                    .weight(1f- 248f/310f)
-
+                modifier =
+                    Modifier
+                        .weight(1f - 248f / 310f),
             )
         }
         Spacer(Modifier.height(8.dp))
@@ -82,7 +85,7 @@ fun PostTitle(title: String) {
         text = title,
         modifier = Modifier.padding(bottom = 4.dp),
         style = LINKareerTheme.typography.body3B13,
-        color = LINKareerTheme.colors.gray900
+        color = LINKareerTheme.colors.gray900,
     )
 }
 
@@ -94,29 +97,36 @@ fun PostContent(content: String) {
         style = LINKareerTheme.typography.body13R11,
         color = LINKareerTheme.colors.gray800,
         maxLines = 1,
-        overflow = TextOverflow.Ellipsis
+        overflow = TextOverflow.Ellipsis,
     )
 }
 
 @Composable
-fun PostAuthorInfo(writer: String, beforeTime: String) {
+fun PostAuthorInfo(
+    writer: String,
+    beforeTime: String,
+) {
     Row {
         Text(
             text = writer,
             modifier = Modifier.padding(end = 8.dp),
             style = LINKareerTheme.typography.label4M10,
-            color = LINKareerTheme.colors.gray600
+            color = LINKareerTheme.colors.gray600,
         )
         Text(
             text = beforeTime,
             style = LINKareerTheme.typography.label4M10,
-            color = LINKareerTheme.colors.gray600
+            color = LINKareerTheme.colors.gray600,
         )
     }
 }
 
 @Composable
-fun PostStatistics(favorites: Int, comments: Int, views: Int) {
+fun PostStatistics(
+    favorites: Int,
+    comments: Int,
+    views: Int,
+) {
     Row {
         StatisticsItem(iconRes = R.drawable.ic_thumbsup_commu_gray_12, favorites)
         StatisticsItem(iconRes = R.drawable.ic_coment_commu_gray_12, comments)
@@ -124,29 +134,28 @@ fun PostStatistics(favorites: Int, comments: Int, views: Int) {
     }
 }
 
-
 @Composable
 fun StatisticsItem(
     @DrawableRes iconRes: Int,
-    count: Int
+    count: Int,
 ) {
     Row(
-        modifier = Modifier
-            .padding(end = 6.dp)
+        modifier =
+            Modifier
+                .padding(end = 6.dp),
     ) {
         Image(
             imageVector = ImageVector.vectorResource(iconRes),
-            contentDescription = null
+            contentDescription = null,
         )
         Spacer(modifier = Modifier.width(2.dp))
         Text(
             text = count.toString(),
             style = LINKareerTheme.typography.label5M8,
-            color = LINKareerTheme.colors.gray600
+            color = LINKareerTheme.colors.gray600,
         )
     }
 }
-
 
 @Preview
 @Composable
