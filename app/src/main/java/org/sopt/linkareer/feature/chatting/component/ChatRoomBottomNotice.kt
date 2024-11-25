@@ -32,7 +32,7 @@ import org.sopt.linkareer.core.designsystem.theme.defaultLINKareerTypography
 fun ChatRoomBottomNotice(
     onClickToCheck: () -> Unit,
     onClickDelete: () -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     Box(
         modifier =

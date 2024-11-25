@@ -42,14 +42,15 @@ fun ChattingScreen(
         BackChattingRoomTopAppBar(
             chattingRoomName = "현대자동차",
             chattingRoomHeadCount = 1294,
-            onBackButtonClick = {}
+            onBackButtonClick = {},
         )
         ChatRoomTopNotice()
 
 //        // 채팅 방
-        LazyColumn (
-            modifier = Modifier
-                .background(White)
+        LazyColumn(
+            modifier =
+                Modifier
+                    .background(White),
         ) {
             // 채팅쪽은 서버 구현하면서 만들어야 함
             item {
@@ -59,7 +60,7 @@ fun ChattingScreen(
                     jobCategory = "현대 자동차",
                     imageUrl = "",
                     sendMessage = "안녕하세요 만나서 반가워요",
-                    timestamp = "00:00"
+                    timestamp = "00:00",
                 )
             }
             item {
@@ -71,36 +72,39 @@ fun ChattingScreen(
                     sender = "검은색 고양이",
                     receivedMessage = "반갑습니다. 고양이 보은",
                     replyMessage = "안녕하세요 저도 만나서 반가워요",
-                    timestamp = "00:00"
+                    timestamp = "00:00",
                 )
             }
         }
         ChatRoomBottomNotice(
             onClickDelete = {},
             onClickToCheck = {},
-            modifier = Modifier
-                .padding(horizontal = 18.dp)
-                .padding(bottom = 1.dp)
+            modifier =
+                Modifier
+                    .padding(horizontal = 18.dp)
+                    .padding(bottom = 1.dp),
         )
         Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .background(White)
-                .drawBehind {
-                    drawLine(
-                        color = Gray300,
-                        start = Offset(0f, 0f),
-                        end = Offset(size.width, 0f),
-                        strokeWidth = 1.dp.toPx(),
-                    )
-                }
-                .padding(vertical = 12.dp, horizontal = 18.dp),
+            modifier =
+                Modifier
+                    .fillMaxWidth()
+                    .background(White)
+                    .drawBehind {
+                        drawLine(
+                            color = Gray300,
+                            start = Offset(0f, 0f),
+                            end = Offset(size.width, 0f),
+                            strokeWidth = 1.dp.toPx(),
+                        )
+                    }
+                    .padding(vertical = 12.dp, horizontal = 18.dp),
         ) {
             ChattingTextField(
                 value = "",
-                onValueChange ={} ,
-                modifier = Modifier
-                    .padding(horizontal = 18.dp, vertical = 12.dp),
+                onValueChange = {},
+                modifier =
+                    Modifier
+                        .padding(horizontal = 18.dp, vertical = 12.dp),
             )
         }
     }
@@ -110,6 +114,6 @@ fun ChattingScreen(
 @Composable
 fun ChattingScreenPreview() {
     ChattingScreen(
-        paddingValues = PaddingValues(vertical = 8.dp)
+        paddingValues = PaddingValues(vertical = 8.dp),
     )
 }
