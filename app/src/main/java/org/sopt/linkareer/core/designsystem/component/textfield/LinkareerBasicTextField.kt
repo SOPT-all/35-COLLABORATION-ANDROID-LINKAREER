@@ -1,9 +1,11 @@
 package org.sopt.linkareer.core.designsystem.component.textfield
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -44,12 +46,13 @@ fun LinkareerBasicTextField(
     hintTextStyle: TextStyle,
     cursorBrush: Brush,
     cornerRadius: Dp,
-    paddingVertical: Dp,
-    paddingHorizontal: Dp,
+    paddingValues: PaddingValues,
     inputTextColor: Color = Black,
     hintTextColor: Color = Gray600,
     showHelperMessage: Boolean = false,
     helperMessage: String = "",
+    borderColor: Color = Gray600,
+    borderWidth: Dp = 0.dp,
     singleLine: Boolean = true,
     onDoneAction: () -> Unit? = {},
     onSearchAction: () -> Unit? = {},
@@ -79,11 +82,13 @@ fun LinkareerBasicTextField(
                         Modifier
                             .fillMaxWidth()
                             .clip(RoundedCornerShape(cornerRadius))
+                            .border(
+                                width = borderWidth,
+                                shape = RoundedCornerShape(cornerRadius),
+                                color = borderColor,
+                            )
                             .background(White)
-                            .padding(
-                                vertical = paddingVertical,
-                                horizontal = paddingHorizontal,
-                            ),
+                            .padding(paddingValues),
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.Center,
                 ) {
@@ -117,14 +122,16 @@ fun LinkareerBasicTextField(
             },
         )
 
-        Text(
-            text = if (showHelperMessage) helperMessage else "",
-            style = LINKareerTheme.typography.label5M8,
-            color = Red,
-            modifier =
-                Modifier
-                    .padding(top = 4.dp),
-        )
+        if (showHelperMessage) {
+            Text(
+                text = helperMessage,
+                style = LINKareerTheme.typography.label5M8,
+                color = Red,
+                modifier =
+                    Modifier
+                        .padding(top = 4.dp),
+            )
+        }
     }
 }
 
@@ -140,8 +147,7 @@ fun LinkareerBasicTextFieldPreview() {
             hintTextStyle = LINKareerTheme.typography.label4M10,
             cursorBrush = SolidColor(Black),
             cornerRadius = 5.dp,
-            paddingHorizontal = 5.dp,
-            paddingVertical = 5.dp,
+            paddingValues = PaddingValues(4.dp),
             leftIcon = R.drawable.ic_search_24,
             rightIcon = {
                 Icon(
@@ -149,7 +155,7 @@ fun LinkareerBasicTextFieldPreview() {
                     contentDescription = "",
                 )
             },
-            showHelperMessage = true,
+            showHelperMessage = false,
             helperMessage = "helper",
         )
     }

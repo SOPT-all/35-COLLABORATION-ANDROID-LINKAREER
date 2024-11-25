@@ -1,9 +1,12 @@
 package org.sopt.linkareer.core.designsystem.component.textfield
 
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import org.sopt.linkareer.core.designsystem.theme.Gray300
 import org.sopt.linkareer.core.designsystem.theme.Gray600
 import org.sopt.linkareer.core.designsystem.theme.Gray900
 import org.sopt.linkareer.core.designsystem.theme.LINKareerTheme
@@ -13,8 +16,8 @@ fun CertificationTextField(
     value: String,
     onValueChange: (String) -> Unit,
     hintText: String,
-    helperMessage: String,
-    showHelperMessage: Boolean = false,
+    helperMessage: String = "",
+    showHelperMessage: Boolean = true,
     modifier: Modifier = Modifier,
 ) {
     LinkareerBasicTextField(
@@ -29,8 +32,9 @@ fun CertificationTextField(
         helperMessage = helperMessage,
         cursorBrush = SolidColor(Gray900),
         cornerRadius = 4.dp,
-        paddingHorizontal = 9.dp,
-        paddingVertical = 10.dp,
+        borderColor = Gray300,
+        borderWidth = Dp.Hairline,
+        paddingValues = PaddingValues(vertical = 10.dp, horizontal = 9.dp),
         modifier = modifier,
     )
 }
