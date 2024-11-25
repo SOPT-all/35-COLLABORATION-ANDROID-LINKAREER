@@ -32,10 +32,11 @@ import org.sopt.linkareer.core.designsystem.theme.defaultLINKareerTypography
 fun ChatRoomBottomNotice(
     onClickToCheck: () -> Unit,
     onClickDelete: () -> Unit,
+    modifier: Modifier = Modifier
 ) {
     Box(
         modifier =
-            Modifier
+            modifier
                 .fillMaxWidth()
                 .clip(RoundedCornerShape(10.dp))
                 .background(Gray100)
