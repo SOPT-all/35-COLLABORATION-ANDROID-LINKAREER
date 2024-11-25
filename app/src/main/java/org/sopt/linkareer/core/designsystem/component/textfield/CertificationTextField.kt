@@ -16,8 +16,8 @@ fun CertificationTextField(
     value: String,
     onValueChange: (String) -> Unit,
     hintText: String,
-    helperMessage: String,
-    showHelperMessage: Boolean = false,
+    helperMessage: String = "",
+    showHelperMessage: Boolean = true,
     modifier: Modifier = Modifier,
 ) {
     LinkareerBasicTextField(

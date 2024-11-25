@@ -122,14 +122,16 @@ fun LinkareerBasicTextField(
             },
         )
 
-        Text(
-            text = if (showHelperMessage) helperMessage else "",
-            style = LINKareerTheme.typography.label5M8,
-            color = Red,
-            modifier =
-                Modifier
-                    .padding(top = 4.dp),
-        )
+        if (showHelperMessage) {
+            Text(
+                text = helperMessage,
+                style = LINKareerTheme.typography.label5M8,
+                color = Red,
+                modifier =
+                    Modifier
+                        .padding(top = 4.dp),
+            )
+        }
     }
 }
 
@@ -153,7 +155,7 @@ fun LinkareerBasicTextFieldPreview() {
                     contentDescription = "",
                 )
             },
-            showHelperMessage = true,
+            showHelperMessage = false,
             helperMessage = "helper",
         )
     }
