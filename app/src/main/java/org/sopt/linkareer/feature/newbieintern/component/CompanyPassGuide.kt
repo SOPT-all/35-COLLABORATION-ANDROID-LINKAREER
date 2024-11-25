@@ -1,11 +1,13 @@
 package org.sopt.linkareer.feature.newbieintern.component
 
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -36,7 +38,6 @@ import org.sopt.linkareer.core.designsystem.theme.White
 
 @Composable
 fun CompanyPassGuide(
-    // Todo: ASYNC 이미지로 변경
     companyImg: Int,
     companyName: String,
     personalStatementNum: Int,
@@ -55,6 +56,8 @@ fun CompanyPassGuide(
 
     Column(
         modifier = Modifier
+            .fillMaxWidth()
+            .aspectRatio(331 / 143f)
             .border(
                 border = BorderStroke(width = 1.dp, color = Gray300),
                 shape = RoundedCornerShape(size = 8.dp)
@@ -65,8 +68,8 @@ fun CompanyPassGuide(
         Row(
             verticalAlignment = Alignment.CenterVertically
         ) {
-            AsyncImage(
-                model = ImageVector.vectorResource(companyImg),
+            Image(
+                imageVector = ImageVector.vectorResource(companyImg),
                 contentDescription = null,
                 modifier = Modifier
                     .background(color = White)
@@ -105,7 +108,7 @@ fun CompanyPassGuide(
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(start = 2.5.dp, top = 8.dp, end = 2.5.dp),
+                .padding(start = 2.5.dp, end = 2.5.dp),
             horizontalArrangement = Arrangement.SpaceEvenly,
             verticalAlignment = Alignment.CenterVertically
         ) {
@@ -113,10 +116,9 @@ fun CompanyPassGuide(
                 PassGuideNum(item)
                 if (index < passGuideItems.lastIndex)
                     VerticalDivider(
-                        modifier = Modifier
-                            .height(36.dp),
+                        modifier = Modifier,
                         thickness = 1.dp,
-                        color = Gray200)
+                        color = LINKareerTheme.colors.gray200)
             }
         }
     }
