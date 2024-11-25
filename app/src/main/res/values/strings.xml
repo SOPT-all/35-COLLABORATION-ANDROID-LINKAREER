@@ -59,6 +59,14 @@
     <string name="chatroom_notice_link_description">을 거쳐 대화의 신뢰도를 높여보세요</string>
     <string name="chatroom_notice_contentDescription">합불 인증 화면으로 이동하는 링크</string>
 
-    <!-- Top App Bar -->
-    <string name="chatting_room_head_count">%s명</string>
+    <!-- top app bar -->
+    <string name="topappbar_chatting_room_head_count">%s명</string>
+
+    <!-- newbie / intern -->
+    <string name="newbieintern_pass_guide_plus">합격 가이드 더보기</string>
+    <string name="newbieintern_personal_statement">자소서</string>
+    <string name="newbieintern_personality">인적성</string>
+    <string name="newbieintern_interview">면접</string>
+    <string name="newbieintern_final_pass">면접</string>
+
 </resources>
