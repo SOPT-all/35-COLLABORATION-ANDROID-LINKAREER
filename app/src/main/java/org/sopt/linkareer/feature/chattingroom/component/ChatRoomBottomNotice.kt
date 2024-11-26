@@ -1,4 +1,4 @@
-package org.sopt.linkareer.feature.chatting.component
+package org.sopt.linkareer.feature.chattingroom.component
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -32,10 +32,11 @@ import org.sopt.linkareer.core.designsystem.theme.defaultLINKareerTypography
 fun ChatRoomBottomNotice(
     onClickToCheck: () -> Unit,
     onClickDelete: () -> Unit,
+    modifier: Modifier = Modifier,
 ) {
     Box(
         modifier =
-            Modifier
+            modifier
                 .fillMaxWidth()
                 .clip(RoundedCornerShape(10.dp))
                 .background(Gray100)

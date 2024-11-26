@@ -29,10 +29,12 @@ import org.sopt.linkareer.core.designsystem.theme.Gray900
 import org.sopt.linkareer.core.designsystem.theme.defaultLINKareerTypography
 
 @Composable
-fun CertificationGuideList() {
+fun CertificationGuideList(
+    modifier: Modifier = Modifier,
+) {
     Column(
         modifier =
-            Modifier
+            modifier
                 .fillMaxWidth(),
         verticalArrangement = Arrangement.spacedBy(16.dp),
     ) {

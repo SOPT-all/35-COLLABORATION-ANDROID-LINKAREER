@@ -5,7 +5,7 @@ import androidx.annotation.StringRes
 import androidx.compose.runtime.Composable
 import org.sopt.linkareer.R
 import org.sopt.linkareer.core.navigation.Calendar
-import org.sopt.linkareer.core.navigation.Chatting
+import org.sopt.linkareer.core.navigation.ChattingHome
 import org.sopt.linkareer.core.navigation.Community
 import org.sopt.linkareer.core.navigation.Home
 import org.sopt.linkareer.core.navigation.MainTabRoute
@@ -46,7 +46,7 @@ enum class MainTab(
         selectedIcon = R.drawable.ic_chatting_active_32,
         unselectedIcon = R.drawable.ic_chatting_inactive_32,
         contentDescription = R.string.chatting,
-        route = Chatting,
+        route = ChattingHome,
     ), ;
 
     companion object {
