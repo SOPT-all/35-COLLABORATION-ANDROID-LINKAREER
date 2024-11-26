@@ -3,6 +3,7 @@ package org.sopt.linkareer.feature.home.component
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -14,6 +15,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -36,7 +41,7 @@ enum class NoticeType {
 
 @Composable
 fun RecommendationNotice(
-    type: NoticeType,
+    noticeType: NoticeType,
     @DrawableRes imageUrl: Int,
     title: String,
     companyName: String,
@@ -46,14 +51,16 @@ fun RecommendationNotice(
     dDay: String,
     isBookmarked: Boolean,
     modifier: Modifier = Modifier,
+    onBookmarkClick: (Boolean) -> Unit = {},
 ) {
     val width =
-        when (type) {
+        when (noticeType) {
             NoticeType.BANNER -> 320.dp
             NoticeType.LIST -> 120.dp
         }
-    val imagePadding = if (type == NoticeType.BANNER) 0.dp else 16.dp
-    val titleMaxLines = if (type == NoticeType.BANNER) 1 else 2
+    val imagePadding = if (noticeType == NoticeType.BANNER) 0.dp else 16.dp
+    val titleMaxLines = if (noticeType == NoticeType.BANNER) 1 else 2
+    var bookmarkedState by remember { mutableStateOf(isBookmarked) }
 
     Column(
         modifier =
@@ -64,7 +71,12 @@ fun RecommendationNotice(
         RecommendationNoticeCardSection(
             imageUrl = imageUrl,
             dDay = dDay,
-            isBookmarked = isBookmarked,
+            isBookmarked = bookmarkedState,
+            noticeType = noticeType,
+            onBookmarkClick = {
+                bookmarkedState = it
+                onBookmarkClick(it)
+            },
             modifier = Modifier.aspectRatio(1f),
             imagePaddingValues = imagePadding,
         )
@@ -88,8 +100,10 @@ fun RecommendationNoticeCardSection(
     @DrawableRes imageUrl: Int,
     dDay: String,
     isBookmarked: Boolean,
+    noticeType: NoticeType,
     modifier: Modifier = Modifier,
     imagePaddingValues: Dp,
+    onBookmarkClick: (Boolean) -> Unit,
 ) {
     Box(
         modifier = Modifier.padding(bottom = 4.dp),
@@ -111,16 +125,28 @@ fun RecommendationNoticeCardSection(
                     .align(Alignment.TopStart)
                     .padding(horizontal = 8.dp, vertical = 10.dp),
         )
-        val isBookmarkedRes =
-            when (isBookmarked) {
-                false -> R.drawable.ic_bookmark_white_36
-                else -> R.drawable.ic_bookmark_full_white_36
+        val bookmarkIcon =
+            when (noticeType) {
+                NoticeType.BANNER ->
+                    if (isBookmarked) {
+                        R.drawable.ic_bookmark_full_black_36
+                    } else {
+                        R.drawable.ic_bookmark_black_36
+                    }
+                NoticeType.LIST ->
+                    if (isBookmarked) {
+                        R.drawable.ic_bookmark_full_white_36
+                    } else {
+                        R.drawable.ic_bookmark_white_36
+                    }
             }
+
         Image(
-            imageVector = ImageVector.vectorResource(isBookmarkedRes),
+            imageVector = ImageVector.vectorResource(bookmarkIcon),
             contentDescription = null,
             modifier =
-                Modifier.align(Alignment.TopEnd),
+                Modifier.align(Alignment.TopEnd)
+                    .clickable { onBookmarkClick(!isBookmarked) },
         )
     }
 }
@@ -204,6 +230,6 @@ fun RecommendationNoticePreview() {
         comments = 342,
         dDay = "D-7",
         isBookmarked = false,
-        type = NoticeType.BANNER,
+        noticeType = NoticeType.BANNER,
     )
 }
