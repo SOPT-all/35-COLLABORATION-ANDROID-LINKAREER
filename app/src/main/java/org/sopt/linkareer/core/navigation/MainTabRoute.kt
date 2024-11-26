@@ -17,4 +17,4 @@ data object Home : MainTabRoute
 data object Calendar : MainTabRoute
 
 @Serializable
-data object Chatting : MainTabRoute
+data object ChattingHome : MainTabRoute
