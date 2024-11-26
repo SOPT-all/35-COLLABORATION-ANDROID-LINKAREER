@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.runtime.Composable
@@ -38,49 +39,53 @@ fun HomeRoute(
 fun HomeScreen(
     paddingValues: PaddingValues,
 ) {
-    Column(
+    var searchText by remember { mutableStateOf("") }
+
+    LazyColumn(
         modifier =
-            Modifier
-                .padding(paddingValues),
+        Modifier
+            .padding(paddingValues),
     ) {
-        var searchText by remember { mutableStateOf("") }
+        item {
+            Column {
+                SearchTextField(
+                    value = searchText,
+                    onValueChange = { searchText = it },
+                    hintText = stringResource(R.string.home_search_textfield_hint),
+                    modifier =
+                    Modifier
+                        .background(Blue)
+                        .padding(horizontal = 17.dp, vertical = 12.dp),
+                )
 
-        SearchTextField(
-            value = searchText,
-            onValueChange = { searchText = it },
-            hintText = stringResource(R.string.home_search_textfield_hint),
-            modifier =
-                Modifier
-                    .background(Blue)
-                    .padding(horizontal = 17.dp, vertical = 12.dp),
-        )
+                HomeTapBar(
+                    onTabClick = {},
+                )
 
-        HomeTapBar(
-            onTabClick = {},
-        )
-
-        HorizontalDivider(
-            thickness = 1.dp,
-            color = Gray300,
-        )
-
-        Column(
-            modifier =
+                HorizontalDivider(
+                    thickness = 1.dp,
+                    color = Gray300,
+                )
+            }
+        }
+        item {
+            Column(
+                modifier =
                 Modifier
                     .fillMaxWidth()
                     .background(Blue50)
-        ) {
-            HomeTitle(
-                blueText = stringResource(R.string.home_title_name),
-                blackText = stringResource(R.string.home_title_interest_announcement),
-                grayText = stringResource(R.string.home_sub_title_interest_announcement),
-                chipList =
+            ) {
+                HomeTitle(
+                    blueText = stringResource(R.string.home_title_name),
+                    blackText = stringResource(R.string.home_title_interest_announcement),
+                    grayText = stringResource(R.string.home_sub_title_interest_announcement),
+                    chipList =
                     listOf(
                         stringResource(R.string.home_chip_interest_announcement_1),
                         stringResource(R.string.home_chip_interest_announcement_2),
                         stringResource(R.string.home_chip_interest_announcement_3),
                     ),
-                modifier =
+                    modifier =
                     Modifier
                         .padding(
                             start = 15.dp,
@@ -88,15 +93,42 @@ fun HomeScreen(
                             top = 20.dp,
                             bottom = 8.dp,
                         ),
-            )
+                )
 
-            LazyRow {
-                items(4) {
-                    Box(
-                        modifier = Modifier.size(width = 326.dp, height = 282.dp)
-                    )
+                LazyRow {
+                    items(4) {
+                        Box(
+                            modifier = Modifier.size(width = 326.dp, height = 282.dp)
+                        )
+                    }
                 }
             }
+        }
+        item {
+            HomeTitle(
+                blueText = stringResource(R.string.home_title_name),
+                blackText = stringResource(R.string.home_title_interest_people),
+                grayText = stringResource(R.string.home_sub_title_interest_people),
+                chipList =
+                listOf(
+                    stringResource(R.string.home_chip_interest_people_1),
+                    stringResource(R.string.home_chip_interest_people_2),
+                    stringResource(R.string.home_chip_interest_people_3),
+                ),
+                modifier =
+                Modifier
+                    .padding(
+                        start = 15.dp,
+                        end = 17.dp,
+                        top = 20.dp,
+                        bottom = 6.dp,
+                    ),
+            )
+        }
+        items(3) {
+            Box(
+                modifier = Modifier.size(width = 326.dp, height = 132.dp)
+            )
         }
     }
 }

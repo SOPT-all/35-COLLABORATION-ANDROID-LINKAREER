@@ -83,9 +83,16 @@
     <string name="home_search_textfield_hint">대외활동,인턴,채용 정보를 검색해보세요</string>
     <string name="home_more_button">더보기</string>
     <string name="home_title_name">앤솝</string>
+
     <string name="home_title_interest_announcement">님이 관심 있을만한 공고</string>
     <string name="home_sub_title_interest_announcement">와(과) 관련 높은 활동이에요</string>\
     <string name="home_chip_interest_announcement_1">연구활동</string>
     <string name="home_chip_interest_announcement_2">부트캠프</string>
     <string name="home_chip_interest_announcement_3">아카데미</string>
+
+    <string name="home_title_interest_people">님과 같은 관심사를 가진 사람들</string>
+    <string name="home_sub_title_interest_people">에 대한 이야기를 하고 있어요.</string>\
+    <string name="home_chip_interest_people_1">디자인</string>
+    <string name="home_chip_interest_people_2">UX/UI</string>
+    <string name="home_chip_interest_people_3">프로덕트 디자인</string>
 </resources>
