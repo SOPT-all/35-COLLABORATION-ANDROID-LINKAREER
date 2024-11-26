@@ -1,5 +1,6 @@
 package org.sopt.linkareer.core.designsystem.component.textfield
 
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.SolidColor
@@ -28,8 +29,7 @@ fun SearchTextField(
         hintTextStyle = LINKareerTheme.typography.body8M13,
         cursorBrush = SolidColor(Gray900),
         cornerRadius = 5.dp,
-        paddingHorizontal = 5.dp,
-        paddingVertical = 5.dp,
+        paddingValues = PaddingValues(5.dp),
         leftIcon = R.drawable.ic_search_24,
         modifier = modifier,
     )

@@ -43,6 +43,13 @@
     <!-- component -->
     <string name="d_day">D - %s</string>
     <string name="chatting_home_refresh">다른 채팅방 보기</string>
+    <string name="footer_terms_of_use">이용약관</string>
+    <string name="footer_personal_information_policy">개인정보처리방침</string>
+    <string name="footer_customer_inquiry">고객문의</string>
+    <string name="footer_copyright_1">Copyright&#169;</string>
+    <string name="footer_copyright_2">Linkareer Inc.</string>
+    <string name="footer_copyright_3">All Rights Reserved</string>
+
 
     <!-- chatting -->
     <string name="chatting_textfield_hint">메세지 입력</string>
@@ -68,5 +75,21 @@
     <string name="newbieintern_personality">인적성</string>
     <string name="newbieintern_interview">면접</string>
     <string name="newbieintern_final_pass">면접</string>
+
+    <!-- Top App Bar -->
+    <string name="chatting_room_head_count">%s명</string>
+
+    <!-- TapBar -->
+    <string name="home_tab_newbie">신입/인턴</string>
+    <string name="home_tab_contest">대외활동/교육/공모전</string>
+    <string name="home_tab_channel">채널</string>
+    <string name="home_tab_community">커뮤니티</string>
+
+    <!-- TapBar -->
+    <string name="newbie_tab_home">홈</string>
+    <string name="newbie_tab_intern">인턴</string>
+    <string name="newbie_tab_newbie">신입</string>
+    <string name="newbie_tab_calendar">공고달력</string>
+    <string name="newbie_tab_arrow_down_contentDescription">메뉴 탭 전체보기</string>
 
 </resources>
