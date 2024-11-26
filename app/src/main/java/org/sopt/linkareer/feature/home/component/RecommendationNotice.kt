@@ -222,7 +222,7 @@ fun RecommendationNoticeStatisticsItem(
 @Composable
 fun RecommendationNoticePreview() {
     RecommendationNotice(
-        imageUrl = R.drawable.img_mainbanner_2,
+        imageUrl = R.drawable.img_hotofficial_lalasweet,
         title = "[LG CNS] [인턴_학사] 2025년 동계 DX Core 인2025년 동계 DX Core 인....",
         companyName = "LG CNS",
         tag = "정규직 1차 면접 프리패스",
@@ -230,6 +230,6 @@ fun RecommendationNoticePreview() {
         comments = 342,
         dDay = "D-7",
         isBookmarked = false,
-        noticeType = NoticeType.BANNER,
+        noticeType = NoticeType.LIST,
     )
 }

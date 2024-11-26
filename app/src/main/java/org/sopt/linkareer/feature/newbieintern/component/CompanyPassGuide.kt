@@ -1,7 +1,6 @@
 package org.sopt.linkareer.feature.newbieintern.component
 
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
@@ -23,6 +22,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import coil3.compose.AsyncImage
 import org.sopt.linkareer.R
 import org.sopt.linkareer.core.designsystem.theme.Gray100
 import org.sopt.linkareer.core.designsystem.theme.Gray200
@@ -65,10 +65,13 @@ fun CompanyPassGuide(
                 .padding(12.dp),
     ) {
         Row(
+            modifier =
+                Modifier
+                    .aspectRatio(307 / 54f),
             verticalAlignment = Alignment.CenterVertically,
         ) {
-            Image(
-                imageVector = ImageVector.vectorResource(companyImg),
+            AsyncImage(
+                model = companyImg,
                 contentDescription = null,
                 modifier =
                     Modifier
@@ -111,7 +114,8 @@ fun CompanyPassGuide(
             modifier =
                 Modifier
                     .fillMaxWidth()
-                    .padding(start = 2.5.dp, end = 2.5.dp),
+                    .padding(start = 2.5.dp, end = 2.5.dp)
+                    .aspectRatio(307 / 48f),
             horizontalArrangement = Arrangement.SpaceEvenly,
             verticalAlignment = Alignment.CenterVertically,
         ) {
@@ -161,7 +165,7 @@ fun PassGuideNum(item: PassGuideItem) {
 fun CompanyPassGuidePreview() {
     LINKareerAndroidTheme {
         CompanyPassGuide(
-            R.drawable.ex_jobpassroadmap,
+            R.drawable.img_hotofficial_lalasweet,
             "삼성전자",
             10,
             7,

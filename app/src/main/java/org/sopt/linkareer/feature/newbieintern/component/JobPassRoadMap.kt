@@ -7,8 +7,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
@@ -49,11 +47,11 @@ fun JobPassRoadMap(
                     .padding(start = 12.dp, top = 2.dp),
         )
         AsyncImage(
-            model = ImageVector.vectorResource(image),
+            model = image,
             contentDescription = null,
             modifier =
                 Modifier
-                    .padding(start = 55.dp, top = 7.dp, end = 4.dp, bottom = 12.dp),
+                    .padding(end = 4.dp, bottom = 12.dp),
         )
     }
 }
@@ -65,7 +63,7 @@ fun JobPassRoadMapPreview() {
         JobPassRoadMap(
             subTitle = "합격을 위한 꿀팁과 전략",
             mainTitle = "인/적성\n합격후기",
-            image = R.drawable.ex_jobpassroadmap,
+            image = R.drawable.img_newbie_liberalartsmentor,
         )
     }
 }

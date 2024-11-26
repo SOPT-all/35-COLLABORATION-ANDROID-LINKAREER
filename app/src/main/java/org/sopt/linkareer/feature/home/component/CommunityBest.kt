@@ -20,6 +20,7 @@ import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import coil3.compose.AsyncImage
 import org.sopt.linkareer.R
 import org.sopt.linkareer.core.designsystem.component.chip.CommunityNameChip
 import org.sopt.linkareer.core.designsystem.theme.LINKareerAndroidTheme
@@ -64,8 +65,8 @@ fun CommunityBest(
             }
             Spacer(Modifier.width(8.dp))
             // Todo : Async로 변경, Rounded에 대해 여쭤보기
-            Image(
-                imageVector = ImageVector.vectorResource(imageUrl),
+            AsyncImage(
+                model = imageUrl,
                 contentDescription = null,
                 modifier =
                     Modifier
@@ -163,7 +164,7 @@ fun CommunityBestPreview() {
     LINKareerAndroidTheme {
         CommunityBest(
             community = "면접 합격 후기",
-            imageUrl = R.drawable.ex_jobpassroadmap,
+            imageUrl = R.drawable.img_newbie_liberalartsmentor,
             title = "하나은행 2차 면접 합격 후기입니다",
             content = "우선 대기실에 도착하면 안내 분들께서 친절히 자리를...우선 대기실에 도착하면 안내 분들께서 친절히 자리를...",
             writer = "문과출신",
