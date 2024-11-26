@@ -30,7 +30,7 @@ fun CertificationConfirmButton(
             modifier
                 .fillMaxWidth(),
         contentPadding = PaddingValues(horizontal = 10.dp, vertical = 12.dp),
-        onClick = { onClickButton() },
+        onClick = onClickButton,
         shape = RoundedCornerShape(8.dp),
         colors =
             ButtonDefaults.buttonColors(
