@@ -95,4 +95,12 @@
     <string name="home_chip_interest_people_1">디자인</string>
     <string name="home_chip_interest_people_2">UX/UI</string>
     <string name="home_chip_interest_people_3">프로덕트 디자인</string>
+
+    <string name="home_title_recommend_announcement">님에게 추천하는 공고</string>
+    <string name="home_sub_title_recommend_announcement">혜택이 있어요.</string>
+    <string name="home_chip_recommend_announcement_1">정규직 전환</string>
+    <string name="home_chip_recommend_announcement_2">채용연계</string>
+    <string name="home_chip_recommend_announcement_3">1차 프리패스</string>
+    <string name="home_filtering_employment_news">채용소식</string>
+    <string name="home_filtering_activities">대외활동</string>
 </resources>
