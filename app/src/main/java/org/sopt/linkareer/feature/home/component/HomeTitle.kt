@@ -59,6 +59,7 @@ fun HomeTitle(
             }
             Row(
                 verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.padding(top = 4.dp)
             ) {
                 for (text in chipList) {
                     BlueOutlinedChip(
