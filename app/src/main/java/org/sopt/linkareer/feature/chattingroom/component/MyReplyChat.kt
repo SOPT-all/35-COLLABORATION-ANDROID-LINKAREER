@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.HorizontalDivider
@@ -25,7 +26,7 @@ import org.sopt.linkareer.core.designsystem.theme.Blue50
 import org.sopt.linkareer.core.designsystem.theme.Gray300
 import org.sopt.linkareer.core.designsystem.theme.Gray600
 import org.sopt.linkareer.core.designsystem.theme.Gray900
-import org.sopt.linkareer.core.designsystem.theme.defaultLINKareerTypography
+import org.sopt.linkareer.core.designsystem.theme.LINKareerTheme
 
 @Composable
 fun MyReplyChat(
@@ -37,7 +38,7 @@ fun MyReplyChat(
     Column(
         modifier =
             Modifier
-                .padding(end = 8.dp),
+                .padding(end = 9.dp),
         horizontalAlignment = Alignment.End,
     ) {
         Row(
@@ -48,7 +49,7 @@ fun MyReplyChat(
         ) {
             Text(
                 text = timestamp,
-                style = defaultLINKareerTypography.body13R11,
+                style = LINKareerTheme.typography.body13R11,
                 color = Gray600,
                 modifier =
                     Modifier
@@ -58,31 +59,38 @@ fun MyReplyChat(
                 modifier =
                     Modifier
                         .width(IntrinsicSize.Max)
+                        .widthIn(max = 230.dp)
                         .clip(RoundedCornerShape(10.dp))
                         .background(Blue50)
-                        .padding(12.dp),
-                verticalArrangement = Arrangement.spacedBy(space = 8.dp, alignment = Alignment.Bottom),
+                        .padding(vertical = 12.dp, horizontal = 13.dp),
             ) {
                 Text(
-                    text = sender + " " + stringResource(R.string.chatroom_apply_to_sender),
-                    style = defaultLINKareerTypography.body5B11,
+                    text = stringResource(R.string.chatroom_apply_to_sender, sender),
+                    style = LINKareerTheme.typography.body5B11,
                     color = Gray900,
+
                 )
                 Text(
                     text = receivedMessage,
-                    style = defaultLINKareerTypography.label3M11,
+                    style = LINKareerTheme.typography.label3M11,
                     color = Gray600,
+                    modifier = Modifier
+                        .padding(top = 7.dp)
                 )
 
                 HorizontalDivider(
                     color = Gray300,
                     thickness = 1.dp,
+                    modifier = Modifier
+                        .padding(top = 9.dp)
                 )
 
                 Text(
                     text = replyMessage,
-                    style = defaultLINKareerTypography.body8M13,
+                    style = LINKareerTheme.typography.body8M13,
                     color = Gray900,
+                    modifier = Modifier
+                        .padding(top = 9.dp)
                 )
             }
         }
@@ -91,7 +99,7 @@ fun MyReplyChat(
             contentDescription = stringResource(R.string.chatroom_reply_contentDescription),
             modifier =
                 Modifier
-                    .padding(start = 30.dp, top = 4.dp),
+                    .padding(start = 30.dp, top = 3.dp),
         )
     }
 }
