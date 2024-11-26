@@ -9,7 +9,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navOptions
 import org.sopt.linkareer.core.navigation.Home
-import org.sopt.linkareer.feature.chatting.navigation.navigateToChatting
+import org.sopt.linkareer.feature.chattinghome.navigation.navigateToChattingHome
 import org.sopt.linkareer.feature.home.navigation.navigateToHome
 
 class MainNavigator(
@@ -43,7 +43,7 @@ class MainNavigator(
 
         when (tab) {
             MainTab.HOME -> navController.navigateToHome(navOptions)
-            MainTab.CHATTING -> navController.navigateToChatting(navOptions)
+            MainTab.CHATTING -> navController.navigateToChattingHome(navOptions)
             else -> {}
         }
     }
