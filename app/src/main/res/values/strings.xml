@@ -49,7 +49,6 @@
     <string name="footer_copyright_2">Linkareer Inc.</string>
     <string name="footer_copyright_3">All Rights Reserved</string>
 
-
     <!-- chatting -->
     <string name="chatting_textfield_hint">메세지 입력</string>
 
@@ -81,4 +80,12 @@
     <string name="newbie_tab_calendar">공고달력</string>
     <string name="newbie_tab_arrow_down_contentDescription">메뉴 탭 전체보기</string>
 
+    <string name="home_search_textfield_hint">대외활동,인턴,채용 정보를 검색해보세요</string>
+    <string name="home_more_button">더보기</string>
+    <string name="home_title_name">앤솝</string>
+    <string name="home_title_interest_announcement">님이 관심 있을만한 공고</string>
+    <string name="home_sub_title_interest_announcement">와(과) 관련 높은 활동이에요</string>\
+    <string name="home_chip_interest_announcement_1">연구활동</string>
+    <string name="home_chip_interest_announcement_2">부트캠프</string>
+    <string name="home_chip_interest_announcement_3">아카데미</string>
 </resources>
