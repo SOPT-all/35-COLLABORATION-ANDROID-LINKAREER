@@ -92,4 +92,8 @@
     <string name="newbie_tab_calendar">공고달력</string>
     <string name="newbie_tab_arrow_down_contentDescription">메뉴 탭 전체보기</string>
 
+    <!-- home - recommendation notice -->
+    <string name="recommendation_notice_views">조회수</string>
+    <string name="recommendation_notice_comments">댓글</string>
+
 </resources>
