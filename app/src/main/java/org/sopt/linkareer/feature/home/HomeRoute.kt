@@ -23,7 +23,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import org.sopt.linkareer.R
 import org.sopt.linkareer.core.designsystem.component.chip.FilteringChip
-import org.sopt.linkareer.core.designsystem.component.footer.FooterText
 import org.sopt.linkareer.core.designsystem.component.footer.MainFooter
 import org.sopt.linkareer.core.designsystem.component.tapbar.HomeTapBar
 import org.sopt.linkareer.core.designsystem.component.textfield.SearchTextField
@@ -31,6 +30,7 @@ import org.sopt.linkareer.core.designsystem.theme.Blue
 import org.sopt.linkareer.core.designsystem.theme.Blue50
 import org.sopt.linkareer.core.designsystem.theme.Gray300
 import org.sopt.linkareer.core.designsystem.theme.LINKareerAndroidTheme
+import org.sopt.linkareer.feature.home.component.HomeBannerPager
 import org.sopt.linkareer.feature.home.component.HomeTitle
 
 @Composable
@@ -48,8 +48,8 @@ fun HomeScreen(
 
     LazyColumn(
         modifier =
-        Modifier
-            .padding(paddingValues),
+            Modifier
+                .padding(paddingValues),
     ) {
         item {
             Column {
@@ -58,9 +58,9 @@ fun HomeScreen(
                     onValueChange = { searchText = it },
                     hintText = stringResource(R.string.home_search_textfield_hint),
                     modifier =
-                    Modifier
-                        .background(Blue)
-                        .padding(horizontal = 17.dp, vertical = 12.dp),
+                        Modifier
+                            .background(Blue)
+                            .padding(horizontal = 17.dp, vertical = 12.dp),
                 )
 
                 HomeTapBar(
@@ -76,37 +76,30 @@ fun HomeScreen(
         item {
             Column(
                 modifier =
-                Modifier
-                    .fillMaxWidth()
-                    .background(Blue50)
+                    Modifier
+                        .fillMaxWidth()
+                        .background(Blue50),
             ) {
                 HomeTitle(
                     blueText = stringResource(R.string.home_title_name),
                     blackText = stringResource(R.string.home_title_interest_announcement),
                     grayText = stringResource(R.string.home_sub_title_interest_announcement),
                     chipList =
-                    listOf(
-                        stringResource(R.string.home_chip_interest_announcement_1),
-                        stringResource(R.string.home_chip_interest_announcement_2),
-                        stringResource(R.string.home_chip_interest_announcement_3),
-                    ),
-                    modifier =
-                    Modifier
-                        .padding(
-                            start = 15.dp,
-                            end = 17.dp,
-                            top = 20.dp,
-                            bottom = 8.dp,
+                        listOf(
+                            stringResource(R.string.home_chip_interest_announcement_1),
+                            stringResource(R.string.home_chip_interest_announcement_2),
+                            stringResource(R.string.home_chip_interest_announcement_3),
                         ),
+                    modifier =
+                        Modifier
+                            .padding(
+                                start = 15.dp,
+                                end = 17.dp,
+                                top = 20.dp,
+                                bottom = 8.dp,
+                            ),
                 )
-
-                LazyRow {
-                    items(4) {
-                        Box(
-                            modifier = Modifier.size(width = 326.dp, height = 282.dp)
-                        )
-                    }
-                }
+                HomeBannerPager()
             }
         }
         item {
@@ -115,52 +108,53 @@ fun HomeScreen(
                 blackText = stringResource(R.string.home_title_interest_people),
                 grayText = stringResource(R.string.home_sub_title_interest_people),
                 chipList =
-                listOf(
-                    stringResource(R.string.home_chip_interest_people_1),
-                    stringResource(R.string.home_chip_interest_people_2),
-                    stringResource(R.string.home_chip_interest_people_3),
-                ),
-                modifier =
-                Modifier
-                    .padding(
-                        start = 15.dp,
-                        end = 17.dp,
-                        top = 20.dp,
-                        bottom = 6.dp,
+                    listOf(
+                        stringResource(R.string.home_chip_interest_people_1),
+                        stringResource(R.string.home_chip_interest_people_2),
+                        stringResource(R.string.home_chip_interest_people_3),
                     ),
+                modifier =
+                    Modifier
+                        .padding(
+                            start = 15.dp,
+                            end = 17.dp,
+                            top = 20.dp,
+                            bottom = 6.dp,
+                        ),
             )
         }
         items(3) {
             Box(
-                modifier = Modifier.size(width = 326.dp, height = 132.dp)
+                modifier = Modifier.size(width = 326.dp, height = 132.dp),
             )
         }
         item {
             Column(
-                modifier = Modifier
-                    .background(Blue50)
+                modifier =
+                    Modifier
+                        .background(Blue50),
             ) {
                 HomeTitle(
                     blueText = stringResource(R.string.home_title_name),
                     blackText = stringResource(R.string.home_title_recommend_announcement),
                     grayText = stringResource(R.string.home_sub_title_recommend_announcement),
                     chipList =
-                    listOf(
-                        stringResource(R.string.home_chip_recommend_announcement_1),
-                        stringResource(R.string.home_chip_recommend_announcement_2),
-                        stringResource(R.string.home_chip_recommend_announcement_3),
-                    ),
-                    modifier =
-                    Modifier
-                        .padding(
-                            start = 15.dp,
-                            end = 17.dp,
-                            top = 20.dp,
-                            bottom = 8.dp,
+                        listOf(
+                            stringResource(R.string.home_chip_recommend_announcement_1),
+                            stringResource(R.string.home_chip_recommend_announcement_2),
+                            stringResource(R.string.home_chip_recommend_announcement_3),
                         ),
+                    modifier =
+                        Modifier
+                            .padding(
+                                start = 15.dp,
+                                end = 17.dp,
+                                top = 20.dp,
+                                bottom = 8.dp,
+                            ),
                 )
                 Row(
-                    modifier = Modifier.padding(start = 15.dp)
+                    modifier = Modifier.padding(start = 15.dp),
                 ) {
                     FilteringChip(
                         text = stringResource(R.string.home_filtering_employment_news),
@@ -169,22 +163,25 @@ fun HomeScreen(
                     FilteringChip(
                         text = stringResource(R.string.home_filtering_activities),
                         isSelected = false,
-                        modifier = Modifier
-                            .padding(start = 8.dp)
+                        modifier =
+                            Modifier
+                                .padding(start = 8.dp),
                     )
                 }
 
                 LazyRow(
                     contentPadding = PaddingValues(horizontal = 15.dp),
                     horizontalArrangement = Arrangement.spacedBy(8.dp),
-                    modifier = Modifier
-                        .padding(top = 12.dp, bottom = 40.dp)
+                    modifier =
+                        Modifier
+                            .padding(top = 12.dp, bottom = 40.dp),
                 ) {
                     items(6) {
                         Box(
-                            modifier = Modifier
-                                .size(width = 120.dp, height = 216.dp)
-                                .background(Blue)
+                            modifier =
+                                Modifier
+                                    .size(width = 120.dp, height = 216.dp)
+                                    .background(Blue),
                         )
                     }
                 }
