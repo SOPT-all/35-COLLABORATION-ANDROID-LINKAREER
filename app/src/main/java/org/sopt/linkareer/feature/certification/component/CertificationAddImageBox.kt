@@ -26,7 +26,7 @@ import org.sopt.linkareer.core.designsystem.theme.LINKareerAndroidTheme
 import org.sopt.linkareer.core.designsystem.theme.defaultLINKareerTypography
 
 @Composable
-fun CertificationAddImageView(
+fun CertificationAddImageBox(
     @DrawableRes addImage: Int?,
     onAddImageClick: () -> Unit,
     modifier: Modifier = Modifier,
@@ -74,9 +74,9 @@ fun CertificationAddImageView(
 
 @Preview(showBackground = true)
 @Composable
-fun CertificationAddImageViewViePreview() {
+fun CertificationAddImageBoxPreview() {
     LINKareerAndroidTheme {
-        CertificationAddImageView(
+        CertificationAddImageBox(
             null,
             onAddImageClick = {},
         )
