@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
@@ -22,6 +23,7 @@ import org.sopt.linkareer.R
 import org.sopt.linkareer.core.designsystem.theme.Blue50
 import org.sopt.linkareer.core.designsystem.theme.Gray600
 import org.sopt.linkareer.core.designsystem.theme.Gray900
+import org.sopt.linkareer.core.designsystem.theme.LINKareerTheme
 import org.sopt.linkareer.core.designsystem.theme.defaultLINKareerTypography
 
 @Composable
@@ -36,14 +38,11 @@ fun MyChat(
         horizontalAlignment = Alignment.End,
     ) {
         Row(
-            modifier =
-                Modifier
-                    .wrapContentWidth(),
             verticalAlignment = Alignment.Bottom,
         ) {
             Text(
                 text = timestamp,
-                style = defaultLINKareerTypography.body13R11,
+                style = LINKareerTheme.typography.body13R11,
                 color = Gray600,
                 modifier =
                     Modifier
@@ -59,8 +58,10 @@ fun MyChat(
             ) {
                 Text(
                     text = sendMessage,
-                    style = defaultLINKareerTypography.body8M13,
+                    style = LINKareerTheme.typography.body8M13,
                     color = Gray900,
+                    modifier = Modifier
+                        .widthIn(max = 230.dp)
                 )
             }
         }
