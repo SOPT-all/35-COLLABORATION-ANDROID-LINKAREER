@@ -50,6 +50,9 @@
     <string name="footer_copyright_2">Linkareer Inc.</string>
     <string name="footer_copyright_3">All Rights Reserved</string>
 
+    <string name="chatting_room_in_preson">참여인원 %1$d명</string>
+    <string name="chatting_room_in_preson_conversation">현직자 대화중</string>
+
 
     <!-- chatting -->
     <string name="chatting_textfield_hint">메세지 입력</string>
