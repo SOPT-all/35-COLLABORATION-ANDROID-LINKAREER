@@ -19,6 +19,7 @@ import org.sopt.linkareer.R
 import org.sopt.linkareer.core.designsystem.theme.Blue
 import org.sopt.linkareer.core.designsystem.theme.Gray900
 import org.sopt.linkareer.core.designsystem.theme.LINKareerAndroidTheme
+import org.sopt.linkareer.core.designsystem.theme.LINKareerTheme
 import org.sopt.linkareer.core.designsystem.theme.White
 import org.sopt.linkareer.core.designsystem.theme.defaultLINKareerTypography
 
@@ -67,7 +68,7 @@ fun InternTabItem(
     ) {
         Text(
             text = tapName,
-            style = defaultLINKareerTypography.body7M14,
+            style = LINKareerTheme.typography.body7M14,
             color = if (tapName == stringResource(R.string.newbie_tab_home)) Blue else Gray900,
             modifier =
                 Modifier

@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.widthIn
-import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -24,7 +23,6 @@ import org.sopt.linkareer.core.designsystem.theme.Blue50
 import org.sopt.linkareer.core.designsystem.theme.Gray600
 import org.sopt.linkareer.core.designsystem.theme.Gray900
 import org.sopt.linkareer.core.designsystem.theme.LINKareerTheme
-import org.sopt.linkareer.core.designsystem.theme.defaultLINKareerTypography
 
 @Composable
 fun MyChat(

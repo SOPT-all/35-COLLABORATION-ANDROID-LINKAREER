@@ -23,7 +23,7 @@ import androidx.compose.ui.unit.dp
 import org.sopt.linkareer.R
 import org.sopt.linkareer.core.designsystem.theme.Gray600
 import org.sopt.linkareer.core.designsystem.theme.LINKareerAndroidTheme
-import org.sopt.linkareer.core.designsystem.theme.defaultLINKareerTypography
+import org.sopt.linkareer.core.designsystem.theme.LINKareerTheme
 
 @Composable
 fun CertificationAddImageBox(
@@ -58,7 +58,7 @@ fun CertificationAddImageBox(
         ) {
             Text(
                 text = stringResource(R.string.certification_add_capture),
-                style = defaultLINKareerTypography.body14R10,
+                style = LINKareerTheme.typography.body14R10,
                 color = Gray600,
             )
             Spacer(modifier = Modifier.heightIn(12.dp))

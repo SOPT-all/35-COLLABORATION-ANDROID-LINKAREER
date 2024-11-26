@@ -20,6 +20,7 @@ import org.sopt.linkareer.core.designsystem.theme.Blue100
 import org.sopt.linkareer.core.designsystem.theme.Gray200
 import org.sopt.linkareer.core.designsystem.theme.Gray500
 import org.sopt.linkareer.core.designsystem.theme.Gray900
+import org.sopt.linkareer.core.designsystem.theme.LINKareerTheme
 import org.sopt.linkareer.core.designsystem.theme.defaultLINKareerTypography
 
 @Composable
@@ -47,7 +48,7 @@ fun OtherUserChatProfile(
         )
         Text(
             text = nickName,
-            style = defaultLINKareerTypography.body5B11,
+            style = LINKareerTheme.typography.body5B11,
             color = Gray900,
             modifier =
                 Modifier
