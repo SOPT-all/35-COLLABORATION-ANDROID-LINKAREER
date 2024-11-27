@@ -7,7 +7,6 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -56,14 +55,14 @@ fun CompanyPassGuide(
 
     Column(
         modifier =
-        Modifier
-            .fillMaxWidth()
-            .border(
-                border = BorderStroke(width = 1.dp, color = Gray300),
-                shape = RoundedCornerShape(size = 8.dp),
-            )
-            .background(color = Gray100, shape = RoundedCornerShape(size = 8.dp))
-            .padding(12.dp),
+            Modifier
+                .fillMaxWidth()
+                .border(
+                    border = BorderStroke(width = 1.dp, color = Gray300),
+                    shape = RoundedCornerShape(size = 8.dp),
+                )
+                .background(color = Gray100, shape = RoundedCornerShape(size = 8.dp))
+                .padding(12.dp),
     ) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
@@ -72,24 +71,25 @@ fun CompanyPassGuide(
                 painter = painterResource(companyImg),
                 contentDescription = null,
                 modifier =
-                Modifier
-                    .background(color = White, shape = RoundedCornerShape(4.dp))
-                    .height(54.dp)
-                    .width(54.dp)
+                    Modifier
+                        .background(color = White, shape = RoundedCornerShape(4.dp))
+                        .height(54.dp)
+                        .width(54.dp),
             )
 
             Text(
                 text = companyName,
                 modifier =
-                Modifier
-                    .padding(start = 8.dp)
-                    .weight(1f),
+                    Modifier
+                        .padding(start = 8.dp)
+                        .weight(1f),
                 color = Gray900,
                 style = LINKareerTheme.typography.body3B13,
             )
             Row(
-                modifier = Modifier
-                    .padding(vertical = 11.dp),
+                modifier =
+                    Modifier
+                        .padding(vertical = 11.dp),
             ) {
                 Text(
                     text = stringResource(R.string.newbieintern_pass_guide_plus),
@@ -106,17 +106,17 @@ fun CompanyPassGuide(
 
         HorizontalDivider(
             modifier =
-            Modifier
-                .padding(vertical = 8.dp),
+                Modifier
+                    .padding(vertical = 8.dp),
             thickness = 1.dp,
             color = Gray200,
         )
 
         Row(
             modifier =
-            Modifier
-                .fillMaxWidth()
-                .height(44.dp),
+                Modifier
+                    .fillMaxWidth()
+                    .height(44.dp),
             horizontalArrangement = Arrangement.SpaceEvenly,
             verticalAlignment = Alignment.CenterVertically,
         ) {
@@ -142,8 +142,8 @@ data class PassGuideItem(
 fun PassGuideNum(item: PassGuideItem) {
     Column(
         modifier =
-        Modifier
-            .padding(start = 23.dp, top = 4.dp, end = 22.dp, bottom = 4.dp),
+            Modifier
+                .padding(start = 23.dp, top = 4.dp, end = 22.dp, bottom = 4.dp),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {

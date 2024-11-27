@@ -58,14 +58,14 @@ fun RecommendationNotice(
 
     Column(
         modifier =
-        modifier
-            .then(
-                if (noticeType == NoticeType.BANNER) {
-                    Modifier.fillMaxWidth()
-                } else {
-                    Modifier.width(120.dp)
-                }
-            )
+            modifier
+                .then(
+                    if (noticeType == NoticeType.BANNER) {
+                        Modifier.fillMaxWidth()
+                    } else {
+                        Modifier.width(120.dp)
+                    },
+                ),
     ) {
         RecommendationNoticeCardSection(
             imageUrl = imageUrl,
@@ -102,7 +102,7 @@ fun RecommendationNoticeCardSection(
     noticeType: NoticeType,
     onBookmarkClick: (Boolean) -> Unit,
     imagePaddingValues: Dp,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     Box(
         modifier = Modifier.padding(bottom = 4.dp),
@@ -110,19 +110,19 @@ fun RecommendationNoticeCardSection(
         AsyncImage(
             model = imageUrl,
             modifier =
-            Modifier
-                .fillMaxWidth()
-                .padding(horizontal = imagePaddingValues)
-                .background(color = LINKareerTheme.colors.gray100)
-                .align(Alignment.Center),
+                Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = imagePaddingValues)
+                    .background(color = LINKareerTheme.colors.gray100)
+                    .align(Alignment.Center),
             contentDescription = null,
         )
         DdayChip(
             dDay = dDay,
             modifier =
-            Modifier
-                .align(Alignment.TopStart)
-                .padding(horizontal = 8.dp, vertical = 10.dp),
+                Modifier
+                    .align(Alignment.TopStart)
+                    .padding(horizontal = 8.dp, vertical = 10.dp),
         )
         val bookmarkIcon = if (isBookmarked) R.drawable.ic_bookmark_full_black_36 else R.drawable.ic_bookmark_black_36
 
@@ -130,9 +130,9 @@ fun RecommendationNoticeCardSection(
             imageVector = ImageVector.vectorResource(bookmarkIcon),
             contentDescription = null,
             modifier =
-            Modifier
-                .align(Alignment.TopEnd)
-                .noRippleClickable { onBookmarkClick(!isBookmarked) },
+                Modifier
+                    .align(Alignment.TopEnd)
+                    .noRippleClickable { onBookmarkClick(!isBookmarked) },
         )
     }
 }
@@ -186,7 +186,6 @@ fun RecommendationNoticeStatistics(
         )
     }
 }
-
 
 @Preview
 @Composable

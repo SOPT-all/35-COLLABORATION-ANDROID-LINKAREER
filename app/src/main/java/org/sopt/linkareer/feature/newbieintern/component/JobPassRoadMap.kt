@@ -30,35 +30,36 @@ fun JobPassRoadMap(
     modifier: Modifier = Modifier,
 ) {
     Column(
-        modifier = modifier
-            .background(color = Gray200, shape = RoundedCornerShape(10.dp)),
+        modifier =
+            modifier
+                .background(color = Gray200, shape = RoundedCornerShape(10.dp)),
     ) {
         Text(
             text = subTitle,
             style = LINKareerTheme.typography.label5M8,
             color = Gray600,
             modifier =
-            Modifier
-                .padding(start = 12.dp, top = 16.dp, end = 15.dp),
+                Modifier
+                    .padding(start = 12.dp, top = 16.dp, end = 15.dp),
         )
         Text(
             text = mainTitle,
             style = LINKareerTheme.typography.body5B11,
             color = Gray900,
             modifier =
-            Modifier
-                .padding(start = 12.dp, top = 2.dp),
+                Modifier
+                    .padding(start = 12.dp, top = 2.dp),
         )
         Spacer(Modifier.height(7.dp))
         Image(
             painter = painterResource(image),
             contentDescription = null,
             modifier =
-            Modifier
-                .width(44.dp)
-                .height(44.dp)
-                .align(Alignment.End)
-                .padding(end = 4.dp, bottom = 12.dp)
+                Modifier
+                    .width(44.dp)
+                    .height(44.dp)
+                    .align(Alignment.End)
+                    .padding(end = 4.dp, bottom = 12.dp),
         )
     }
 }

@@ -61,11 +61,13 @@ fun ChattingRoomInPerson(
             contentDescription = null,
             modifier =
                 Modifier
-                    .background(color = LINKareerTheme.colors.white,
-                        shape = RoundedCornerShape(size = 4.dp),)
+                    .background(
+                        color = LINKareerTheme.colors.white,
+                        shape = RoundedCornerShape(size = 4.dp),
+                    )
                     .padding(horizontal = 12.dp)
                     .height(70.dp)
-                    .aspectRatio(1f)
+                    .aspectRatio(1f),
         )
         Spacer(Modifier.width(12.dp))
         Column(
@@ -106,7 +108,7 @@ fun ChattingRoomInPerson(
                     color = LINKareerTheme.colors.gray300,
                 )
                 if (isInPersonConversation) {
-                    TextWithIcon(text= stringResource(R.string.chatting_room_in_preson_conversation))
+                    TextWithIcon(text = stringResource(R.string.chatting_room_in_preson_conversation))
                 }
             }
         }

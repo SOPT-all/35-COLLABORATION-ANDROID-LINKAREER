@@ -72,7 +72,7 @@ fun CommunityBest(
                     Modifier
                         .size(54.dp)
                         .clip(RoundedCornerShape(4.dp))
-                        .padding(vertical = 3.dp)
+                        .padding(vertical = 3.dp),
             )
         }
         Spacer(Modifier.height(8.dp))
