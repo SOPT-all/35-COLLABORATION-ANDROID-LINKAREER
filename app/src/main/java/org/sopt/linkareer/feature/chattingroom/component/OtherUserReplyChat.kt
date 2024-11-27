@@ -40,6 +40,8 @@ fun OtherUserReplyChat(
     receivedMessage: String,
     replyMessage: String,
     timestamp: String,
+    likeCount: Int,
+    isLiked: Boolean,
 ) {
     Column {
         OtherUserChatProfile(
@@ -54,13 +56,22 @@ fun OtherUserReplyChat(
             replyMessage = replyMessage,
             timestamp = timestamp,
         )
-        Image(
-            painter = painterResource(R.drawable.ic_chatting_like_inactive_25),
-            contentDescription = stringResource(R.string.chatroom_reply_contentDescription),
-            modifier =
+        if(isLiked || likeCount > 0) {
+            ChatLikeCount(
+                likeCount = likeCount,
+                isLiked = isLiked,
+                modifier = Modifier
+                    .padding(start = 30.dp, top = 4.dp),
+            )
+        } else {
+            Image(
+                painter = painterResource(R.drawable.ic_chatting_like_inactive_25),
+                contentDescription = stringResource(R.string.chatroom_reply_contentDescription),
+                modifier =
                 Modifier
                     .padding(start = 30.dp, top = 4.dp),
-        )
+            )
+        }
     }
 }
 
@@ -160,6 +171,8 @@ fun OtherUserChatProfilePreview() {
             receivedMessage = "ppt 만들 때 예쁘게꾸며야 좋나요?",
             replyMessage = "굳이 꾸밀 필요없습니다.",
             timestamp = "18:33",
+            likeCount = 5,
+            isLiked = false
         )
     }
 }
