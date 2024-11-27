@@ -62,7 +62,7 @@ fun OtherUserReplyChat(
                 isLiked = isLiked,
                 modifier =
                     Modifier
-                        .padding(start = 30.dp, top = 4.dp),
+                        .padding(start = 30.dp, top = 4.dp, bottom = 12.dp),
             )
         } else {
             Image(
