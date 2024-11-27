@@ -91,4 +91,7 @@
     <string name="chatting_home_category">직무</string>
     <string name="chatting_home_subject">주제별</string>
     <string name="chatting_home_count">총 %s개</string>
+
+    <string name="chatting_home_room_empty">입장한 채팅방이 없습니다.</string>
+    <string name="chatting_home_enter_room">채팅방에 입장하여, 고민을 나눠보세요!</string>
 </resources>
