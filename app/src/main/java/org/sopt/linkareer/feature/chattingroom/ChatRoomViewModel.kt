@@ -12,7 +12,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ChatRoomViewModel @Inject constructor(
-    private val getChatListUseCase: GetChatListUseCase
+    private val getChatListUseCase: GetChatListUseCase,
 ) : ViewModel() {
     var chatRoomState: MutableStateFlow<UiState<ChatRoomState>> = MutableStateFlow<UiState<ChatRoomState>>(UiState.Empty)
         private set
@@ -22,19 +22,20 @@ class ChatRoomViewModel @Inject constructor(
         viewModelScope.launch {
             getChatListUseCase().fold(
                 onSuccess = { chatListEntity ->
-                    chatRoomState.value = UiState.Success(
-                        ChatRoomState(chatListEntity = chatListEntity)
-                    )
+                    chatRoomState.value =
+                        UiState.Success(
+                            ChatRoomState(chatListEntity = chatListEntity),
+                        )
                     Timber.tag("ChatRoomViewModel").d("성공 : $chatListEntity")
                 },
                 onFailure = {
-                    chatRoomState.value = UiState.Failure(
-                        msg = it.message.toString()
-                    )
+                    chatRoomState.value =
+                        UiState.Failure(
+                            msg = it.message.toString(),
+                        )
                     Timber.tag("ChatRoomViewModel").d("실패 : ${it.message}")
-                }
+                },
             )
         }
     }
-
 }

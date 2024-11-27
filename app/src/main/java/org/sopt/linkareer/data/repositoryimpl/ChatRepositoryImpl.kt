@@ -6,7 +6,7 @@ import org.sopt.linkareer.domain.repository.ChatRepository
 import javax.inject.Inject
 
 class ChatRepositoryImpl @Inject constructor(
-    private val chatDataSource: ChatDataSource
+    private val chatDataSource: ChatDataSource,
 ) : ChatRepository {
     override suspend fun getChatList(): Result<ChatListEntity> =
         runCatching {

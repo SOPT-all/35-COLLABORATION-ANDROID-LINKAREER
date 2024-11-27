@@ -43,10 +43,11 @@ object RetrofitModule {
         loggingInterceptor: HttpLoggingInterceptor,
     ) = OkHttpClient.Builder()
         .addInterceptor { chain ->
-            val request = chain.request()
-                .newBuilder()
-                .addHeader("memberId", "1")
-                .build()
+            val request =
+                chain.request()
+                    .newBuilder()
+                    .addHeader("memberId", "1")
+                    .build()
             chain.proceed(request)
         }
         .addInterceptor(loggingInterceptor)

@@ -3,7 +3,6 @@ package org.sopt.linkareer.feature.chattingroom.component
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.runtime.*
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -12,8 +11,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -38,24 +39,24 @@ fun ChatRoomBottomNotice(
 ) {
     var isVisible by remember { mutableStateOf(true) }
 
-    if(isVisible) {
+    if (isVisible) {
         Box(
             modifier =
-            modifier
-                .fillMaxWidth()
-                .clip(RoundedCornerShape(10.dp))
-                .background(Gray100)
-                .border(
-                    1.dp,
-                    color = Gray200,
-                    shape = RoundedCornerShape(10.dp),
-                )
-                .padding(8.dp),
+                modifier
+                    .fillMaxWidth()
+                    .clip(RoundedCornerShape(10.dp))
+                    .background(Gray100)
+                    .border(
+                        1.dp,
+                        color = Gray200,
+                        shape = RoundedCornerShape(10.dp),
+                    )
+                    .padding(8.dp),
         ) {
             Row(
                 modifier =
-                Modifier
-                    .fillMaxWidth(),
+                    Modifier
+                        .fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically,
             ) {
                 Image(
@@ -66,13 +67,13 @@ fun ChatRoomBottomNotice(
                 Text(
                     text = stringResource(R.string.chatroom_notice_link),
                     style =
-                    LINKareerTheme.typography.body11M10.copy(
-                        textDecoration = TextDecoration.Underline,
-                    ),
+                        LINKareerTheme.typography.body11M10.copy(
+                            textDecoration = TextDecoration.Underline,
+                        ),
                     color = Blue,
                     modifier =
-                    Modifier
-                        .noRippleClickable { onClickToCheck() },
+                        Modifier
+                            .noRippleClickable { onClickToCheck() },
                 )
                 Text(
                     text = stringResource(R.string.chatroom_notice_link_description),
@@ -84,8 +85,10 @@ fun ChatRoomBottomNotice(
                 Image(
                     painter = painterResource(R.drawable.ic_chatroom_close),
                     contentDescription = null,
-                    modifier = Modifier
-                        .noRippleClickable { isVisible = false }, // 이 뷰 닫기
+                    modifier =
+                        Modifier
+                            .noRippleClickable { isVisible = false },
+                    // 이 뷰 닫기
                 )
             }
         }

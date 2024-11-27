@@ -33,27 +33,29 @@ fun ChatLikeCount(
     modifier: Modifier = Modifier,
 ) {
     Box(
-        modifier = modifier
-            .clip(RoundedCornerShape(38.dp))
-            .border(
-                width = 1.dp,
-                color = Gray300,
-                shape = RoundedCornerShape(38.dp)
-            )
-            .background(White)
-            .padding(vertical = 4.dp, horizontal = 5.dp),
+        modifier =
+            modifier
+                .clip(RoundedCornerShape(38.dp))
+                .border(
+                    width = 1.dp,
+                    color = Gray300,
+                    shape = RoundedCornerShape(38.dp),
+                )
+                .background(White)
+                .padding(vertical = 4.dp, horizontal = 5.dp),
     ) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.Center,
         ) {
             Image(
-                imageVector = if (isLiked) {
-                    ImageVector.vectorResource(R.drawable.ic_thumbsup_blue_15)
-                } else {
-                    ImageVector.vectorResource(R.drawable.ic_thumbsup_gray_15)
-                },
-                contentDescription = stringResource(R.string.thumbs_up_activate)
+                imageVector =
+                    if (isLiked) {
+                        ImageVector.vectorResource(R.drawable.ic_thumbsup_blue_15)
+                    } else {
+                        ImageVector.vectorResource(R.drawable.ic_thumbsup_gray_15)
+                    },
+                contentDescription = stringResource(R.string.thumbs_up_activate),
             )
             Spacer(modifier = Modifier.width(4.dp))
             Text(

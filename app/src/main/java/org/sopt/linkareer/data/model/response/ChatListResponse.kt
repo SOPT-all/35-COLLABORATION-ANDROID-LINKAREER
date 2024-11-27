@@ -12,16 +12,16 @@ import org.sopt.linkareer.domain.model.TagEntity
 @Serializable
 data class ChatListResponse(
     @SerialName("chatRoomName") val chatRoomName: String,
-    @SerialName("chatParticiPantsCount") val chatParticiPantsCount: Int= 0,
+    @SerialName("chatParticiPantsCount") val chatParticiPantsCount: Int = 0,
     @SerialName("chatPartner") val chatPartner: ChatPartner,
-    @SerialName("myChat") val myChat: MyChat
+    @SerialName("myChat") val myChat: MyChat,
 ) {
     fun chatListResponseToEntity(): ChatListEntity {
         return ChatListEntity(
             chatRoomName = this.chatRoomName,
             chatParticiPantsCount = this.chatParticiPantsCount,
             chatPartner = this.chatPartner.chatPartnerToEntity(),
-            myChat = this.myChat.myChatToEntity()
+            myChat = this.myChat.myChatToEntity(),
         )
     }
 }
@@ -31,14 +31,14 @@ data class ChatPartner(
     @SerialName("partnerName") val partnerName: String,
     @SerialName("isBlueChecked") val isBlueChecked: Boolean,
     @SerialName("tag") val tag: Tag,
-    @SerialName("chatList") val chatList: List<Chat>
+    @SerialName("chatList") val chatList: List<Chat>,
 ) {
     fun chatPartnerToEntity(): ChatPartnerEntity {
         return ChatPartnerEntity(
             partnerName = this.partnerName,
             isBlueChecked = this.isBlueChecked,
             tag = this.tag.tagToEntity(),
-            chatList = this.chatList.map { it.chatToEntity() }
+            chatList = this.chatList.map { it.chatToEntity() },
         )
     }
 }
@@ -46,12 +46,12 @@ data class ChatPartner(
 @Serializable
 data class Tag(
     @SerialName("companyName") val companyName: String,
-    @SerialName("job") val job: String
+    @SerialName("job") val job: String,
 ) {
     fun tagToEntity(): TagEntity {
         return TagEntity(
             companyName = this.companyName,
-            job = this.job
+            job = this.job,
         )
     }
 }
@@ -63,7 +63,7 @@ data class Chat(
     @SerialName("likes") val likes: Int,
     @SerialName("pressedLike") val pressedLike: Boolean,
     @SerialName("createdTime") val createdTime: String,
-    @SerialName("reply") val reply: Reply?
+    @SerialName("reply") val reply: Reply?,
 ) {
     fun chatToEntity(): ChatEntity {
         return ChatEntity(
@@ -72,7 +72,7 @@ data class Chat(
             likes = this.likes,
             pressedLike = this.pressedLike,
             createdTime = this.createdTime,
-            reply = this.reply?.replyToEntity()
+            reply = this.reply?.replyToEntity(),
         )
     }
 }
@@ -80,23 +80,23 @@ data class Chat(
 @Serializable
 data class Reply(
     @SerialName("replyMessage") val replyMessage: String?,
-    @SerialName("repliedMessageSenderName") val repliedMessageSenderName: String?
+    @SerialName("repliedMessageSenderName") val repliedMessageSenderName: String?,
 ) {
     fun replyToEntity(): ReplyEntity {
         return ReplyEntity(
             replyMessage = this.replyMessage,
-            repliedMessageSenderName = this.repliedMessageSenderName
+            repliedMessageSenderName = this.repliedMessageSenderName,
         )
     }
 }
 
 @Serializable
 data class MyChat(
-    @SerialName("chatList") val chatList: List<Chat>
+    @SerialName("chatList") val chatList: List<Chat>,
 ) {
     fun myChatToEntity(): MyChatEntity {
         return MyChatEntity(
-            chatList = this.chatList.map { it.chatToEntity() }
+            chatList = this.chatList.map { it.chatToEntity() },
         )
     }
 }

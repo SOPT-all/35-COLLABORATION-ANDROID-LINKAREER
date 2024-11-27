@@ -13,6 +13,5 @@ import javax.inject.Singleton
 class UseCaseModule {
     @Provides
     @Singleton
-    fun provideGetChatListUseCase(chatRepository: ChatRepository): GetChatListUseCase
-    = GetChatListUseCase(chatRepository = chatRepository)
+    fun provideGetChatListUseCase(chatRepository: ChatRepository): GetChatListUseCase = GetChatListUseCase(chatRepository = chatRepository)
 }

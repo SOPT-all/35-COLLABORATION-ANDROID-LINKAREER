@@ -5,5 +5,5 @@ import retrofit2.http.GET
 
 interface ChatService {
     @GET("/api/v1/chatting/history")
-    suspend fun getChatList() : ChatListResponse
+    suspend fun getChatList(): ChatListResponse
 }

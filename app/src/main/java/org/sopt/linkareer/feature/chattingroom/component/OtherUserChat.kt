@@ -63,8 +63,9 @@ fun OtherUserChat(
                     text = sendMessage,
                     style = LINKareerTheme.typography.body8M13,
                     color = Gray900,
-                    modifier = Modifier
-                        .widthIn(max = 230.dp)
+                    modifier =
+                        Modifier
+                            .widthIn(max = 230.dp),
                 )
             }
             Text(
@@ -76,20 +77,21 @@ fun OtherUserChat(
                         .padding(start = 4.dp),
             )
         }
-        if(isLiked || likeCount > 0) {
+        if (isLiked || likeCount > 0) {
             ChatLikeCount(
                 likeCount = likeCount,
                 isLiked = isLiked,
-                modifier = Modifier
-                    .padding(start = 30.dp, top = 4.dp),
+                modifier =
+                    Modifier
+                        .padding(start = 30.dp, top = 4.dp),
             )
         } else {
             Image(
                 painter = painterResource(R.drawable.ic_chatting_like_inactive_25),
                 contentDescription = stringResource(R.string.chatroom_reply_contentDescription),
                 modifier =
-                Modifier
-                    .padding(start = 30.dp, top = 4.dp),
+                    Modifier
+                        .padding(start = 30.dp, top = 4.dp),
             )
         }
     }
@@ -110,7 +112,7 @@ fun OtherUserChatPreview() {
             sendMessage = "굳이 꾸밀 필요없습니다.",
             timestamp = "18:33",
             likeCount = 5,
-            isLiked = false
+            isLiked = false,
         )
     }
 }

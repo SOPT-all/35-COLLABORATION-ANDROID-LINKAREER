@@ -6,7 +6,7 @@ import org.sopt.linkareer.data.service.ChatService
 import javax.inject.Inject
 
 class ChatDataSourceImpl @Inject constructor(
-    private val chatService: ChatService
+    private val chatService: ChatService,
 ) : ChatDataSource {
     override suspend fun getChatList(): ChatListResponse = chatService.getChatList()
 }

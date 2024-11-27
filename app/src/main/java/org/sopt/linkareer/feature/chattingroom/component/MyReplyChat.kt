@@ -97,12 +97,13 @@ fun MyReplyChat(
                 )
             }
         }
-        if(isLiked || likeCount > 0) {
+        if (isLiked || likeCount > 0) {
             ChatLikeCount(
                 likeCount = likeCount,
                 isLiked = isLiked,
-                modifier = Modifier
-                    .padding(start = 30.dp, top = 4.dp),
+                modifier =
+                    Modifier
+                        .padding(start = 30.dp, top = 4.dp),
             )
         } else {
             Image(
@@ -128,6 +129,6 @@ fun MyReplyChatPreview() {
         replyMessage = "text message",
         timestamp = "18:33",
         likeCount = 5,
-        isLiked = false
+        isLiked = false,
     )
 }

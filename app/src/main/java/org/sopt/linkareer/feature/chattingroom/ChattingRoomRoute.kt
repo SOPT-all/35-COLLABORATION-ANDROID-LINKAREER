@@ -36,8 +36,8 @@ import java.time.format.DateTimeFormatter
 
 @Composable
 fun ChattingRoomRoute(
-    //navigateToCertification: () -> Unit,
-    chatRoomViewModel: ChatRoomViewModel = hiltViewModel()
+    // navigateToCertification: () -> Unit,
+    chatRoomViewModel: ChatRoomViewModel = hiltViewModel(),
 ) {
     val chatRoomState by chatRoomViewModel.chatRoomState.collectAsStateWithLifecycle()
 
@@ -45,13 +45,13 @@ fun ChattingRoomRoute(
         chatRoomViewModel.getChatList()
     }
 
-    when(chatRoomState) {
+    when (chatRoomState) {
         is UiState.Empty -> Timber.tag("ChattingRoomRoute").d("chatRoomState is Empty")
         is UiState.Loading -> Timber.tag("ChattingRoomRoute").d("chatRoomState is Loading")
         is UiState.Success -> {
             val chatRoomStateData = (chatRoomState as UiState.Success<ChatRoomState>).data
             ChattingRoomScreen(
-                chatListEntity = chatRoomStateData.chatListEntity
+                chatListEntity = chatRoomStateData.chatListEntity,
             )
         }
         is UiState.Failure -> {
@@ -63,17 +63,18 @@ fun ChattingRoomRoute(
 
 @Composable
 fun ChattingRoomScreen(
-    chatListEntity: ChatListEntity
+    chatListEntity: ChatListEntity,
 ) {
     val timeFormatter = DateTimeFormatter.ofPattern("HH:mm")
-    val sortedChatList = (chatListEntity.chatPartner.chatList + chatListEntity.myChat.chatList)
-        .sortedBy { chat ->
-            runCatching {
-                LocalTime.parse(chat.createdTime, timeFormatter)
-            }.getOrElse {
-                LocalTime.MIN
+    val sortedChatList =
+        (chatListEntity.chatPartner.chatList + chatListEntity.myChat.chatList)
+            .sortedBy { chat ->
+                runCatching {
+                    LocalTime.parse(chat.createdTime, timeFormatter)
+                }.getOrElse {
+                    LocalTime.MIN
+                }
             }
-        }
 
     Column(
         modifier =
@@ -83,7 +84,7 @@ fun ChattingRoomScreen(
         BackChattingRoomTopAppBar(
             chattingRoomName = chatListEntity.chatRoomName,
             chattingRoomHeadCount = chatListEntity.chatParticiPantsCount,
-            onBackButtonClick = {}, // 뒤로가기
+            onBackButtonClick = {},
         )
         ChatRoomTopNotice()
 
@@ -100,7 +101,7 @@ fun ChattingRoomScreen(
                     if (chatListEntity.myChat.chatList.contains(chat)) {
                         Row(
                             modifier = Modifier.fillMaxWidth(),
-                            horizontalArrangement = Arrangement.End
+                            horizontalArrangement = Arrangement.End,
                         ) {
                             MychatBubble(
                                 sendMessage = chat.message,
@@ -125,7 +126,7 @@ fun ChattingRoomScreen(
                     if (chatListEntity.myChat.chatList.contains(chat)) {
                         Row(
                             modifier = Modifier.fillMaxWidth(),
-                            horizontalArrangement = Arrangement.End
+                            horizontalArrangement = Arrangement.End,
                         ) {
                             MyReplyChat(
                                 sender = chat.reply.repliedMessageSenderName ?: "",
@@ -161,9 +162,10 @@ fun ChattingRoomScreen(
                     .padding(horizontal = 18.dp),
         )
         HorizontalDivider(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(top = 1.dp),
+            modifier =
+                Modifier
+                    .fillMaxWidth()
+                    .padding(top = 1.dp),
             thickness = Dp.Hairline,
             color = Gray300,
         )
@@ -181,6 +183,6 @@ fun ChattingRoomScreen(
 @Composable
 fun ChattingScreenPreview() {
     ChattingRoomScreen(
-        ChatListEntity()
+        ChatListEntity(),
     )
 }
