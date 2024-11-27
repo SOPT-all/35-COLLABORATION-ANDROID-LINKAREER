@@ -106,7 +106,7 @@ fun ChattingHomeScreen(
             onClick = onChattingRoomTabClick,
             modifier = Modifier.padding(top = 2.dp),
         )
-        if (chattingRoomTab in 0..1) {
+        if (!isMyChattingRoom || chattingRoomTab in 0..1) {
             Text(
                 text = stringResource(R.string.chatting_home_count, chattingRoomList.size),
                 style = LINKareerTheme.typography.body10M11,
