@@ -35,7 +35,6 @@ fun OtherUserReplyChat(
     nickName: String,
     isChecked: Boolean,
     jobCategory: String,
-    imageUrl: String,
     sender: String,
     receivedMessage: String,
     replyMessage: String,
@@ -48,7 +47,6 @@ fun OtherUserReplyChat(
             nickName = nickName,
             isChecked = isChecked,
             jobCategory = jobCategory,
-            imageUrl = imageUrl,
         )
         OtherUserReplyBubble(
             sender = sender,
@@ -161,13 +159,12 @@ fun ChatJobChip(
     backgroundColor = 0xFFFFFFFF,
 )
 @Composable()
-fun OtherUserChatProfilePreview() {
+fun OtherUserReplyPreview() {
     LINKareerAndroidTheme {
         OtherUserReplyChat(
             nickName = "무관심한 맥",
             isChecked = true,
             jobCategory = "현대 자동차",
-            imageUrl = "",
             sender = "아닌 삼백초",
             receivedMessage = "ppt 만들 때 예쁘게꾸며야 좋나요?",
             replyMessage = "굳이 꾸밀 필요없습니다.",

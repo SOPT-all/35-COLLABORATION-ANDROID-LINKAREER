@@ -30,7 +30,6 @@ fun OtherUserChat(
     nickName: String,
     isChecked: Boolean,
     jobCategory: String,
-    imageUrl: String,
     sendMessage: String,
     timestamp: String,
     likeCount: Int,
@@ -41,7 +40,6 @@ fun OtherUserChat(
             nickName = nickName,
             isChecked = isChecked,
             jobCategory = jobCategory,
-            imageUrl = imageUrl,
         )
         Row(
             modifier =
@@ -108,7 +106,6 @@ fun OtherUserChatPreview() {
             nickName = "무관심한 맥",
             isChecked = true,
             jobCategory = "현대 자동차",
-            imageUrl = "",
             sendMessage = "굳이 꾸밀 필요없습니다.",
             timestamp = "18:33",
             likeCount = 5,
