@@ -17,11 +17,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
+import coil3.request.ImageRequest
+import coil3.request.crossfade
 import org.sopt.linkareer.R
 import org.sopt.linkareer.core.designsystem.component.chip.CommunityNameChip
 import org.sopt.linkareer.core.designsystem.theme.LINKareerAndroidTheme
@@ -64,13 +67,16 @@ fun CommunityBest(
             }
             Spacer(Modifier.width(8.dp))
             AsyncImage(
-                model = imageUrl,
+                model =
+                    ImageRequest.Builder(LocalContext.current)
+                        .crossfade(true)
+                        .data(imageUrl)
+                        .build(),
                 contentDescription = null,
                 modifier =
                     Modifier
                         .size(54.dp)
-                        .clip(RoundedCornerShape(4.dp))
-                        .padding(vertical = 3.dp),
+                        .clip(RoundedCornerShape(4.dp)),
             )
         }
         Spacer(Modifier.height(8.dp))
