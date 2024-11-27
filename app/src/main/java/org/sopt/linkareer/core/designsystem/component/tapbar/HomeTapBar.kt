@@ -31,6 +31,7 @@ import org.sopt.linkareer.core.designsystem.theme.Gray900
 import org.sopt.linkareer.core.designsystem.theme.LINKareerAndroidTheme
 import org.sopt.linkareer.core.designsystem.theme.White
 import org.sopt.linkareer.core.designsystem.theme.defaultLINKareerTypography
+import org.sopt.linkareer.core.extension.noRippleClickable
 
 @Composable
 fun HomeTapBar(
@@ -42,7 +43,7 @@ fun HomeTapBar(
 
     Row(
         modifier =
-            Modifier
+            modifier
                 .fillMaxWidth()
                 .background(White)
                 .padding(start = 10.dp),
@@ -86,12 +87,12 @@ fun HomeTapBar(
 fun TabItem(
     tapName: String,
     isSelected: Boolean,
-    onClick: (() -> Unit)? = null,
+    onClick: () -> Unit = {},
 ) {
     Box(
         modifier =
             Modifier
-                .clickable { if (onClick != null) onClick() }
+                .noRippleClickable { onClick() }
                 .width(IntrinsicSize.Max)
                 .drawBehind {
                     if (isSelected) {
