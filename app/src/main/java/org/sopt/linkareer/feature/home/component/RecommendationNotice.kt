@@ -1,9 +1,7 @@
 package org.sopt.linkareer.feature.home.component
 
-import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -33,6 +31,7 @@ import org.sopt.linkareer.R
 import org.sopt.linkareer.core.designsystem.component.chip.BlueTextChip
 import org.sopt.linkareer.core.designsystem.component.chip.DdayChip
 import org.sopt.linkareer.core.designsystem.theme.LINKareerTheme
+import org.sopt.linkareer.core.extension.noRippleClickable
 
 enum class NoticeType {
     BANNER,
@@ -42,7 +41,7 @@ enum class NoticeType {
 @Composable
 fun RecommendationNotice(
     noticeType: NoticeType,
-    @DrawableRes imageUrl: Int,
+    imageUrl: String,
     title: String,
     companyName: String,
     tag: String,
@@ -53,20 +52,20 @@ fun RecommendationNotice(
     modifier: Modifier = Modifier,
     onBookmarkClick: (Boolean) -> Unit = {},
 ) {
-    val width =
-        when (noticeType) {
-            NoticeType.BANNER -> 320.dp
-            NoticeType.LIST -> 120.dp
-        }
-    val imagePadding = if (noticeType == NoticeType.BANNER) 0.dp else 16.dp
+    val listImagePadding = if (noticeType == NoticeType.BANNER) 0.dp else 16.dp
     val titleMaxLines = if (noticeType == NoticeType.BANNER) 1 else 2
     var bookmarkedState by remember { mutableStateOf(isBookmarked) }
 
     Column(
         modifier =
-            modifier
-                .width(width)
-                .background(color = LINKareerTheme.colors.blue50),
+        modifier
+            .then(
+                if (noticeType == NoticeType.BANNER) {
+                    Modifier.fillMaxWidth()
+                } else {
+                    Modifier.width(120.dp)
+                }
+            )
     ) {
         RecommendationNoticeCardSection(
             imageUrl = imageUrl,
@@ -78,7 +77,7 @@ fun RecommendationNotice(
                 onBookmarkClick(it)
             },
             modifier = Modifier.aspectRatio(1f),
-            imagePaddingValues = imagePadding,
+            imagePaddingValues = listImagePadding,
         )
         Spacer(Modifier.height(4.dp))
 
@@ -97,13 +96,13 @@ fun RecommendationNotice(
 
 @Composable
 fun RecommendationNoticeCardSection(
-    @DrawableRes imageUrl: Int,
+    imageUrl: String,
     dDay: String,
     isBookmarked: Boolean,
     noticeType: NoticeType,
-    modifier: Modifier = Modifier,
-    imagePaddingValues: Dp,
     onBookmarkClick: (Boolean) -> Unit,
+    imagePaddingValues: Dp,
+    modifier: Modifier = Modifier
 ) {
     Box(
         modifier = Modifier.padding(bottom = 4.dp),
@@ -111,42 +110,29 @@ fun RecommendationNoticeCardSection(
         AsyncImage(
             model = imageUrl,
             modifier =
-                Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = imagePaddingValues)
-                    .background(color = LINKareerTheme.colors.gray100)
-                    .align(Alignment.Center),
+            Modifier
+                .fillMaxWidth()
+                .padding(horizontal = imagePaddingValues)
+                .background(color = LINKareerTheme.colors.gray100)
+                .align(Alignment.Center),
             contentDescription = null,
         )
         DdayChip(
             dDay = dDay,
             modifier =
-                Modifier
-                    .align(Alignment.TopStart)
-                    .padding(horizontal = 8.dp, vertical = 10.dp),
+            Modifier
+                .align(Alignment.TopStart)
+                .padding(horizontal = 8.dp, vertical = 10.dp),
         )
-        val bookmarkIcon =
-            when (noticeType) {
-                NoticeType.BANNER ->
-                    if (isBookmarked) {
-                        R.drawable.ic_bookmark_full_black_36
-                    } else {
-                        R.drawable.ic_bookmark_black_36
-                    }
-                NoticeType.LIST ->
-                    if (isBookmarked) {
-                        R.drawable.ic_bookmark_full_white_36
-                    } else {
-                        R.drawable.ic_bookmark_white_36
-                    }
-            }
+        val bookmarkIcon = if (isBookmarked) R.drawable.ic_bookmark_full_black_36 else R.drawable.ic_bookmark_black_36
 
         Image(
             imageVector = ImageVector.vectorResource(bookmarkIcon),
             contentDescription = null,
             modifier =
-                Modifier.align(Alignment.TopEnd)
-                    .clickable { onBookmarkClick(!isBookmarked) },
+            Modifier
+                .align(Alignment.TopEnd)
+                .noRippleClickable { onBookmarkClick(!isBookmarked) },
         )
     }
 }
@@ -167,8 +153,8 @@ fun RecommendationNoticeCompany(
 @Composable
 fun RecommendationNoticeTitle(
     title: String,
-    modifier: Modifier = Modifier,
     titleMaxLines: Int,
+    modifier: Modifier = Modifier,
 ) {
     Text(
         text = title,
@@ -187,42 +173,26 @@ fun RecommendationNoticeStatistics(
     comments: Int,
 ) {
     Row {
-        RecommendationNoticeStatisticsItem(
-            stringResource(R.string.recommendation_notice_views),
-            views,
+        Text(
+            text = stringResource(R.string.recommendation_notice_views, views),
+            style = LINKareerTheme.typography.label5M8,
+            color = LINKareerTheme.colors.gray600,
         )
         Spacer(Modifier.width(8.dp))
-        RecommendationNoticeStatisticsItem(
-            stringResource(R.string.recommendation_notice_comments),
-            comments,
+        Text(
+            text = stringResource(R.string.recommendation_notice_comments, comments),
+            style = LINKareerTheme.typography.label5M8,
+            color = LINKareerTheme.colors.gray600,
         )
     }
 }
 
-@Composable
-fun RecommendationNoticeStatisticsItem(
-    text: String,
-    count: Int,
-) {
-    Row {
-        Text(
-            text = text,
-            style = LINKareerTheme.typography.label5M8,
-            color = LINKareerTheme.colors.gray600,
-        )
-        Text(
-            text = count.toString(),
-            style = LINKareerTheme.typography.label5M8,
-            color = LINKareerTheme.colors.gray600,
-        )
-    }
-}
 
 @Preview
 @Composable
 fun RecommendationNoticePreview() {
     RecommendationNotice(
-        imageUrl = R.drawable.img_hotofficial_lalasweet,
+        imageUrl = "https://picsum.photos/88/20",
         title = "[LG CNS] [인턴_학사] 2025년 동계 DX Core 인2025년 동계 DX Core 인....",
         companyName = "LG CNS",
         tag = "정규직 1차 면접 프리패스",
@@ -230,6 +200,6 @@ fun RecommendationNoticePreview() {
         comments = 342,
         dDay = "D-7",
         isBookmarked = false,
-        noticeType = NoticeType.LIST,
+        noticeType = NoticeType.BANNER,
     )
 }

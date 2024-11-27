@@ -7,10 +7,13 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -19,15 +22,14 @@ import androidx.compose.material3.VerticalDivider
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import coil3.compose.AsyncImage
 import org.sopt.linkareer.R
 import org.sopt.linkareer.core.designsystem.component.chip.CommunityNameChip
+import org.sopt.linkareer.core.designsystem.component.text.TextWithIcon
 import org.sopt.linkareer.core.designsystem.theme.LINKareerAndroidTheme
 import org.sopt.linkareer.core.designsystem.theme.LINKareerTheme
 
@@ -38,14 +40,13 @@ fun ChattingRoomInPerson(
     company: String,
     chattingTitle: String,
     participationPerson: Int,
-    isInPersonConversation: Boolean = true,
     onClick: () -> Unit,
+    isInPersonConversation: Boolean = true,
 ) {
     Row(
         modifier =
             Modifier
                 .fillMaxWidth()
-                .aspectRatio(331 / 94f)
                 .clickable { onClick() }
                 .border(
                     border = BorderStroke(width = 1.dp, color = LINKareerTheme.colors.gray300),
@@ -55,13 +56,16 @@ fun ChattingRoomInPerson(
                 .padding(12.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        AsyncImage(
-            model = image,
+        Image(
+            painter = painterResource(image),
             contentDescription = null,
             modifier =
                 Modifier
-                    .background(color = LINKareerTheme.colors.white)
-                    .padding(horizontal = 12.dp),
+                    .background(color = LINKareerTheme.colors.white,
+                        shape = RoundedCornerShape(size = 4.dp),)
+                    .padding(horizontal = 12.dp)
+                    .height(70.dp)
+                    .aspectRatio(1f)
         )
         Spacer(Modifier.width(12.dp))
         Column(
@@ -85,9 +89,7 @@ fun ChattingRoomInPerson(
                 color = LINKareerTheme.colors.gray900,
             )
             Row(
-                modifier =
-                    Modifier
-                        .aspectRatio(119 / 12f),
+                modifier = Modifier.height(IntrinsicSize.Min),
                 verticalAlignment = Alignment.CenterVertically,
             ) {
                 Text(
@@ -99,12 +101,12 @@ fun ChattingRoomInPerson(
                     modifier =
                         Modifier
                             .padding(horizontal = 6.dp)
-                            .aspectRatio(1 / 12f),
+                            .fillMaxHeight(),
                     thickness = 1.dp,
                     color = LINKareerTheme.colors.gray300,
                 )
                 if (isInPersonConversation) {
-                    InPersonBadge()
+                    TextWithIcon(text= stringResource(R.string.chatting_room_in_preson_conversation))
                 }
             }
         }
@@ -115,27 +117,11 @@ fun ChattingRoomInPerson(
 fun CategoryChips(categories: List<String?>) {
     Row(
         modifier = Modifier.padding(bottom = 4.dp),
-        horizontalArrangement = Arrangement.Absolute.spacedBy(6.dp),
+        horizontalArrangement = Arrangement.Absolute.spacedBy(4.dp),
     ) {
         categories.filterNotNull().forEach { category ->
             CommunityNameChip(category)
         }
-    }
-}
-
-@Composable
-fun InPersonBadge() {
-    Row {
-        Image(
-            imageVector = ImageVector.vectorResource(R.drawable.ic_checkbadge_home_inperson_12),
-            contentDescription = null,
-        )
-        Text(
-            text = stringResource(R.string.chatting_room_in_preson_conversation),
-            modifier = Modifier.padding(start = 2.dp),
-            style = LINKareerTheme.typography.label5M8,
-            color = LINKareerTheme.colors.blue,
-        )
     }
 }
 
