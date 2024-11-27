@@ -17,22 +17,32 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import org.sopt.linkareer.core.designsystem.theme.Blue
 import org.sopt.linkareer.core.designsystem.theme.Gray400
+import org.sopt.linkareer.domain.model.BannerEntity
 
 @Composable
 fun HomeBannerPager(
+    bannerList: List<BannerEntity>,
     modifier: Modifier = Modifier,
 ) {
-    val pagerState = rememberPagerState { 4 }
+    val pagerState = rememberPagerState { bannerList.size }
+
     HorizontalPager(
         state = pagerState,
         modifier = modifier.padding(horizontal = 17.dp),
-    ) {
-        Box(
-            modifier =
-                Modifier
-                    .size(width = 326.dp, height = 254.dp)
-                    .background(Blue),
-        )
+    ) { page ->
+        with(bannerList[page]) {
+            RecommendationNotice(
+                noticeType = NoticeType.BANNER,
+                imageUrl = bannerImage,
+                title = title,
+                companyName = companyName,
+                tag = tag,
+                views = views,
+                comments = comments,
+                dDay = dDay,
+                isBookmarked = isBookmarked,
+            )
+        }
     }
     HomeBannerPagerIndicator(pagerState)
 }

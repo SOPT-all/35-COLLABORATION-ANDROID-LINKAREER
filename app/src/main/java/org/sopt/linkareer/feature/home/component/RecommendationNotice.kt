@@ -40,7 +40,7 @@ enum class NoticeType {
 @Composable
 fun RecommendationNotice(
     noticeType: NoticeType,
-    imageUrl: String,
+    imageUrl: Any,
     title: String,
     companyName: String,
     tag: String,
@@ -93,7 +93,7 @@ fun RecommendationNotice(
 
 @Composable
 fun RecommendationNoticeCardSection(
-    imageUrl: String,
+    imageUrl: Any,
     dDay: String,
     isBookmarked: Boolean,
     noticeType: NoticeType,

@@ -21,6 +21,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.sopt.linkareer.R
 import org.sopt.linkareer.core.designsystem.component.chip.FilteringChip
 import org.sopt.linkareer.core.designsystem.component.footer.MainFooter
@@ -36,13 +38,17 @@ import org.sopt.linkareer.feature.home.component.HomeTitle
 @Composable
 fun HomeRoute(
     paddingValues: PaddingValues,
+    viewModel: HomeViewModel = hiltViewModel(),
 ) {
-    HomeScreen(paddingValues)
+    val homeState by viewModel.homeState.collectAsStateWithLifecycle()
+
+    HomeScreen(paddingValues, homeState)
 }
 
 @Composable
 fun HomeScreen(
     paddingValues: PaddingValues,
+    homeState: HomeState,
 ) {
     var searchText by remember { mutableStateOf("") }
 
@@ -99,7 +105,7 @@ fun HomeScreen(
                                 bottom = 8.dp,
                             ),
                 )
-                HomeBannerPager()
+                HomeBannerPager(homeState.bannerList)
             }
         }
         item {
@@ -195,6 +201,6 @@ fun HomeScreen(
 @Composable
 fun HomeScreenPreview() {
     LINKareerAndroidTheme {
-        HomeScreen(PaddingValues(1.dp))
+        HomeScreen(PaddingValues(1.dp), HomeState())
     }
 }
