@@ -1,21 +1,15 @@
 package org.sopt.linkareer.feature.chattinghome
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -29,6 +23,8 @@ import org.sopt.linkareer.core.designsystem.theme.Gray900
 import org.sopt.linkareer.core.designsystem.theme.LINKareerAndroidTheme
 import org.sopt.linkareer.core.designsystem.theme.LINKareerTheme
 import org.sopt.linkareer.core.extension.noRippleClickable
+import org.sopt.linkareer.feature.chattinghome.component.ChattingHomeEmptyRoom
+import org.sopt.linkareer.feature.chattinghome.component.ChattingHomeRoomListItem
 import org.sopt.linkareer.feature.chattinghome.component.ChattingHomeTabRow
 
 @Composable
@@ -49,7 +45,6 @@ fun ChattingHomeRoute(
             onSearchTextChange = chattingHomeViewModel::updateSearchText,
             onMyChattingRoomClick = chattingHomeViewModel::updateIsMyChattingRoom,
             onChattingRoomTabClick = chattingHomeViewModel::updateChattingRoomTab,
-            onChattingRoomClick = {},
             navigateToChattingRoom = navigateToChattingRoom,
         )
     }
@@ -65,7 +60,6 @@ fun ChattingHomeScreen(
     onSearchTextChange: (String) -> Unit,
     onMyChattingRoomClick: (Boolean) -> Unit,
     onChattingRoomTabClick: (Int) -> Unit,
-    onChattingRoomClick: () -> Unit,
     navigateToChattingRoom: () -> Unit,
 ) {
     Column(
@@ -121,24 +115,14 @@ fun ChattingHomeScreen(
                         .padding(vertical = 12.dp)
                         .padding(start = 16.dp),
             )
-            LazyColumn(
-                verticalArrangement = Arrangement.spacedBy(8.dp),
+
+            ChattingHomeRoomListItem(listOf(), navigateToChattingRoom)
+        } else {
+            ChattingHomeEmptyRoom(
                 modifier =
                     Modifier
-                        .fillMaxWidth()
-                        .padding(start = 16.dp, end = 15.dp),
-            ) {
-                items(10) {
-                    Box(
-                        modifier =
-                            Modifier
-                                .height(94.dp)
-                                .fillMaxWidth()
-                                .clip(RoundedCornerShape(8.dp))
-                                .background(LINKareerTheme.colors.gray500),
-                    )
-                }
-            }
+                        .padding(vertical = 24.dp, horizontal = 17.dp),
+            )
         }
     }
 }
@@ -157,7 +141,6 @@ fun ChattingHomeScreenPreview() {
             onSearchTextChange = {},
             onMyChattingRoomClick = {},
             onChattingRoomTabClick = {},
-            onChattingRoomClick = {},
         )
     }
 }

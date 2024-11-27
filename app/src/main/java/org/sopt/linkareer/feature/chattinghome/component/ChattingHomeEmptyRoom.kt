@@ -25,7 +25,7 @@ fun ChattingHomeEmptyRoom(
                 .fillMaxWidth()
                 .clip(RoundedCornerShape(8.dp))
                 .background(LINKareerTheme.colors.blue50)
-                .padding(8.dp)
+                .padding(8.dp),
     ) {
         Text(
             text = stringResource(R.string.chatting_home_room_empty),
