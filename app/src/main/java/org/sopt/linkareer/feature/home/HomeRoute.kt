@@ -2,13 +2,11 @@ package org.sopt.linkareer.feature.home
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.material3.HorizontalDivider
@@ -32,8 +30,12 @@ import org.sopt.linkareer.core.designsystem.theme.Blue
 import org.sopt.linkareer.core.designsystem.theme.Blue50
 import org.sopt.linkareer.core.designsystem.theme.Gray300
 import org.sopt.linkareer.core.designsystem.theme.LINKareerAndroidTheme
+import org.sopt.linkareer.core.designsystem.theme.LINKareerTheme
+import org.sopt.linkareer.feature.home.component.CommunityBest
 import org.sopt.linkareer.feature.home.component.HomeBannerPager
 import org.sopt.linkareer.feature.home.component.HomeTitle
+import org.sopt.linkareer.feature.home.component.NoticeType
+import org.sopt.linkareer.feature.home.component.RecommendationNotice
 
 @Composable
 fun HomeRoute(
@@ -129,15 +131,40 @@ fun HomeScreen(
                         ),
             )
         }
-        items(3) {
-            Box(
-                modifier = Modifier.size(width = 326.dp, height = 132.dp),
+        items(
+            count = 3,
+            key = { homeState.postList[it].id },
+        ) { post ->
+            with(homeState.postList[post]) {
+                CommunityBest(
+                    community = community,
+                    imageUrl = imageUrl,
+                    title = title,
+                    content = content,
+                    writer = writer,
+                    beforeTime = beforeTime,
+                    favorites = favourites,
+                    comments = comments,
+                    views = views,
+                    modifier =
+                        Modifier
+                            .padding(start = 15.dp, end = 19.dp),
+                )
+            }
+
+            HorizontalDivider(
+                thickness = 1.dp,
+                color = LINKareerTheme.colors.gray300,
+                modifier =
+                    Modifier
+                        .padding(start = 15.dp, end = 19.dp),
             )
         }
         item {
             Column(
                 modifier =
                     Modifier
+                        .padding(top = 20.dp)
                         .background(Blue50),
             ) {
                 HomeTitle(
@@ -182,13 +209,23 @@ fun HomeScreen(
                         Modifier
                             .padding(top = 12.dp, bottom = 40.dp),
                 ) {
-                    items(6) {
-                        Box(
-                            modifier =
-                                Modifier
-                                    .size(width = 120.dp, height = 216.dp)
-                                    .background(Blue),
-                        )
+                    items(
+                        count = homeState.officialList.size,
+                        key = { homeState.officialList[it].id },
+                    ) { official ->
+                        with(homeState.officialList[official]) {
+                            RecommendationNotice(
+                                noticeType = NoticeType.LIST,
+                                imageUrl = imageUrl,
+                                title = title,
+                                companyName = companyName,
+                                tag = tag,
+                                views = views,
+                                comments = comments,
+                                dDay = dDay,
+                                isBookmarked = isBookmarked,
+                            )
+                        }
                     }
                 }
             }

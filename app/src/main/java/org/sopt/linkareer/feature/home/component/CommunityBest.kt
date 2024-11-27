@@ -2,7 +2,6 @@ package org.sopt.linkareer.feature.home.component
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -44,7 +43,6 @@ fun CommunityBest(
     Column(
         modifier =
             modifier
-                .background(color = LINKareerTheme.colors.gray100)
                 .padding(horizontal = 8.dp, vertical = 12.dp),
     ) {
         CommunityNameChip(text = community)
