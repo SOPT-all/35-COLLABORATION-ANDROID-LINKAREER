@@ -41,6 +41,7 @@
     <string name="chatting">채팅</string>
 
     <!-- component -->
+    <string name="d_day">D - %s</string>
     <string name="chatting_home_refresh">다른 채팅방 보기</string>
     <string name="footer_terms_of_use">이용약관</string>
     <string name="footer_personal_information_policy">개인정보처리방침</string>
@@ -48,6 +49,9 @@
     <string name="footer_copyright_1">Copyright&#169;</string>
     <string name="footer_copyright_2">Linkareer Inc.</string>
     <string name="footer_copyright_3">All Rights Reserved</string>
+
+    <string name="chatting_room_in_preson">참여인원 %d명</string>
+    <string name="chatting_room_in_preson_conversation">현직자 대화중</string>
 
 
     <!-- chatting -->
@@ -65,6 +69,16 @@
     <string name="chatroom_notice_link_description">을 거쳐 대화의 신뢰도를 높여보세요</string>
     <string name="chatroom_notice_contentDescription">합불 인증 화면으로 이동하는 링크</string>
 
+    <!-- top app bar -->
+    <string name="topappbar_chatting_room_head_count">%s명</string>
+
+    <!-- newbie / intern -->
+    <string name="newbieintern_pass_guide_plus">합격 가이드 더보기</string>
+    <string name="newbieintern_personal_statement">자소서</string>
+    <string name="newbieintern_personality">인적성</string>
+    <string name="newbieintern_interview">면접</string>
+    <string name="newbieintern_final_pass">면접</string>
+
     <!-- Top App Bar -->
     <string name="chatting_room_head_count">%s명</string>
 
@@ -81,4 +95,45 @@
     <string name="newbie_tab_calendar">공고달력</string>
     <string name="newbie_tab_arrow_down_contentDescription">메뉴 탭 전체보기</string>
 
+    <!-- home - recommendation notice -->
+    <string name="recommendation_notice_views">조회수 %d</string>
+    <string name="recommendation_notice_comments">댓글 %d</string>
+
+    <string name="home_search_textfield_hint">대외활동,인턴,채용 정보를 검색해보세요</string>
+    <string name="home_more_button">더보기</string>
+    <string name="home_title_name">앤솝</string>
+
+    <string name="home_title_interest_announcement">님이 관심 있을만한 공고</string>
+    <string name="home_sub_title_interest_announcement">와(과) 관련 높은 활동이에요</string>\
+    <string name="home_chip_interest_announcement_1">연구활동</string>
+    <string name="home_chip_interest_announcement_2">부트캠프</string>
+    <string name="home_chip_interest_announcement_3">아카데미</string>
+
+    <string name="home_title_interest_people">님과 같은 관심사를 가진 사람들</string>
+    <string name="home_sub_title_interest_people">에 대한 이야기를 하고 있어요.</string>\
+    <string name="home_chip_interest_people_1">디자인</string>
+    <string name="home_chip_interest_people_2">UX/UI</string>
+    <string name="home_chip_interest_people_3">프로덕트 디자인</string>
+
+    <string name="home_title_recommend_announcement">님에게 추천하는 공고</string>
+    <string name="home_sub_title_recommend_announcement">혜택이 있어요.</string>
+    <string name="home_chip_recommend_announcement_1">정규직 전환</string>
+    <string name="home_chip_recommend_announcement_2">채용연계</string>
+    <string name="home_chip_recommend_announcement_3">1차 프리패스</string>
+    <string name="home_filtering_employment_news">채용소식</string>
+    <string name="home_filtering_activities">대외활동</string>
+
+    <string name="chatting_home_search_textfield_hint">채팅방을 검색해보세요</string>
+    <string name="chatting_home_my_chatting_room">내 채팅방</string>
+    <string name="chatting_home_all_chatting_room">전체 채팅방</string>
+    <string name="chatting_home_all">전체</string>
+    <string name="chatting_home_employment">채용</string>
+    <string name="chatting_home_activities">대외활동/공모전</string>
+    <string name="chatting_home_education">교육</string>
+    <string name="chatting_home_category">직무</string>
+    <string name="chatting_home_subject">주제별</string>
+    <string name="chatting_home_count">총 %s개</string>
+
+    <string name="chatting_home_room_empty">입장한 채팅방이 없습니다.</string>
+    <string name="chatting_home_enter_room">채팅방에 입장하여, 고민을 나눠보세요!</string>
 </resources>
