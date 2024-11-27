@@ -4,7 +4,6 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
@@ -32,6 +31,7 @@ import org.sopt.linkareer.core.designsystem.component.chip.CommunityNameChip
 import org.sopt.linkareer.core.designsystem.component.text.TextWithIcon
 import org.sopt.linkareer.core.designsystem.theme.LINKareerAndroidTheme
 import org.sopt.linkareer.core.designsystem.theme.LINKareerTheme
+import org.sopt.linkareer.core.extension.noRippleClickable
 
 @Composable
 fun ChattingRoomInPerson(
@@ -47,7 +47,7 @@ fun ChattingRoomInPerson(
         modifier =
             Modifier
                 .fillMaxWidth()
-                .clickable { onClick() }
+                .noRippleClickable { onClick() }
                 .border(
                     border = BorderStroke(width = 1.dp, color = LINKareerTheme.colors.gray300),
                     shape = RoundedCornerShape(size = 8.dp),
