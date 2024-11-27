@@ -24,7 +24,7 @@ fun FilteringChip(
         text = text,
         textColor = if (isSelected) White else Gray900,
         backgroundColor = if (isSelected) Blue else Gray300,
-        paddingValues = PaddingValues(vertical = 8.dp, horizontal = 13.dp),
+        paddingValues = PaddingValues(vertical = 6.dp, horizontal = 13.dp),
         cornerRadius = 50.dp,
         textStyle = LINKareerTheme.typography.body10M11,
         modifier = modifier,
