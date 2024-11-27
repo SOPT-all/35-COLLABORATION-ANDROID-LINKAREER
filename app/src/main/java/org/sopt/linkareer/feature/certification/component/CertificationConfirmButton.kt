@@ -16,8 +16,8 @@ import org.sopt.linkareer.R
 import org.sopt.linkareer.core.designsystem.theme.Blue
 import org.sopt.linkareer.core.designsystem.theme.Gray400
 import org.sopt.linkareer.core.designsystem.theme.LINKareerAndroidTheme
+import org.sopt.linkareer.core.designsystem.theme.LINKareerTheme
 import org.sopt.linkareer.core.designsystem.theme.White
-import org.sopt.linkareer.core.designsystem.theme.defaultLINKareerTypography
 
 @Composable
 fun CertificationConfirmButton(
@@ -30,7 +30,7 @@ fun CertificationConfirmButton(
             modifier
                 .fillMaxWidth(),
         contentPadding = PaddingValues(horizontal = 10.dp, vertical = 12.dp),
-        onClick = { onClickButton() },
+        onClick = onClickButton,
         shape = RoundedCornerShape(8.dp),
         colors =
             ButtonDefaults.buttonColors(
@@ -42,7 +42,7 @@ fun CertificationConfirmButton(
     ) {
         Text(
             text = stringResource(buttonText),
-            style = defaultLINKareerTypography.body8M13,
+            style = LINKareerTheme.typography.body8M13,
         )
     }
 }

@@ -2,7 +2,7 @@ package org.sopt.linkareer.core.designsystem.component.tapbar
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
@@ -31,6 +31,7 @@ import org.sopt.linkareer.core.designsystem.theme.Gray900
 import org.sopt.linkareer.core.designsystem.theme.LINKareerAndroidTheme
 import org.sopt.linkareer.core.designsystem.theme.White
 import org.sopt.linkareer.core.designsystem.theme.defaultLINKareerTypography
+import org.sopt.linkareer.core.extension.noRippleClickable
 
 @Composable
 fun HomeTapBar(
@@ -42,42 +43,51 @@ fun HomeTapBar(
 
     Row(
         modifier =
-            Modifier
+            modifier
                 .fillMaxWidth()
                 .background(White)
-                .padding(start = 10.dp),
+                .padding(start = 11.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        TabItem(
-            tapName = newbieTab,
-            isSelected = rememberTap == newbieTab,
-            onClick = {
-                rememberTap = newbieTab
-                onTabClick(newbieTab)
-            },
-        )
-        Spacer(modifier = Modifier.padding(start = 12.dp))
+        Row(
+            horizontalArrangement = Arrangement.SpaceBetween,
+            modifier =
+                Modifier
+                    .weight(1f),
+        ) {
+            TabItem(
+                tapName = newbieTab,
+                isSelected = rememberTap == newbieTab,
+                onClick = {
+                    rememberTap = newbieTab
+                    onTabClick(newbieTab)
+                },
+            )
+            Spacer(modifier = Modifier.padding(start = 12.dp))
 
-        TabItem(
-            tapName = stringResource(R.string.home_tab_contest),
-            isSelected = false,
-        )
-        Spacer(modifier = Modifier.padding(start = 12.dp))
+            TabItem(
+                tapName = stringResource(R.string.home_tab_contest),
+                isSelected = false,
+            )
+            Spacer(modifier = Modifier.padding(start = 12.dp))
 
-        TabItem(
-            tapName = stringResource(R.string.home_tab_channel),
-            isSelected = false,
-        )
-        Spacer(modifier = Modifier.padding(start = 12.dp))
+            TabItem(
+                tapName = stringResource(R.string.home_tab_channel),
+                isSelected = false,
+            )
+            Spacer(modifier = Modifier.padding(start = 12.dp))
 
-        TabItem(
-            tapName = stringResource(R.string.home_tab_community),
-            isSelected = false,
-        )
-
+            TabItem(
+                tapName = stringResource(R.string.home_tab_community),
+                isSelected = false,
+            )
+        }
         Image(
             imageVector = ImageVector.vectorResource(R.drawable.ic_arrow_down_box_30),
             contentDescription = stringResource(R.string.newbie_tab_arrow_down_contentDescription),
+            modifier =
+                Modifier
+                    .padding(start = 8.dp, end = 10.dp),
         )
     }
 }
@@ -86,12 +96,12 @@ fun HomeTapBar(
 fun TabItem(
     tapName: String,
     isSelected: Boolean,
-    onClick: (() -> Unit)? = null,
+    onClick: () -> Unit = {},
 ) {
     Box(
         modifier =
             Modifier
-                .clickable { if (onClick != null) onClick() }
+                .noRippleClickable { onClick() }
                 .width(IntrinsicSize.Max)
                 .drawBehind {
                     if (isSelected) {
