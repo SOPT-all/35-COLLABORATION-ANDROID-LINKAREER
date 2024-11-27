@@ -23,6 +23,7 @@ import org.sopt.linkareer.core.designsystem.theme.Gray900
 import org.sopt.linkareer.core.designsystem.theme.LINKareerAndroidTheme
 import org.sopt.linkareer.core.designsystem.theme.LINKareerTheme
 import org.sopt.linkareer.core.extension.noRippleClickable
+import org.sopt.linkareer.domain.model.ChattingRoomEntity
 import org.sopt.linkareer.feature.chattinghome.component.ChattingHomeEmptyRoom
 import org.sopt.linkareer.feature.chattinghome.component.ChattingHomeRoomListItem
 import org.sopt.linkareer.feature.chattinghome.component.ChattingHomeTabRow
@@ -56,7 +57,7 @@ fun ChattingHomeScreen(
     searchText: String,
     isMyChattingRoom: Boolean,
     chattingRoomTab: Int,
-    chattingRoomList: List<String>,
+    chattingRoomList: List<ChattingRoomEntity>,
     onSearchTextChange: (String) -> Unit,
     onMyChattingRoomClick: (Boolean) -> Unit,
     onChattingRoomTabClick: (Int) -> Unit,
@@ -116,7 +117,7 @@ fun ChattingHomeScreen(
                         .padding(start = 16.dp),
             )
 
-            ChattingHomeRoomListItem(listOf(), navigateToChattingRoom)
+            ChattingHomeRoomListItem(chattingRoomList, navigateToChattingRoom)
         } else {
             ChattingHomeEmptyRoom(
                 modifier =

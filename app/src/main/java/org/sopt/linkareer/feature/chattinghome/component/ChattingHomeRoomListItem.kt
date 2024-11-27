@@ -14,10 +14,11 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import org.sopt.linkareer.core.designsystem.theme.LINKareerTheme
 import org.sopt.linkareer.core.extension.noRippleClickable
+import org.sopt.linkareer.domain.model.ChattingRoomEntity
 
 @Composable
 fun ChattingHomeRoomListItem(
-    roomList: List<String>,
+    roomList: List<ChattingRoomEntity>,
     onClick: () -> Unit,
 ) {
     LazyColumn(
