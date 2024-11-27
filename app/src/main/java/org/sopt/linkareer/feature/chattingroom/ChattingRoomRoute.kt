@@ -1,9 +1,8 @@
-package org.sopt.linkareer.feature.chatting
+package org.sopt.linkareer.feature.chattingroom
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -17,26 +16,21 @@ import org.sopt.linkareer.core.designsystem.component.textfield.ChattingTextFiel
 import org.sopt.linkareer.core.designsystem.component.topappbar.BackChattingRoomTopAppBar
 import org.sopt.linkareer.core.designsystem.theme.Gray300
 import org.sopt.linkareer.core.designsystem.theme.White
-import org.sopt.linkareer.feature.chatting.component.ChatRoomBottomNotice
-import org.sopt.linkareer.feature.chatting.component.ChatRoomTopNotice
-import org.sopt.linkareer.feature.chatting.component.OtherUserChat
-import org.sopt.linkareer.feature.chatting.component.OtherUserReplyChat
+import org.sopt.linkareer.feature.chattingroom.component.ChatRoomBottomNotice
+import org.sopt.linkareer.feature.chattingroom.component.ChatRoomTopNotice
+import org.sopt.linkareer.feature.chattingroom.component.OtherUserChat
+import org.sopt.linkareer.feature.chattingroom.component.OtherUserReplyChat
 
 @Composable
-fun ChattingRoute(
-    paddingValues: PaddingValues,
-) {
-    ChattingScreen(paddingValues)
+fun ChattingRoomRoute() {
+    ChattingRoomScreen()
 }
 
 @Composable
-fun ChattingScreen(
-    paddingValues: PaddingValues,
-) {
+fun ChattingRoomScreen() {
     Column(
         modifier =
             Modifier
-                .padding(paddingValues)
                 .background(White),
     ) {
         BackChattingRoomTopAppBar(
@@ -113,7 +107,5 @@ fun ChattingScreen(
 @Preview(showBackground = true)
 @Composable
 fun ChattingScreenPreview() {
-    ChattingScreen(
-        paddingValues = PaddingValues(vertical = 8.dp),
-    )
+    ChattingRoomScreen()
 }

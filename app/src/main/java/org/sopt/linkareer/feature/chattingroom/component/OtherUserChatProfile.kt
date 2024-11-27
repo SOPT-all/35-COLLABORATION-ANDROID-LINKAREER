@@ -1,4 +1,4 @@
-package org.sopt.linkareer.feature.chatting.component
+package org.sopt.linkareer.feature.chattingroom.component
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Row
@@ -20,7 +20,7 @@ import org.sopt.linkareer.core.designsystem.theme.Blue100
 import org.sopt.linkareer.core.designsystem.theme.Gray200
 import org.sopt.linkareer.core.designsystem.theme.Gray500
 import org.sopt.linkareer.core.designsystem.theme.Gray900
-import org.sopt.linkareer.core.designsystem.theme.defaultLINKareerTypography
+import org.sopt.linkareer.core.designsystem.theme.LINKareerTheme
 
 @Composable
 fun OtherUserChatProfile(
@@ -47,7 +47,7 @@ fun OtherUserChatProfile(
         )
         Text(
             text = nickName,
-            style = defaultLINKareerTypography.body5B11,
+            style = LINKareerTheme.typography.body5B11,
             color = Gray900,
             modifier =
                 Modifier

@@ -1,13 +1,14 @@
-package org.sopt.linkareer.feature.chatting.component
+package org.sopt.linkareer.feature.chattingroom.component
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -22,33 +23,32 @@ import org.sopt.linkareer.R
 import org.sopt.linkareer.core.designsystem.theme.Blue50
 import org.sopt.linkareer.core.designsystem.theme.Gray600
 import org.sopt.linkareer.core.designsystem.theme.Gray900
-import org.sopt.linkareer.core.designsystem.theme.defaultLINKareerTypography
+import org.sopt.linkareer.core.designsystem.theme.LINKareerAndroidTheme
+import org.sopt.linkareer.core.designsystem.theme.LINKareerTheme
 
 @Composable
-fun MyChat(
+fun OtherUserChat(
+    nickName: String,
+    isChecked: Boolean,
+    jobCategory: String,
+    imageUrl: String,
     sendMessage: String,
     timestamp: String,
 ) {
-    Column(
-        modifier =
-            Modifier
-                .padding(end = 8.dp),
-        horizontalAlignment = Alignment.End,
-    ) {
+    Column {
+        OtherUserChatProfile(
+            nickName = nickName,
+            isChecked = isChecked,
+            jobCategory = jobCategory,
+            imageUrl = imageUrl,
+        )
         Row(
             modifier =
                 Modifier
-                    .wrapContentWidth(),
+                    .fillMaxWidth()
+                    .padding(start = 30.dp),
             verticalAlignment = Alignment.Bottom,
         ) {
-            Text(
-                text = timestamp,
-                style = defaultLINKareerTypography.body13R11,
-                color = Gray600,
-                modifier =
-                    Modifier
-                        .padding(end = 4.dp),
-            )
             Column(
                 modifier =
                     Modifier
@@ -56,13 +56,22 @@ fun MyChat(
                         .clip(RoundedCornerShape(10.dp))
                         .background(Blue50)
                         .padding(12.dp),
+                verticalArrangement = Arrangement.spacedBy(space = 8.dp, alignment = Alignment.Bottom),
             ) {
                 Text(
                     text = sendMessage,
-                    style = defaultLINKareerTypography.body8M13,
+                    style = LINKareerTheme.typography.body8M13,
                     color = Gray900,
                 )
             }
+            Text(
+                text = timestamp,
+                style = LINKareerTheme.typography.body13R11,
+                color = Gray600,
+                modifier =
+                    Modifier
+                        .padding(start = 4.dp),
+            )
         }
         Image(
             painter = painterResource(R.drawable.ic_chatting_like_inactive_25),
@@ -79,9 +88,15 @@ fun MyChat(
     backgroundColor = 0xFFFFFFFF,
 )
 @Composable
-fun MyChatPreview() {
-    MyChat(
-        sendMessage = "text message",
-        timestamp = "18:33",
-    )
+fun OtherUserChatPreview() {
+    LINKareerAndroidTheme {
+        OtherUserChat(
+            nickName = "무관심한 맥",
+            isChecked = true,
+            jobCategory = "현대 자동차",
+            imageUrl = "",
+            sendMessage = "굳이 꾸밀 필요없습니다.",
+            timestamp = "18:33",
+        )
+    }
 }

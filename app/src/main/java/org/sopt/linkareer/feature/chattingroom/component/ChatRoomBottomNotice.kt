@@ -1,4 +1,4 @@
-package org.sopt.linkareer.feature.chatting.component
+package org.sopt.linkareer.feature.chattingroom.component
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -26,7 +26,7 @@ import org.sopt.linkareer.core.designsystem.theme.Gray100
 import org.sopt.linkareer.core.designsystem.theme.Gray200
 import org.sopt.linkareer.core.designsystem.theme.Gray700
 import org.sopt.linkareer.core.designsystem.theme.LINKareerAndroidTheme
-import org.sopt.linkareer.core.designsystem.theme.defaultLINKareerTypography
+import org.sopt.linkareer.core.designsystem.theme.LINKareerTheme
 
 @Composable
 fun ChatRoomBottomNotice(
@@ -64,14 +64,14 @@ fun ChatRoomBottomNotice(
                         .clickable { onClickToCheck() },
                 text = stringResource(R.string.chatroom_notice_link),
                 style =
-                    defaultLINKareerTypography.body11M10.copy(
+                    LINKareerTheme.typography.body11M10.copy(
                         textDecoration = TextDecoration.Underline,
                     ),
                 color = Blue,
             )
             Text(
                 text = stringResource(R.string.chatroom_notice_link_description),
-                style = defaultLINKareerTypography.body11M10,
+                style = LINKareerTheme.typography.body11M10,
                 color = Gray700,
             )
             Spacer(modifier = Modifier.weight(1f))

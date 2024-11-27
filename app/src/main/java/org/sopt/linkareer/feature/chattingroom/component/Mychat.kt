@@ -1,16 +1,14 @@
-package org.sopt.linkareer.feature.chatting.component
+package org.sopt.linkareer.feature.chattingroom.component
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.wrapContentWidth
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -22,16 +20,13 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import org.sopt.linkareer.R
 import org.sopt.linkareer.core.designsystem.theme.Blue50
-import org.sopt.linkareer.core.designsystem.theme.Gray300
 import org.sopt.linkareer.core.designsystem.theme.Gray600
 import org.sopt.linkareer.core.designsystem.theme.Gray900
-import org.sopt.linkareer.core.designsystem.theme.defaultLINKareerTypography
+import org.sopt.linkareer.core.designsystem.theme.LINKareerTheme
 
 @Composable
-fun MyReplyChat(
-    sender: String,
-    receivedMessage: String,
-    replyMessage: String,
+fun MyChat(
+    sendMessage: String,
     timestamp: String,
 ) {
     Column(
@@ -41,14 +36,11 @@ fun MyReplyChat(
         horizontalAlignment = Alignment.End,
     ) {
         Row(
-            modifier =
-                Modifier
-                    .wrapContentWidth(),
             verticalAlignment = Alignment.Bottom,
         ) {
             Text(
                 text = timestamp,
-                style = defaultLINKareerTypography.body13R11,
+                style = LINKareerTheme.typography.body13R11,
                 color = Gray600,
                 modifier =
                     Modifier
@@ -61,28 +53,14 @@ fun MyReplyChat(
                         .clip(RoundedCornerShape(10.dp))
                         .background(Blue50)
                         .padding(12.dp),
-                verticalArrangement = Arrangement.spacedBy(space = 8.dp, alignment = Alignment.Bottom),
             ) {
                 Text(
-                    text = sender + " " + stringResource(R.string.chatroom_apply_to_sender),
-                    style = defaultLINKareerTypography.body5B11,
+                    text = sendMessage,
+                    style = LINKareerTheme.typography.body8M13,
                     color = Gray900,
-                )
-                Text(
-                    text = receivedMessage,
-                    style = defaultLINKareerTypography.label3M11,
-                    color = Gray600,
-                )
-
-                HorizontalDivider(
-                    color = Gray300,
-                    thickness = 1.dp,
-                )
-
-                Text(
-                    text = replyMessage,
-                    style = defaultLINKareerTypography.body8M13,
-                    color = Gray900,
+                    modifier =
+                        Modifier
+                            .widthIn(max = 230.dp),
                 )
             }
         }
@@ -101,11 +79,9 @@ fun MyReplyChat(
     backgroundColor = 0xFFFFFFFF,
 )
 @Composable
-fun MyReplyChatPreview() {
-    MyReplyChat(
-        sender = "nn",
-        receivedMessage = "origin message",
-        replyMessage = "text message",
+fun MyChatPreview() {
+    MyChat(
+        sendMessage = "text message",
         timestamp = "18:33",
     )
 }

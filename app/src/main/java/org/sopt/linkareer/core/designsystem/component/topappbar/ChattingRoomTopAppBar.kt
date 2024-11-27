@@ -36,7 +36,7 @@ fun BackChattingRoomTopAppBar(
                     style = LINKareerTheme.typography.title4B15,
                 )
                 Text(
-                    text = stringResource(id = R.string.chatting_room_head_count, chattingRoomHeadCount.toString()),
+                    text = stringResource(id = R.string.topappbar_chatting_room_head_count, chattingRoomHeadCount.toString()),
                     modifier =
                         Modifier
                             .padding(start = 1.dp, top = 2.dp, bottom = 2.dp)

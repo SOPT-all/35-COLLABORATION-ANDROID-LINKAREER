@@ -1,4 +1,4 @@
-package org.sopt.linkareer.feature.chatting.component
+package org.sopt.linkareer.feature.chattingroom.component
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -29,7 +29,7 @@ import org.sopt.linkareer.core.designsystem.theme.Gray300
 import org.sopt.linkareer.core.designsystem.theme.Gray600
 import org.sopt.linkareer.core.designsystem.theme.Gray900
 import org.sopt.linkareer.core.designsystem.theme.LINKareerAndroidTheme
-import org.sopt.linkareer.core.designsystem.theme.defaultLINKareerTypography
+import org.sopt.linkareer.core.designsystem.theme.LINKareerTheme
 
 @Composable
 fun OtherUserReplyChat(
@@ -89,13 +89,13 @@ fun OtherUserReplyBubble(
             verticalArrangement = Arrangement.spacedBy(space = 8.dp, alignment = Alignment.Bottom),
         ) {
             Text(
-                text = sender + " " + stringResource(R.string.chatroom_apply_to_sender),
-                style = defaultLINKareerTypography.body5B11,
+                text = stringResource(R.string.chatroom_apply_to_sender, sender),
+                style = LINKareerTheme.typography.body5B11,
                 color = Gray900,
             )
             Text(
                 text = receivedMessage,
-                style = defaultLINKareerTypography.label3M11,
+                style = LINKareerTheme.typography.label3M11,
                 color = Gray600,
             )
 
@@ -106,13 +106,13 @@ fun OtherUserReplyBubble(
 
             Text(
                 text = replyMessage,
-                style = defaultLINKareerTypography.body8M13,
+                style = LINKareerTheme.typography.body8M13,
                 color = Gray900,
             )
         }
         Text(
             text = timestamp,
-            style = defaultLINKareerTypography.body13R11,
+            style = LINKareerTheme.typography.body13R11,
             color = Gray600,
             modifier =
                 Modifier
@@ -136,7 +136,7 @@ fun ChatJobChip(
     ) {
         Text(
             text = job,
-            style = defaultLINKareerTypography.label5M8,
+            style = LINKareerTheme.typography.label5M8,
             color = textColor,
             modifier =
                 Modifier
