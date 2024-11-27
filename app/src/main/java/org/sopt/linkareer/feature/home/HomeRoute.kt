@@ -48,6 +48,7 @@ fun HomeRoute(
 
     LaunchedEffect(true) {
         viewModel.getPosts("interest")
+        viewModel.getOfficials("recommend")
     }
 
     HomeScreen(paddingValues, homeState)
@@ -217,22 +218,24 @@ fun HomeScreen(
                         Modifier
                             .padding(top = 12.dp, bottom = 40.dp),
                 ) {
-                    items(
-                        count = homeState.officialList.size,
-                        key = { homeState.officialList[it].id },
-                    ) { official ->
-                        with(homeState.officialList[official]) {
-                            RecommendationNotice(
-                                noticeType = NoticeType.LIST,
-                                imageUrl = imageUrl,
-                                title = title,
-                                companyName = companyName,
-                                tag = tag,
-                                views = views,
-                                comments = comments,
-                                dDay = dDay,
-                                isBookmarked = isBookmarked,
-                            )
+                    if (homeState.officialList is UiState.Success) {
+                        items(
+                            count = homeState.officialList.data.size,
+                            key = { homeState.officialList.data[it].id },
+                        ) { official ->
+                            with(homeState.officialList.data[official]) {
+                                RecommendationNotice(
+                                    noticeType = NoticeType.LIST,
+                                    imageUrl = imageUrl,
+                                    title = title,
+                                    companyName = companyName,
+                                    tag = tag,
+                                    views = views,
+                                    comments = comments,
+                                    dDay = dDay,
+                                    isBookmarked = isBookmarked,
+                                )
+                            }
                         }
                     }
                 }

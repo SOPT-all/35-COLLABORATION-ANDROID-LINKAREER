@@ -9,7 +9,6 @@ import kotlinx.coroutines.launch
 import org.sopt.linkareer.R
 import org.sopt.linkareer.core.state.UiState
 import org.sopt.linkareer.domain.model.BannerEntity
-import org.sopt.linkareer.domain.model.OfficialEntity
 import org.sopt.linkareer.domain.repository.HomeRepository
 import javax.inject.Inject
 
@@ -32,77 +31,20 @@ class HomeViewModel @Inject constructor(
                 }
         }
     }
-}
 
-fun getOfficialList(): List<OfficialEntity> =
-    listOf(
-        OfficialEntity(
-            id = 1,
-            imageUrl = "https://helpx.adobe.com/content/dam/help/en/photoshop/using/quick-actions/remove-background-before-qa1.png",
-            title = "[LG CNS][인턴_학사] 2025년 동계 DX Core 인턴 어쩌구 ..",
-            companyName = "LG CNS",
-            tag = "정규직 1차 면접 프리패스",
-            views = 20481,
-            comments = 342,
-            dDay = "D-7",
-            isBookmarked = true,
-        ),
-        OfficialEntity(
-            id = 2,
-            imageUrl = "https://helpx.adobe.com/content/dam/help/en/photoshop/using/quick-actions/remove-background-before-qa1.png",
-            title = "[LG CNS][인턴_학사] 2025년 동계 DX Core 인턴 어쩌구 ..",
-            companyName = "LG CNS",
-            tag = "정규직 1차 면접 프리패스",
-            views = 20481,
-            comments = 342,
-            dDay = "D-7",
-            isBookmarked = true,
-        ),
-        OfficialEntity(
-            id = 3,
-            imageUrl = "https://helpx.adobe.com/content/dam/help/en/photoshop/using/quick-actions/remove-background-before-qa1.png",
-            title = "[LG CNS][인턴_학사] 2025년 동계 DX Core 인턴 어쩌구 ..",
-            companyName = "LG CNS",
-            tag = "정규직 1차 면접 프리패스",
-            views = 20481,
-            comments = 342,
-            dDay = "D-7",
-            isBookmarked = true,
-        ),
-        OfficialEntity(
-            id = 4,
-            imageUrl = "https://helpx.adobe.com/content/dam/help/en/photoshop/using/quick-actions/remove-background-before-qa1.png",
-            title = "[LG CNS][인턴_학사] 2025년 동계 DX Core 인턴 어쩌구 ..",
-            companyName = "LG CNS",
-            tag = "정규직 1차 면접 프리패스",
-            views = 20481,
-            comments = 342,
-            dDay = "D-7",
-            isBookmarked = true,
-        ),
-        OfficialEntity(
-            id = 5,
-            imageUrl = "https://helpx.adobe.com/content/dam/help/en/photoshop/using/quick-actions/remove-background-before-qa1.png",
-            title = "[LG CNS][인턴_학사] 2025년 동계 DX Core 인턴 어쩌구 ..",
-            companyName = "LG CNS",
-            tag = "정규직 1차 면접 프리패스",
-            views = 20481,
-            comments = 342,
-            dDay = "D-7",
-            isBookmarked = true,
-        ),
-        OfficialEntity(
-            id = 6,
-            imageUrl = "https://helpx.adobe.com/content/dam/help/en/photoshop/using/quick-actions/remove-background-before-qa1.png",
-            title = "[LG CNS][인턴_학사] 2025년 동계 DX Core 인턴 어쩌구 ..",
-            companyName = "LG CNS",
-            tag = "정규직 1차 면접 프리패스",
-            views = 20481,
-            comments = 342,
-            dDay = "D-7",
-            isBookmarked = true,
-        ),
-    )
+    fun getOfficials(category: String) {
+        viewModelScope.launch {
+            homeRepository.getOfficials(category)
+                .onSuccess { officials ->
+                    homeState.update {
+                        it.copy(
+                            officialList = UiState.Success(officials),
+                        )
+                    }
+                }
+        }
+    }
+}
 
 fun getBannerList(): List<BannerEntity> =
     listOf(

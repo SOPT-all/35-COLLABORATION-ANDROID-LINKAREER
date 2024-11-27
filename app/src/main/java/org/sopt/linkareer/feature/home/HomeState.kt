@@ -8,5 +8,5 @@ import org.sopt.linkareer.domain.model.PostEntity
 data class HomeState(
     val bannerList: List<BannerEntity> = getBannerList(),
     val postList: UiState<List<PostEntity>> = UiState.Loading,
-    val officialList: List<OfficialEntity> = getOfficialList(),
+    val officialList: UiState<List<OfficialEntity>> = UiState.Loading,
 )
