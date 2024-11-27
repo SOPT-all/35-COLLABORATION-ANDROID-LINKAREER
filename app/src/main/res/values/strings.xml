@@ -41,6 +41,7 @@
     <string name="chatting">채팅</string>
 
     <!-- component -->
+    <string name="d_day">D - %s</string>
     <string name="chatting_home_refresh">다른 채팅방 보기</string>
     <string name="footer_terms_of_use">이용약관</string>
     <string name="footer_personal_information_policy">개인정보처리방침</string>
@@ -48,6 +49,9 @@
     <string name="footer_copyright_1">Copyright&#169;</string>
     <string name="footer_copyright_2">Linkareer Inc.</string>
     <string name="footer_copyright_3">All Rights Reserved</string>
+
+    <string name="chatting_room_in_preson">참여인원 %1$d명</string>
+    <string name="chatting_room_in_preson_conversation">현직자 대화중</string>
 
 
     <!-- chatting -->
@@ -65,6 +69,16 @@
     <string name="chatroom_notice_link_description">을 거쳐 대화의 신뢰도를 높여보세요</string>
     <string name="chatroom_notice_contentDescription">합불 인증 화면으로 이동하는 링크</string>
 
+    <!-- top app bar -->
+    <string name="topappbar_chatting_room_head_count">%s명</string>
+
+    <!-- newbie / intern -->
+    <string name="newbieintern_pass_guide_plus">합격 가이드 더보기</string>
+    <string name="newbieintern_personal_statement">자소서</string>
+    <string name="newbieintern_personality">인적성</string>
+    <string name="newbieintern_interview">면접</string>
+    <string name="newbieintern_final_pass">면접</string>
+
     <!-- Top App Bar -->
     <string name="chatting_room_head_count">%s명</string>
 
@@ -80,5 +94,9 @@
     <string name="newbie_tab_newbie">신입</string>
     <string name="newbie_tab_calendar">공고달력</string>
     <string name="newbie_tab_arrow_down_contentDescription">메뉴 탭 전체보기</string>
+
+    <!-- home - recommendation notice -->
+    <string name="recommendation_notice_views">조회수 %d</string>
+    <string name="recommendation_notice_comments">댓글 %d</string>
 
 </resources>
