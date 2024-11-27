@@ -12,14 +12,14 @@ import org.sopt.linkareer.domain.model.TagEntity
 @Serializable
 data class ChatListResponse(
     @SerialName("chatRoomName") val chatRoomName: String,
-    @SerialName("chatParticipantsCount") val chatParticipantsCount: Int = 0,
+    @SerialName("chatParticiPantsCount") val chatParticiPantsCount: Int= 0,
     @SerialName("chatPartner") val chatPartner: ChatPartner,
     @SerialName("myChat") val myChat: MyChat
 ) {
     fun chatListResponseToEntity(): ChatListEntity {
         return ChatListEntity(
             chatRoomName = this.chatRoomName,
-            chatParticipantsCount = this.chatParticipantsCount,
+            chatParticiPantsCount = this.chatParticiPantsCount,
             chatPartner = this.chatPartner.chatPartnerToEntity(),
             myChat = this.myChat.myChatToEntity()
         )

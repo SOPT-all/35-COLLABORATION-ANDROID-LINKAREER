@@ -2,7 +2,7 @@ package org.sopt.linkareer.domain.model
 
 data class ChatListEntity(
     val chatRoomName: String = "",
-    val chatParticipantsCount: Int = 0,
+    val chatParticiPantsCount: Int = 0,
     val chatPartner: ChatPartnerEntity = ChatPartnerEntity(),
     val myChat: MyChatEntity = MyChatEntity()
 )
