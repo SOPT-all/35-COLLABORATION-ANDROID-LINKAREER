@@ -29,7 +29,7 @@ fun ChattingHomeTabRow(
             FilteringChip(
                 text = stringResource(chattingHomeTabText[tabText]),
                 isSelected = tabText == currentSelected,
-                modifier = Modifier.noRippleClickable { onClick(tabText) }
+                modifier = Modifier.noRippleClickable { onClick(tabText) },
             )
         }
     }
