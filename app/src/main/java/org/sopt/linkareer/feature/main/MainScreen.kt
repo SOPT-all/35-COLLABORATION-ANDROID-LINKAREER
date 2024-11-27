@@ -5,6 +5,7 @@ import androidx.compose.animation.ExitTransition
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.NavigationBarItemColors
@@ -16,6 +17,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.navigation.compose.NavHost
+import org.sopt.linkareer.core.designsystem.component.topappbar.LogoTopAppBar
 import org.sopt.linkareer.core.designsystem.theme.Gray600
 import org.sopt.linkareer.core.designsystem.theme.Gray900
 import org.sopt.linkareer.core.designsystem.theme.LINKareerTheme
@@ -30,6 +32,11 @@ fun MainScreen(
     navigator: MainNavigator,
 ) {
     Scaffold(
+        topBar = {
+            if (navigator.currentTab == MainTab.HOME || navigator.currentTab == MainTab.CHATTING) {
+                LogoTopAppBar()
+            }
+        },
         bottomBar = {
             if (navigator.showBottomBar()) {
                 MainBottomBar(
@@ -43,7 +50,8 @@ fun MainScreen(
         Column(
             modifier =
                 Modifier
-                    .fillMaxSize(),
+                    .fillMaxSize()
+                    .statusBarsPadding(),
         ) {
             NavHost(
                 enterTransition = {
