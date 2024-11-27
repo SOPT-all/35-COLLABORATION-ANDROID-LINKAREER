@@ -24,7 +24,7 @@ import org.sopt.linkareer.core.designsystem.theme.Blue50
 import org.sopt.linkareer.core.designsystem.theme.Gray600
 import org.sopt.linkareer.core.designsystem.theme.Gray900
 import org.sopt.linkareer.core.designsystem.theme.LINKareerAndroidTheme
-import org.sopt.linkareer.core.designsystem.theme.defaultLINKareerTypography
+import org.sopt.linkareer.core.designsystem.theme.LINKareerTheme
 
 @Composable
 fun OtherUserChat(
@@ -60,13 +60,13 @@ fun OtherUserChat(
             ) {
                 Text(
                     text = sendMessage,
-                    style = defaultLINKareerTypography.body8M13,
+                    style = LINKareerTheme.typography.body8M13,
                     color = Gray900,
                 )
             }
             Text(
                 text = timestamp,
-                style = defaultLINKareerTypography.body13R11,
+                style = LINKareerTheme.typography.body13R11,
                 color = Gray600,
                 modifier =
                     Modifier

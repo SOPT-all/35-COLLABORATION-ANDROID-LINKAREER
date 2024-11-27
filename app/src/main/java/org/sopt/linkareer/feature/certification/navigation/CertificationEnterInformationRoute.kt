@@ -18,7 +18,7 @@ import org.sopt.linkareer.core.designsystem.theme.Gray900
 import org.sopt.linkareer.core.designsystem.theme.LINKareerAndroidTheme
 import org.sopt.linkareer.core.designsystem.theme.White
 import org.sopt.linkareer.core.designsystem.theme.defaultLINKareerTypography
-import org.sopt.linkareer.feature.certification.component.CertificationAddImageView
+import org.sopt.linkareer.feature.certification.component.CertificationAddImageBox
 import org.sopt.linkareer.feature.certification.component.CertificationConfirmButton
 import org.sopt.linkareer.feature.certification.component.CertificationTopBar
 
@@ -108,7 +108,7 @@ fun CertificationEnterInformationScreen() {
                     .padding(horizontal = 17.dp)
                     .padding(top = 4.dp),
         )
-        CertificationAddImageView(
+        CertificationAddImageBox(
             addImage = R.drawable.img_chatting_validation,
             onAddImageClick = {},
             modifier =
