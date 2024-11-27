@@ -52,7 +52,6 @@ fun RecommendationNotice(
     modifier: Modifier = Modifier,
     onBookmarkClick: (Boolean) -> Unit = {},
 ) {
-    val listImagePadding = if (noticeType == NoticeType.BANNER) 0.dp else 16.dp
     val titleMaxLines = if (noticeType == NoticeType.BANNER) 1 else 2
     var bookmarkedState by remember { mutableStateOf(isBookmarked) }
 
@@ -77,7 +76,6 @@ fun RecommendationNotice(
                 onBookmarkClick(it)
             },
             modifier = Modifier.aspectRatio(1f),
-            imagePaddingValues = listImagePadding,
         )
         Spacer(Modifier.height(4.dp))
 
@@ -101,7 +99,6 @@ fun RecommendationNoticeCardSection(
     isBookmarked: Boolean,
     noticeType: NoticeType,
     onBookmarkClick: (Boolean) -> Unit,
-    imagePaddingValues: Dp,
     modifier: Modifier = Modifier,
 ) {
     Box(
@@ -112,7 +109,6 @@ fun RecommendationNoticeCardSection(
             modifier =
                 Modifier
                     .fillMaxWidth()
-                    .padding(horizontal = imagePaddingValues)
                     .background(color = LINKareerTheme.colors.gray100)
                     .align(Alignment.Center),
             contentDescription = null,
