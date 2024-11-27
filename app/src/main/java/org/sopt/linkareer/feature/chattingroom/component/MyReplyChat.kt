@@ -2,7 +2,6 @@ package org.sopt.linkareer.feature.chattingroom.component
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
@@ -68,29 +67,31 @@ fun MyReplyChat(
                     text = stringResource(R.string.chatroom_apply_to_sender, sender),
                     style = LINKareerTheme.typography.body5B11,
                     color = Gray900,
-
                 )
                 Text(
                     text = receivedMessage,
                     style = LINKareerTheme.typography.label3M11,
                     color = Gray600,
-                    modifier = Modifier
-                        .padding(top = 7.dp)
+                    modifier =
+                        Modifier
+                            .padding(top = 7.dp),
                 )
 
                 HorizontalDivider(
                     color = Gray300,
                     thickness = 1.dp,
-                    modifier = Modifier
-                        .padding(top = 9.dp)
+                    modifier =
+                        Modifier
+                            .padding(top = 9.dp),
                 )
 
                 Text(
                     text = replyMessage,
                     style = LINKareerTheme.typography.body8M13,
                     color = Gray900,
-                    modifier = Modifier
-                        .padding(top = 9.dp)
+                    modifier =
+                        Modifier
+                            .padding(top = 9.dp),
                 )
             }
         }

@@ -58,8 +58,9 @@ fun MyChat(
                     text = sendMessage,
                     style = LINKareerTheme.typography.body8M13,
                     color = Gray900,
-                    modifier = Modifier
-                        .widthIn(max = 230.dp)
+                    modifier =
+                        Modifier
+                            .widthIn(max = 230.dp),
                 )
             }
         }

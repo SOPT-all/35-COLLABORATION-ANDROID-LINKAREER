@@ -74,14 +74,16 @@ fun CertificationGuideItem(
         Image(
             painter = painterResource(cardImage),
             contentDescription = stringResource(cardContentDescription),
-            modifier = Modifier
-                .padding(vertical = 24.dp)
-                .padding(start = 20.dp)
+            modifier =
+                Modifier
+                    .padding(vertical = 24.dp)
+                    .padding(start = 20.dp),
         )
 
         Column(
-            modifier = Modifier
-                .padding(start = 16.dp)
+            modifier =
+                Modifier
+                    .padding(start = 16.dp),
         ) {
             Text(
                 text = stringResource(cardTitle),
@@ -93,8 +95,9 @@ fun CertificationGuideItem(
                 text = stringResource(cardDescription),
                 style = LINKareerTheme.typography.body11M10,
                 color = Gray600,
-                modifier = Modifier
-                    .padding(top = 4.dp)
+                modifier =
+                    Modifier
+                        .padding(top = 4.dp),
             )
         }
     }

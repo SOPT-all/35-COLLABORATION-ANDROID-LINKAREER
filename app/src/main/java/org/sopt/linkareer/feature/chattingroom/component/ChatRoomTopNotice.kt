@@ -31,8 +31,8 @@ fun ChatRoomTopNotice() {
             painter = painterResource(R.drawable.ic_megaphone_32),
             contentDescription = stringResource(R.string.chatroom_notice_megaphone),
             modifier =
-            Modifier
-                .padding(vertical = 1.dp),
+                Modifier
+                    .padding(vertical = 1.dp),
         )
         Text(
             text = stringResource(R.string.chatroom_notice_top),

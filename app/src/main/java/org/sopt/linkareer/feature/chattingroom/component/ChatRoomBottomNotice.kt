@@ -64,7 +64,7 @@ fun ChatRoomBottomNotice(
                         .clickable { onClickToCheck() },
                 text = stringResource(R.string.chatroom_notice_link),
                 style =
-                LINKareerTheme.typography.body11M10.copy(
+                    LINKareerTheme.typography.body11M10.copy(
                         textDecoration = TextDecoration.Underline,
                     ),
                 color = Blue,
