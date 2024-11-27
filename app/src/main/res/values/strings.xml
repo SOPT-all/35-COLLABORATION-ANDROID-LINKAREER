@@ -50,7 +50,7 @@
     <string name="footer_copyright_2">Linkareer Inc.</string>
     <string name="footer_copyright_3">All Rights Reserved</string>
 
-    <string name="chatting_room_in_preson">참여인원 %1$d명</string>
+    <string name="chatting_room_in_preson">참여인원 %d명</string>
     <string name="chatting_room_in_preson_conversation">현직자 대화중</string>
 
 
@@ -58,7 +58,7 @@
     <string name="chatting_textfield_hint">메세지 입력</string>
 
     <!-- chatroom -->
-    <string name="chatroom_apply_to_sender">%$s 님에게 답장</string>
+    <string name="chatroom_apply_to_sender">%s 님에게 답장</string>
     <string name="chatroom_notice_top">폭언, 음란, 불법 행위, 상업적 홍보 등 채팅방 사용을 저해하는 활동에\n대해 메시지 삭제 및 계정 정지 조치를 할 수 있습니다.</string>
     <string name="chatroom_notice_megaphone">공지사항</string>
     <string name="chatroom_profile_image_contentDescription">대화 프로필 이미지</string>
@@ -122,4 +122,18 @@
     <string name="home_chip_recommend_announcement_3">1차 프리패스</string>
     <string name="home_filtering_employment_news">채용소식</string>
     <string name="home_filtering_activities">대외활동</string>
+
+    <string name="chatting_home_search_textfield_hint">채팅방을 검색해보세요</string>
+    <string name="chatting_home_my_chatting_room">내 채팅방</string>
+    <string name="chatting_home_all_chatting_room">전체 채팅방</string>
+    <string name="chatting_home_all">전체</string>
+    <string name="chatting_home_employment">채용</string>
+    <string name="chatting_home_activities">대외활동/공모전</string>
+    <string name="chatting_home_education">교육</string>
+    <string name="chatting_home_category">직무</string>
+    <string name="chatting_home_subject">주제별</string>
+    <string name="chatting_home_count">총 %s개</string>
+
+    <string name="chatting_home_room_empty">입장한 채팅방이 없습니다.</string>
+    <string name="chatting_home_enter_room">채팅방에 입장하여, 고민을 나눠보세요!</string>
 </resources>
