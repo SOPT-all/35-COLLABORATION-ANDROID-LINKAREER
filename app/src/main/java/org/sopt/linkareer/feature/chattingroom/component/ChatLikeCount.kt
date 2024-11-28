@@ -4,7 +4,6 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
@@ -32,8 +31,8 @@ fun ChatLikeCount(
     isLiked: Boolean,
     modifier: Modifier = Modifier,
 ) {
-        Row(
-            modifier =
+    Row(
+        modifier =
             modifier
                 .clip(RoundedCornerShape(38.dp))
                 .border(
@@ -43,25 +42,25 @@ fun ChatLikeCount(
                 )
                 .background(White)
                 .padding(vertical = 4.dp, horizontal = 5.dp),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.Center,
-        ) {
-            Image(
-                imageVector =
-                    if (isLiked) {
-                        ImageVector.vectorResource(R.drawable.ic_thumbsup_blue_15)
-                    } else {
-                        ImageVector.vectorResource(R.drawable.ic_thumbsup_gray_15)
-                    },
-                contentDescription = stringResource(R.string.thumbs_up_activate),
-            )
-            Spacer(modifier = Modifier.width(4.dp))
-            Text(
-                text = likeCount.toString(),
-                style = LINKareerTheme.typography.body13R11,
-                color = Gray700,
-            )
-        }
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.Center,
+    ) {
+        Image(
+            imageVector =
+                if (isLiked) {
+                    ImageVector.vectorResource(R.drawable.ic_thumbsup_blue_15)
+                } else {
+                    ImageVector.vectorResource(R.drawable.ic_thumbsup_gray_15)
+                },
+            contentDescription = stringResource(R.string.thumbs_up_activate),
+        )
+        Spacer(modifier = Modifier.width(4.dp))
+        Text(
+            text = likeCount.toString(),
+            style = LINKareerTheme.typography.body13R11,
+            color = Gray700,
+        )
+    }
 }
 
 @Preview(showBackground = true)
