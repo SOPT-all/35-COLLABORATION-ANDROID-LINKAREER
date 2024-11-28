@@ -28,7 +28,6 @@ import org.sopt.linkareer.core.designsystem.theme.LINKareerTheme
 @Composable
 fun CertificationAddImageBox(
     @DrawableRes addImage: Int?,
-    onAddImageClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     val isClicked = remember { mutableStateOf(false) }
@@ -39,7 +38,6 @@ fun CertificationAddImageBox(
                 .fillMaxWidth()
                 .clickable {
                     isClicked.value = true
-                    onAddImageClick()
                 }
                 .paint(
                     painterResource(
@@ -56,18 +54,18 @@ fun CertificationAddImageBox(
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            Text(
-                text = stringResource(R.string.certification_add_capture),
-                style = LINKareerTheme.typography.body14R10,
-                color = Gray600,
-            )
-            Spacer(modifier = Modifier.heightIn(12.dp))
-            Image(
-                painter = painterResource(id = R.drawable.ic_regist_50),
-                contentDescription = null,
-                Modifier
-                    .clickable { onAddImageClick() },
-            )
+            if(!isClicked.value) {
+                Text(
+                    text = stringResource(R.string.certification_add_capture),
+                    style = LINKareerTheme.typography.body14R10,
+                    color = Gray600,
+                )
+                Spacer(modifier = Modifier.heightIn(12.dp))
+                Image(
+                    painter = painterResource(id = R.drawable.ic_regist_50),
+                    contentDescription = null,
+                )
+            }
         }
     }
 }
@@ -78,7 +76,6 @@ fun CertificationAddImageBoxPreview() {
     LINKareerAndroidTheme {
         CertificationAddImageBox(
             null,
-            onAddImageClick = {},
         )
     }
 }

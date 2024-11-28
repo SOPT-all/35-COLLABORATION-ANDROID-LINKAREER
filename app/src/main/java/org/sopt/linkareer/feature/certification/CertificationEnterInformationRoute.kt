@@ -110,7 +110,6 @@ fun CertificationEnterInformationScreen() {
         )
         CertificationAddImageBox(
             addImage = R.drawable.img_chatting_validation,
-            onAddImageClick = {},
             modifier =
                 Modifier
                     .padding(top = 12.dp),
