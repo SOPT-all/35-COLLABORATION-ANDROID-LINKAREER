@@ -23,6 +23,9 @@ import org.sopt.linkareer.core.designsystem.theme.Gray900
 import org.sopt.linkareer.core.designsystem.theme.LINKareerTheme
 import org.sopt.linkareer.core.designsystem.theme.White
 import org.sopt.linkareer.core.util.NoRippleInteraction
+import org.sopt.linkareer.feature.certification.navigation.certificationEnterInformation
+import org.sopt.linkareer.feature.certification.navigation.certificationGuideGuide
+import org.sopt.linkareer.feature.certification.navigation.certificationSuccess
 import org.sopt.linkareer.feature.chattinghome.navigation.chattingHomeGraph
 import org.sopt.linkareer.feature.chattingroom.navigation.chattingRoomGraph
 import org.sopt.linkareer.feature.home.navigation.homeNavGraph
@@ -78,6 +81,15 @@ fun MainScreen(
                     navHostController = navigator.navController,
                 )
                 chattingRoomGraph(
+                    navHostController = navigator.navController,
+                )
+                certificationGuideGuide(
+                    navHostController = navigator.navController,
+                )
+                certificationEnterInformation(
+                    navHostController = navigator.navController,
+                )
+                certificationSuccess(
                     navHostController = navigator.navController,
                 )
             }

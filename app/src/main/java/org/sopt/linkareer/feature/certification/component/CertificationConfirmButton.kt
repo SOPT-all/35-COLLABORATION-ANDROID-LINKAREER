@@ -23,6 +23,7 @@ import org.sopt.linkareer.core.designsystem.theme.White
 fun CertificationConfirmButton(
     @StringRes buttonText: Int,
     onClickButton: () -> Unit,
+    isEnabled: Boolean,
     modifier: Modifier = Modifier,
 ) {
     Button(
@@ -32,6 +33,7 @@ fun CertificationConfirmButton(
         contentPadding = PaddingValues(horizontal = 10.dp, vertical = 12.dp),
         onClick = onClickButton,
         shape = RoundedCornerShape(8.dp),
+        enabled = isEnabled,
         colors =
             ButtonDefaults.buttonColors(
                 containerColor = Blue,
@@ -54,6 +56,7 @@ fun CertificationConfirmButtonPreview() {
         CertificationConfirmButton(
             buttonText = R.string.certification_confirm_button,
             onClickButton = {},
+            isEnabled = false,
             modifier = Modifier,
         )
     }

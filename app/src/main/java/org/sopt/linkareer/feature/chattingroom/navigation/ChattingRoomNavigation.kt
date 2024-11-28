@@ -7,6 +7,7 @@ import androidx.navigation.NavOptions
 import androidx.navigation.compose.composable
 import kotlinx.serialization.Serializable
 import org.sopt.linkareer.core.navigation.Route
+import org.sopt.linkareer.feature.certification.navigation.navigateToCertificationGuide
 import org.sopt.linkareer.feature.chattingroom.ChattingRoomRoute
 
 fun NavController.navigateToChattingRoom(navOptions: NavOptions? = null) {
@@ -20,7 +21,10 @@ fun NavGraphBuilder.chattingRoomGraph(
     navHostController: NavHostController,
 ) {
     composable<ChattingRoom> {
-        ChattingRoomRoute()
+        ChattingRoomRoute(
+            navigateBack = { navHostController.popBackStack() },
+            navigateToCertificationGuide = { navHostController.navigateToCertificationGuide() },
+        )
     }
 }
 
