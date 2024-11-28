@@ -17,7 +17,7 @@ data object CertificationSuccess : Route
 fun NavController.navigateToCertificationSuccess(navOptions: NavOptions? = null) {
     navigate(
         route = CertificationSuccess,
-        navOptions = navOptions
+        navOptions = navOptions,
     )
 }
 
@@ -28,15 +28,16 @@ fun NavGraphBuilder.certificationSuccess(
         CertificationCheckSuccessRoute(
             navigateToChattingRoom = {
                 navHostController.navigateToChattingRoom(
-                    navOptions = NavOptions.Builder()
-                        .setPopUpTo(
-                            route = ChattingHome,
-                            inclusive = false
-                        )
-                        .setLaunchSingleTop(true)
-                        .build()
+                    navOptions =
+                        NavOptions.Builder()
+                            .setPopUpTo(
+                                route = ChattingHome,
+                                inclusive = false,
+                            )
+                            .setLaunchSingleTop(true)
+                            .build(),
                 )
-            }
+            },
         )
     }
 }

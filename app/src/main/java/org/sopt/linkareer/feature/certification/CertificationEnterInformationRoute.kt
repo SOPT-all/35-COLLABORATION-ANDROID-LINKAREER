@@ -133,7 +133,7 @@ fun CertificationEnterInformationScreen(
         CertificationConfirmButton(
             buttonText = R.string.certification_confirm_button,
             onClickButton = navigateToCertificationEnterInformation,
-            isEnabled = if(nameField.isEmpty() || phoneField.isEmpty()) false else true,
+            isEnabled = if (nameField.isEmpty() || phoneField.isEmpty()) false else true,
             modifier =
                 Modifier
                     .padding(horizontal = 17.dp)
@@ -147,7 +147,7 @@ fun CertificationEnterInformationScreen(
 fun CertificationEnterInformationScreenPreview() {
     LINKareerAndroidTheme {
         CertificationEnterInformationScreen(
-            navigateToCertificationEnterInformation = { }
+            navigateToCertificationEnterInformation = { },
         )
     }
 }

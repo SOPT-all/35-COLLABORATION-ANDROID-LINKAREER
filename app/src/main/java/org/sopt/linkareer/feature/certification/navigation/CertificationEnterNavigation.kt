@@ -15,17 +15,16 @@ data object CertificationEnterInfo : Route
 fun NavController.navigateToCertificationEnterInformation(navOptions: NavOptions? = null) {
     navigate(
         route = CertificationEnterInfo,
-        navOptions = navOptions
+        navOptions = navOptions,
     )
 }
-
 
 fun NavGraphBuilder.certificationEnterInformation(
     navHostController: NavHostController,
 ) {
     composable<CertificationEnterInfo> {
         CertificationEnterInformationRoute(
-            navigateToCertificationEnterInformation = { navHostController.navigateToCertificationSuccess() }
+            navigateToCertificationEnterInformation = { navHostController.navigateToCertificationSuccess() },
         )
     }
 }

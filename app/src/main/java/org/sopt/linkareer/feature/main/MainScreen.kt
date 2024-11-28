@@ -87,10 +87,10 @@ fun MainScreen(
                     navHostController = navigator.navController,
                 )
                 certificationEnterInformation(
-                    navHostController = navigator.navController
+                    navHostController = navigator.navController,
                 )
                 certificationSuccess(
-                    navHostController = navigator.navController
+                    navHostController = navigator.navController,
                 )
             }
         }

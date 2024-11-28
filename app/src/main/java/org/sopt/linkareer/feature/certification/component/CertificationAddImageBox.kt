@@ -54,7 +54,7 @@ fun CertificationAddImageBox(
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            if(!isClicked.value) {
+            if (!isClicked.value) {
                 Text(
                     text = stringResource(R.string.certification_add_capture),
                     style = LINKareerTheme.typography.body14R10,

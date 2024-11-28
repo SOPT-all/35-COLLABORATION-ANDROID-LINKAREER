@@ -21,16 +21,16 @@ import org.sopt.linkareer.feature.certification.component.CertificationTopBar
 
 @Composable
 fun CertificationGuideRoute(
-    navigateToCertificationEnterInformation: () -> Unit
+    navigateToCertificationEnterInformation: () -> Unit,
 ) {
     CertificationGuideScreen(
-        navigateToCertificationEnterInformation = navigateToCertificationEnterInformation
+        navigateToCertificationEnterInformation = navigateToCertificationEnterInformation,
     )
 }
 
 @Composable
 fun CertificationGuideScreen(
-    navigateToCertificationEnterInformation: () -> Unit
+    navigateToCertificationEnterInformation: () -> Unit,
 ) {
     Column(
         modifier =
@@ -75,6 +75,6 @@ fun CertificationGuideScreen(
 @Composable
 fun CertificationGuideScreenPreview() {
     CertificationGuideScreen(
-        navigateToCertificationEnterInformation = {}
+        navigateToCertificationEnterInformation = {},
     )
 }

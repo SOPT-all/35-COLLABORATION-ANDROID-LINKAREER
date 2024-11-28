@@ -29,7 +29,7 @@ fun CertificationCheckSuccessRoute(
     navigateToChattingRoom: () -> Unit,
 ) {
     CertificationCheckSuccessScreen(
-        navigateToChattingRoom = navigateToChattingRoom
+        navigateToChattingRoom = navigateToChattingRoom,
     )
 }
 
@@ -91,7 +91,7 @@ fun CertificationCheckSuccessScreen(
 fun CertificationCheckSuccessScreenPreview() {
     LINKareerAndroidTheme {
         CertificationCheckSuccessScreen(
-            navigateToChattingRoom = {}
+            navigateToChattingRoom = {},
         )
     }
 }

@@ -15,7 +15,7 @@ data object CertificationGuide : Route
 fun NavController.navigateToCertificationGuide(navOptions: NavOptions? = null) {
     navigate(
         route = CertificationGuide,
-        navOptions = navOptions
+        navOptions = navOptions,
     )
 }
 
@@ -24,8 +24,7 @@ fun NavGraphBuilder.certificationGuideGuide(
 ) {
     composable<CertificationGuide> {
         CertificationGuideRoute(
-            navigateToCertificationEnterInformation = { navHostController.navigateToCertificationEnterInformation() }
+            navigateToCertificationEnterInformation = { navHostController.navigateToCertificationEnterInformation() },
         )
     }
 }
-
