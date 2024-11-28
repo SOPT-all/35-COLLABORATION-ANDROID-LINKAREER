@@ -20,12 +20,18 @@ import org.sopt.linkareer.feature.certification.component.CertificationGuideList
 import org.sopt.linkareer.feature.certification.component.CertificationTopBar
 
 @Composable
-fun CertificationGuideRoute() {
-    CertificationGuideScreen()
+fun CertificationGuideRoute(
+    navigateToCertificationEnterInformation: () -> Unit
+) {
+    CertificationGuideScreen(
+        navigateToCertificationEnterInformation = navigateToCertificationEnterInformation
+    )
 }
 
 @Composable
-fun CertificationGuideScreen() {
+fun CertificationGuideScreen(
+    navigateToCertificationEnterInformation: () -> Unit
+) {
     Column(
         modifier =
             Modifier
@@ -55,7 +61,7 @@ fun CertificationGuideScreen() {
         Spacer(modifier = Modifier.weight(1f))
         CertificationConfirmButton(
             buttonText = R.string.certification_ok_button,
-            onClickButton = {},
+            onClickButton = navigateToCertificationEnterInformation,
             modifier =
                 Modifier
                     .padding(horizontal = 17.dp)
@@ -67,5 +73,7 @@ fun CertificationGuideScreen() {
 @Preview(showBackground = true)
 @Composable
 fun CertificationGuideScreenPreview() {
-    CertificationGuideScreen()
+    CertificationGuideScreen(
+        navigateToCertificationEnterInformation = {}
+    )
 }
