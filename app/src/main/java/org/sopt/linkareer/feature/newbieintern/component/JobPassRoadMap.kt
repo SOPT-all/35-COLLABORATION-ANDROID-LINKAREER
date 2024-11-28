@@ -3,6 +3,7 @@ package org.sopt.linkareer.feature.newbieintern.component
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -13,7 +14,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import org.sopt.linkareer.R
 import org.sopt.linkareer.core.designsystem.theme.Gray200
 import org.sopt.linkareer.core.designsystem.theme.Gray600
 import org.sopt.linkareer.core.designsystem.theme.Gray900
@@ -48,7 +51,9 @@ fun JobPassRoadMap(
                 Modifier
                     .padding(start = 12.dp, top = 2.dp),
         )
-        Spacer(Modifier.height(7.dp))
+
+        Spacer(modifier = Modifier.weight(1f))
+
         Image(
             painter = painterResource(image),
             contentDescription = null,
@@ -58,6 +63,19 @@ fun JobPassRoadMap(
                     .height(44.dp)
                     .padding(bottom = 12.dp)
                     .align(Alignment.End),
+        )
+    }
+}
+
+@Preview
+@Composable
+fun Preview() {
+    Row {
+        JobPassRoadMap(
+            subTitle = "가장 궁금해 한 Q&A",
+            mainTitle = "BEST Q&A",
+            image = R.drawable.img_newbie_qna,
+            modifier = Modifier.weight(1f),
         )
     }
 }
