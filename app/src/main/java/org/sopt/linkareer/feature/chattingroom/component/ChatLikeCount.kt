@@ -32,8 +32,8 @@ fun ChatLikeCount(
     isLiked: Boolean,
     modifier: Modifier = Modifier,
 ) {
-    Box(
-        modifier =
+        Row(
+            modifier =
             modifier
                 .clip(RoundedCornerShape(38.dp))
                 .border(
@@ -43,8 +43,6 @@ fun ChatLikeCount(
                 )
                 .background(White)
                 .padding(vertical = 4.dp, horizontal = 5.dp),
-    ) {
-        Row(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.Center,
         ) {
@@ -64,7 +62,6 @@ fun ChatLikeCount(
                 color = Gray700,
             )
         }
-    }
 }
 
 @Preview(showBackground = true)
@@ -72,6 +69,6 @@ fun ChatLikeCount(
 private fun ChatLikeCountPreview() {
     ChatLikeCount(
         likeCount = 3,
-        isLiked = false,
+        isLiked = true,
     )
 }
