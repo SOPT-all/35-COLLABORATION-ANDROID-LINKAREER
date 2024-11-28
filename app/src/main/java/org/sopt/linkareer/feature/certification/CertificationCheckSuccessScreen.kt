@@ -23,7 +23,6 @@ import org.sopt.linkareer.core.designsystem.theme.LINKareerTheme
 import org.sopt.linkareer.core.designsystem.theme.White
 import org.sopt.linkareer.feature.certification.component.CertificationConfirmButton
 import org.sopt.linkareer.feature.certification.component.CertificationTopBar
-import org.sopt.linkareer.feature.chattingroom.navigation.navigateToChattingRoom
 
 @Composable
 fun CertificationCheckSuccessRoute(
