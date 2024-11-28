@@ -69,7 +69,7 @@ fun HomeTapBar(
                 val contestTab = stringResource(R.string.home_tab_contest)
                 TabItem(
                     tapName = contestTab,
-                    isSelected = rememberTap == contestTab,
+                    isSelected = false,
                     onClick = {
                         rememberTap = contestTab
                         onTabClick(contestTab)
@@ -80,7 +80,7 @@ fun HomeTapBar(
                 val channelTab = stringResource(R.string.home_tab_channel)
                 TabItem(
                     tapName = channelTab,
-                    isSelected = rememberTap == channelTab,
+                    isSelected = false,
                     onClick = {
                         rememberTap = channelTab
                         onTabClick(channelTab)
@@ -91,7 +91,7 @@ fun HomeTapBar(
                 val communityTab = stringResource(R.string.home_tab_community)
                 TabItem(
                     tapName = communityTab,
-                    isSelected = rememberTap == communityTab,
+                    isSelected = false,
                     onClick = {
                         rememberTap = communityTab
                         onTabClick(communityTab)
