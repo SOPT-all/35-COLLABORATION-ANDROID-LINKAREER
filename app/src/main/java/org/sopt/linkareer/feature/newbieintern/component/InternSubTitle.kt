@@ -1,29 +1,25 @@
-package org.sopt.linkareer.feature.home.component
+package org.sopt.linkareer.feature.newbieintern.component
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import org.sopt.linkareer.R
 import org.sopt.linkareer.core.designsystem.component.chip.BlueOutlinedChip
 import org.sopt.linkareer.core.designsystem.theme.Black
 import org.sopt.linkareer.core.designsystem.theme.Blue
 import org.sopt.linkareer.core.designsystem.theme.Gray600
-import org.sopt.linkareer.core.designsystem.theme.Gray800
+import org.sopt.linkareer.core.designsystem.theme.LINKareerAndroidTheme
 import org.sopt.linkareer.core.designsystem.theme.LINKareerTheme
-import org.sopt.linkareer.core.extension.noRippleClickable
 
 @Composable
-fun HomeTitle(
-    blueText: String? = null,
+fun InternSubTitle(
+    blueText: String,
     blackText: String,
     grayText: String,
     chipList: List<String>,
@@ -35,21 +31,15 @@ fun HomeTitle(
             modifier
                 .fillMaxWidth(),
     ) {
-        Column(
-            modifier =
-                Modifier
-                    .weight(1f),
-        ) {
+        Column {
             Row(
                 verticalAlignment = Alignment.CenterVertically,
             ) {
-                if (blueText != null) {
-                    Text(
-                        text = blueText,
-                        style = LINKareerTheme.typography.title2B17,
-                        color = Blue,
-                    )
-                }
+                Text(
+                    text = blueText,
+                    style = LINKareerTheme.typography.title2B17,
+                    color = Blue,
+                )
                 Text(
                     text = blackText,
                     style = LINKareerTheme.typography.title1B18,
@@ -79,24 +69,20 @@ fun HomeTitle(
                 )
             }
         }
+    }
+}
 
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            modifier =
-                Modifier
-                    .padding(vertical = 4.dp)
-                    .noRippleClickable { onButtonClick() }
-                    .padding(vertical = 10.dp),
-        ) {
-            Text(
-                text = stringResource(R.string.home_more_button),
-                style = LINKareerTheme.typography.body10M11,
-                color = Gray800,
-            )
-            Icon(
-                painter = painterResource(R.drawable.ic_arrow_right_black_12),
-                contentDescription = null,
-            )
-        }
+@Preview
+@Composable
+fun InternSubTitlePreview() {
+    LINKareerAndroidTheme {
+        InternSubTitle(
+            blueText = "UX/UI",
+            blackText = "직무 합격 로드맵",
+            grayText = "이(가) 언급되고 있어요.",
+            chipList = listOf("유저 리서치", "사용자 조사", "UT"),
+            onButtonClick = {},
+            modifier = Modifier.padding(start = 17.dp, end = 17.dp, top = 32.dp, bottom = 12.dp),
+        )
     }
 }
