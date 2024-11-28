@@ -28,12 +28,18 @@ import org.sopt.linkareer.feature.certification.component.CertificationConfirmBu
 import org.sopt.linkareer.feature.certification.component.CertificationTopBar
 
 @Composable
-fun CertificationEnterInformationRoute() {
-    CertificationEnterInformationScreen()
+fun CertificationEnterInformationRoute(
+    navigateToCertificationEnterInformation: () -> Unit,
+) {
+    CertificationEnterInformationScreen(
+        navigateToCertificationEnterInformation = navigateToCertificationEnterInformation,
+    )
 }
 
 @Composable
-fun CertificationEnterInformationScreen() {
+fun CertificationEnterInformationScreen(
+    navigateToCertificationEnterInformation: () -> Unit,
+) {
     var nameField by remember { mutableStateOf("") }
     var phoneField by remember { mutableStateOf("") }
 
@@ -126,7 +132,7 @@ fun CertificationEnterInformationScreen() {
         Spacer(modifier = Modifier.weight(1f))
         CertificationConfirmButton(
             buttonText = R.string.certification_confirm_button,
-            onClickButton = {},
+            onClickButton = navigateToCertificationEnterInformation,
             isEnabled = if(nameField.isEmpty() || phoneField.isEmpty()) false else true,
             modifier =
                 Modifier
@@ -140,6 +146,8 @@ fun CertificationEnterInformationScreen() {
 @Composable
 fun CertificationEnterInformationScreenPreview() {
     LINKareerAndroidTheme {
-        CertificationEnterInformationScreen()
+        CertificationEnterInformationScreen(
+            navigateToCertificationEnterInformation = { }
+        )
     }
 }

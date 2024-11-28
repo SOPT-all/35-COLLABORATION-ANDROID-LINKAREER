@@ -46,7 +46,9 @@ fun NavGraphBuilder.certificationEnterInformation(
     navHostController: NavHostController,
 ) {
     composable<CertificationEnterInfo> {
-        CertificationEnterInformationRoute()
+        CertificationEnterInformationRoute(
+            navigateToCertificationEnterInformation = { navHostController.navigateToCertificationSuccess() }
+        )
     }
 }
 
@@ -64,7 +66,7 @@ fun NavGraphBuilder.certificationSuccess(
     navHostController: NavHostController,
 ) {
     composable<CertificationSuccess> {
-        //CertificationGuideRoute()
+        CertificationCheckSuccessRoute()
     }
 }
 

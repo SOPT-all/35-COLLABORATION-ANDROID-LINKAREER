@@ -21,12 +21,12 @@ import org.sopt.linkareer.core.designsystem.theme.Gray900
 import org.sopt.linkareer.core.designsystem.theme.LINKareerAndroidTheme
 import org.sopt.linkareer.core.designsystem.theme.LINKareerTheme
 import org.sopt.linkareer.core.designsystem.theme.White
-import org.sopt.linkareer.core.designsystem.theme.defaultLINKareerTypography
 import org.sopt.linkareer.feature.certification.component.CertificationConfirmButton
 import org.sopt.linkareer.feature.certification.component.CertificationTopBar
 
 @Composable
 fun CertificationCheckSuccessRoute() {
+    CertificationCheckSuccessScreen()
 }
 
 @Composable
