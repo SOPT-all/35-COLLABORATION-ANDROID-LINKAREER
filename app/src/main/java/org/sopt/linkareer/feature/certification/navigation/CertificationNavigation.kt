@@ -6,10 +6,14 @@ import androidx.navigation.NavHostController
 import androidx.navigation.NavOptions
 import androidx.navigation.compose.composable
 import kotlinx.serialization.Serializable
+import org.sopt.linkareer.core.navigation.ChattingHome
+import org.sopt.linkareer.core.navigation.Home
 import org.sopt.linkareer.core.navigation.Route
 import org.sopt.linkareer.feature.certification.CertificationCheckSuccessRoute
 import org.sopt.linkareer.feature.certification.CertificationEnterInformationRoute
 import org.sopt.linkareer.feature.certification.CertificationGuideRoute
+import org.sopt.linkareer.feature.chattingroom.navigation.navigateToChattingRoom
+import org.sopt.linkareer.feature.home.navigation.navigateToHome
 
 @Serializable
 data object CertificationGuide : Route
@@ -66,7 +70,19 @@ fun NavGraphBuilder.certificationSuccess(
     navHostController: NavHostController,
 ) {
     composable<CertificationSuccess> {
-        CertificationCheckSuccessRoute()
+        CertificationCheckSuccessRoute(
+            navigateToChattingRoom = {
+                navHostController.navigateToChattingRoom(
+                    navOptions = NavOptions.Builder()
+                        .setPopUpTo(
+                            route = ChattingHome,
+                            inclusive = false
+                        )
+                        .setLaunchSingleTop(true)
+                        .build()
+                )
+            }
+        )
     }
 }
 
