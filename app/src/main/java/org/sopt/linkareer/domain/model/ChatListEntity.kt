@@ -1,17 +1,17 @@
 package org.sopt.linkareer.domain.model
 
 data class ChatListEntity(
-    val chatRoomName: String = "",
-    val chatParticiPantsCount: Int = 0,
-    val chatPartner: ChatPartnerEntity = ChatPartnerEntity(),
-    val myChat: MyChatEntity = MyChatEntity(),
+    val chatRoomName: String,
+    val chatParticiPantsCount: Int,
+    val chatPartner: ChatPartnerEntity,
+    val myChat: MyChatEntity,
 )
 
 data class ChatPartnerEntity(
-    val partnerName: String = "",
-    val isBlueChecked: Boolean = false,
-    val tag: TagEntity = TagEntity(),
-    val chatList: List<ChatEntity> = emptyList(),
+    val partnerName: String,
+    val isBlueChecked: Boolean,
+    val tag: TagEntity,
+    val chatList: List<ChatEntity>,
 )
 
 data class TagEntity(
@@ -20,19 +20,19 @@ data class TagEntity(
 )
 
 data class ChatEntity(
-    val message: String = "",
-    val isReplied: Boolean = false,
-    val likes: Int = 0,
-    val pressedLike: Boolean = false,
-    val createdTime: String = "",
-    val reply: ReplyEntity = ReplyEntity(),
+    val message: String,
+    val isReplied: Boolean,
+    val likes: Int,
+    val pressedLike: Boolean,
+    val createdTime: String,
+    val reply: ReplyEntity,
 )
 
 data class ReplyEntity(
-    val replyMessage: String? = null,
-    val repliedMessageSenderName: String? = null,
+    val replyMessage: String?,
+    val repliedMessageSenderName: String?,
 )
 
 data class MyChatEntity(
-    val chatList: List<ChatEntity> = emptyList(),
+    val chatList: List<ChatEntity>,
 )

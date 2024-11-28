@@ -182,13 +182,3 @@ fun ChattingRoomScreen(
         )
     }
 }
-
-@Preview(showBackground = true)
-@Composable
-fun ChattingScreenPreview() {
-    ChattingRoomScreen(
-        navigateBack = {},
-        navigateToCertificationGuide = {},
-        ChatListEntity(),
-    )
-}
