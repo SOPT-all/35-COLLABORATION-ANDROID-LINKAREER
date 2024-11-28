@@ -1,4 +1,4 @@
-package org.sopt.linkareer.feature.certification.navigation
+package org.sopt.linkareer.feature.certification
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
