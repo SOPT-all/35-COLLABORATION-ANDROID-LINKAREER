@@ -109,6 +109,13 @@ fun RecommendationNoticeCardSection(
             model = imageUrl,
             modifier =
                 Modifier
+                    .then(
+                        if (noticeType == NoticeType.LIST) {
+                            Modifier.aspectRatio(1f)
+                        } else {
+                            Modifier
+                        },
+                    )
                     .fillMaxWidth()
                     .clip(RoundedCornerShape(8.dp))
                     .background(color = LINKareerTheme.colors.gray100)
