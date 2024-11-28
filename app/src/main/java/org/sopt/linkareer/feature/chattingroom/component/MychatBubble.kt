@@ -3,10 +3,8 @@ package org.sopt.linkareer.feature.chattingroom.component
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
@@ -25,9 +23,11 @@ import org.sopt.linkareer.core.designsystem.theme.Gray900
 import org.sopt.linkareer.core.designsystem.theme.LINKareerTheme
 
 @Composable
-fun MyChat(
+fun MychatBubble(
     sendMessage: String,
     timestamp: String,
+    likeCount: Int,
+    isLiked: Boolean,
 ) {
     Column(
         modifier =
@@ -49,7 +49,7 @@ fun MyChat(
             Column(
                 modifier =
                     Modifier
-                        .width(IntrinsicSize.Max)
+                        .widthIn(max = 230.dp)
                         .clip(RoundedCornerShape(10.dp))
                         .background(Blue50)
                         .padding(12.dp),
@@ -64,13 +64,23 @@ fun MyChat(
                 )
             }
         }
-        Image(
-            painter = painterResource(R.drawable.ic_chatting_like_inactive_25),
-            contentDescription = stringResource(R.string.chatroom_reply_contentDescription),
-            modifier =
-                Modifier
-                    .padding(start = 30.dp, top = 4.dp),
-        )
+        if (isLiked || likeCount > 0) {
+            ChatLikeCount(
+                likeCount = likeCount,
+                isLiked = isLiked,
+                modifier =
+                    Modifier
+                        .padding(start = 30.dp, top = 4.dp, bottom = 12.dp),
+            )
+        } else {
+            Image(
+                painter = painterResource(R.drawable.ic_chatting_like_inactive_25),
+                contentDescription = stringResource(R.string.chatroom_reply_contentDescription),
+                modifier =
+                    Modifier
+                        .padding(start = 30.dp, top = 4.dp),
+            )
+        }
     }
 }
 
@@ -80,8 +90,10 @@ fun MyChat(
 )
 @Composable
 fun MyChatPreview() {
-    MyChat(
+    MychatBubble(
         sendMessage = "text message",
         timestamp = "18:33",
+        likeCount = 5,
+        isLiked = false,
     )
 }

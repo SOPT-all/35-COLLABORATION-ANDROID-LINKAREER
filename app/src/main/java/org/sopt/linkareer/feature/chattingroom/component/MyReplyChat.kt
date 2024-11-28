@@ -33,6 +33,8 @@ fun MyReplyChat(
     receivedMessage: String,
     replyMessage: String,
     timestamp: String,
+    likeCount: Int,
+    isLiked: Boolean,
 ) {
     Column(
         modifier =
@@ -95,13 +97,23 @@ fun MyReplyChat(
                 )
             }
         }
-        Image(
-            painter = painterResource(R.drawable.ic_chatting_like_inactive_25),
-            contentDescription = stringResource(R.string.chatroom_reply_contentDescription),
-            modifier =
-                Modifier
-                    .padding(start = 30.dp, top = 3.dp),
-        )
+        if (isLiked || likeCount > 0) {
+            ChatLikeCount(
+                likeCount = likeCount,
+                isLiked = isLiked,
+                modifier =
+                    Modifier
+                        .padding(start = 30.dp, top = 4.dp, bottom = 12.dp),
+            )
+        } else {
+            Image(
+                painter = painterResource(R.drawable.ic_chatting_like_inactive_25),
+                contentDescription = stringResource(R.string.chatroom_reply_contentDescription),
+                modifier =
+                    Modifier
+                        .padding(start = 30.dp, top = 3.dp),
+            )
+        }
     }
 }
 
@@ -116,5 +128,7 @@ fun MyReplyChatPreview() {
         receivedMessage = "origin message",
         replyMessage = "text message",
         timestamp = "18:33",
+        likeCount = 5,
+        isLiked = false,
     )
 }

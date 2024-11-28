@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import org.sopt.linkareer.R
 import org.sopt.linkareer.core.designsystem.theme.Blue
@@ -27,7 +28,6 @@ fun OtherUserChatProfile(
     nickName: String,
     isChecked: Boolean,
     jobCategory: String,
-    imageUrl: String,
 ) {
     Row(
         modifier =
@@ -36,14 +36,12 @@ fun OtherUserChatProfile(
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Image(
-            // model = imageUrl, 추후 , Async 이미지로 변경
-            painter = painterResource(R.drawable.img_newbie_personalitypass),
+            painter = painterResource(R.drawable.img_chattingroom_inperson_lgcns_70),
             contentDescription = stringResource(R.string.chatroom_profile_image_contentDescription),
             modifier =
                 Modifier
                     .size(27.dp)
                     .clip(CircleShape),
-            // error = painterResource(R.drawable.ic_checklist_person_24)
         )
         Text(
             text = nickName,
@@ -67,4 +65,14 @@ fun OtherUserChatProfile(
             backGroundColor = if (isChecked) Blue100 else Gray500,
         )
     }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun OtherUserChatProfilePreview() {
+    OtherUserChatProfile(
+        "Preview",
+        false,
+        "Preview",
+    )
 }
