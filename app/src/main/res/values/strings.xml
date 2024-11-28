@@ -56,6 +56,7 @@
 
     <!-- chatting -->
     <string name="chatting_textfield_hint">메세지 입력</string>
+    <string name="thumbs_up_activate">좋아요 활성화 됨</string>
 
     <!-- chatroom -->
     <string name="chatroom_apply_to_sender">%s 님에게 답장</string>
