@@ -11,6 +11,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -31,6 +32,7 @@ import org.sopt.linkareer.core.designsystem.theme.Blue50
 import org.sopt.linkareer.core.designsystem.theme.Gray300
 import org.sopt.linkareer.core.designsystem.theme.LINKareerAndroidTheme
 import org.sopt.linkareer.core.designsystem.theme.LINKareerTheme
+import org.sopt.linkareer.core.state.UiState
 import org.sopt.linkareer.feature.home.component.CommunityBest
 import org.sopt.linkareer.feature.home.component.HomeBannerPager
 import org.sopt.linkareer.feature.home.component.HomeTitle
@@ -43,6 +45,11 @@ fun HomeRoute(
     viewModel: HomeViewModel = hiltViewModel(),
 ) {
     val homeState by viewModel.homeState.collectAsStateWithLifecycle()
+
+    LaunchedEffect(true) {
+        viewModel.getPosts("interest")
+        viewModel.getOfficials("recommend")
+    }
 
     HomeScreen(paddingValues, homeState)
 }
@@ -131,35 +138,37 @@ fun HomeScreen(
                         ),
             )
         }
-        items(
-            count = 3,
-            key = { homeState.postList[it].id },
-        ) { post ->
-            with(homeState.postList[post]) {
-                CommunityBest(
-                    community = community,
-                    imageUrl = imageUrl,
-                    title = title,
-                    content = content,
-                    writer = writer,
-                    beforeTime = beforeTime,
-                    favorites = favourites,
-                    comments = comments,
-                    views = views,
+        if (homeState.postList is UiState.Success) {
+            items(
+                count = 3,
+                key = { homeState.postList.data[it].id },
+            ) { post ->
+                with(homeState.postList.data[post]) {
+                    CommunityBest(
+                        community = community,
+                        imageUrl = imageUrl,
+                        title = title,
+                        content = content,
+                        writer = writer,
+                        beforeTime = beforeTime,
+                        favorites = favourites,
+                        comments = comments,
+                        views = views,
+                        modifier =
+                            Modifier
+                                .padding(start = 15.dp, end = 19.dp),
+                    )
+                }
+                HorizontalDivider(
+                    thickness = 1.dp,
+                    color = LINKareerTheme.colors.gray300,
                     modifier =
                         Modifier
                             .padding(start = 15.dp, end = 19.dp),
                 )
             }
-
-            HorizontalDivider(
-                thickness = 1.dp,
-                color = LINKareerTheme.colors.gray300,
-                modifier =
-                    Modifier
-                        .padding(start = 15.dp, end = 19.dp),
-            )
         }
+
         item {
             Column(
                 modifier =
@@ -209,22 +218,24 @@ fun HomeScreen(
                         Modifier
                             .padding(top = 12.dp, bottom = 40.dp),
                 ) {
-                    items(
-                        count = homeState.officialList.size,
-                        key = { homeState.officialList[it].id },
-                    ) { official ->
-                        with(homeState.officialList[official]) {
-                            RecommendationNotice(
-                                noticeType = NoticeType.LIST,
-                                imageUrl = imageUrl,
-                                title = title,
-                                companyName = companyName,
-                                tag = tag,
-                                views = views,
-                                comments = comments,
-                                dDay = dDay,
-                                isBookmarked = isBookmarked,
-                            )
+                    if (homeState.officialList is UiState.Success) {
+                        items(
+                            count = homeState.officialList.data.size,
+                            key = { homeState.officialList.data[it].id },
+                        ) { official ->
+                            with(homeState.officialList.data[official]) {
+                                RecommendationNotice(
+                                    noticeType = NoticeType.LIST,
+                                    imageUrl = imageUrl,
+                                    title = title,
+                                    companyName = companyName,
+                                    tag = tag,
+                                    views = views,
+                                    comments = comments,
+                                    dDay = dDay,
+                                    isBookmarked = isBookmarked,
+                                )
+                            }
                         }
                     }
                 }
