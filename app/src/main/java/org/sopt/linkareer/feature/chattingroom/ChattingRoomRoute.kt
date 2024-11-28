@@ -99,7 +99,10 @@ fun ChattingRoomScreen(
                     .weight(1f)
                     .background(White),
         ) {
-            items(sortedChatList) { chat ->
+            items(
+                items = sortedChatList,
+                key = { chat -> chat.createdTime }
+            ) { chat ->
                 if (chat.reply == null) {
                     if (chatListEntity.myChat.chatList.contains(chat)) {
                         Row(
