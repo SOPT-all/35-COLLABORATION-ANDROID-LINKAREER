@@ -25,7 +25,7 @@ data class ChatEntity(
     val likes: Int = 0,
     val pressedLike: Boolean = false,
     val createdTime: String = "",
-    val reply: ReplyEntity? = null,
+    val reply: ReplyEntity = ReplyEntity(),
 )
 
 data class ReplyEntity(
