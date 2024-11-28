@@ -62,6 +62,7 @@ fun CertificationGuideScreen(
         CertificationConfirmButton(
             buttonText = R.string.certification_ok_button,
             onClickButton = navigateToCertificationEnterInformation,
+            isEnabled = true,
             modifier =
                 Modifier
                     .padding(horizontal = 17.dp)

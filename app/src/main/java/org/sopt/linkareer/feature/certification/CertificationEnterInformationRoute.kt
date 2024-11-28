@@ -7,6 +7,10 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -16,6 +20,7 @@ import org.sopt.linkareer.core.designsystem.component.textfield.CertificationTex
 import org.sopt.linkareer.core.designsystem.theme.Gray600
 import org.sopt.linkareer.core.designsystem.theme.Gray900
 import org.sopt.linkareer.core.designsystem.theme.LINKareerAndroidTheme
+import org.sopt.linkareer.core.designsystem.theme.LINKareerTheme
 import org.sopt.linkareer.core.designsystem.theme.White
 import org.sopt.linkareer.core.designsystem.theme.defaultLINKareerTypography
 import org.sopt.linkareer.feature.certification.component.CertificationAddImageBox
@@ -29,6 +34,9 @@ fun CertificationEnterInformationRoute() {
 
 @Composable
 fun CertificationEnterInformationScreen() {
+    var nameField by remember { mutableStateOf("") }
+    var phoneField by remember { mutableStateOf("") }
+
     Column(
         modifier =
             Modifier
@@ -43,7 +51,7 @@ fun CertificationEnterInformationScreen() {
         )
         Text(
             text = stringResource(R.string.certification_write_title),
-            style = defaultLINKareerTypography.title3B16,
+            style = LINKareerTheme.typography.title3B16,
             color = Gray900,
             modifier =
                 Modifier
@@ -52,15 +60,15 @@ fun CertificationEnterInformationScreen() {
 
         Text(
             text = stringResource(R.string.certification_name_field),
-            style = defaultLINKareerTypography.body4B12,
+            style = LINKareerTheme.typography.body4B12,
             color = Gray900,
             modifier =
                 Modifier
                     .padding(start = 17.dp, top = 32.dp),
         )
         CertificationTextField(
-            value = "",
-            onValueChange = {},
+            value = nameField,
+            onValueChange = { nameField = it },
             hintText = stringResource(R.string.certification_name_placeholder),
             helperMessage = "",
             showHelperMessage = false,
@@ -72,15 +80,15 @@ fun CertificationEnterInformationScreen() {
 
         Text(
             text = stringResource(R.string.certification_phone_field),
-            style = defaultLINKareerTypography.body4B12,
+            style = LINKareerTheme.typography.body4B12,
             color = Gray900,
             modifier =
                 Modifier
                     .padding(start = 17.dp, top = 32.dp),
         )
         CertificationTextField(
-            value = "",
-            onValueChange = {},
+            value = phoneField,
+            onValueChange = { phoneField = it },
             hintText = stringResource(R.string.certification_phone_placeholder),
             helperMessage = "",
             showHelperMessage = false,
@@ -119,6 +127,7 @@ fun CertificationEnterInformationScreen() {
         CertificationConfirmButton(
             buttonText = R.string.certification_confirm_button,
             onClickButton = {},
+            isEnabled = if(nameField.isEmpty() || phoneField.isEmpty()) false else true,
             modifier =
                 Modifier
                     .padding(horizontal = 17.dp)
