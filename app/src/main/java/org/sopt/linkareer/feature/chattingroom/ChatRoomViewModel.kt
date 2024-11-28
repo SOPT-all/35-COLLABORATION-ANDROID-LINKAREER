@@ -6,7 +6,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 import org.sopt.linkareer.core.state.UiState
-import org.sopt.linkareer.data.model.usecase.GetChatListUseCase
+import org.sopt.linkareer.domain.usecase.GetChatListUseCase
 import timber.log.Timber
 import javax.inject.Inject
 

@@ -4,7 +4,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import org.sopt.linkareer.data.model.usecase.GetChatListUseCase
+import org.sopt.linkareer.domain.usecase.GetChatListUseCase
 import org.sopt.linkareer.domain.repository.ChatRepository
 import javax.inject.Singleton
 
