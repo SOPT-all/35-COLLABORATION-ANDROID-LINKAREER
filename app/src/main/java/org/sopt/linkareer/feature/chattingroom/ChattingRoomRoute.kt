@@ -36,6 +36,7 @@ import java.time.format.DateTimeFormatter
 
 @Composable
 fun ChattingRoomRoute(
+    navigateBack: () -> Unit,
     navigateToCertificationGuide: () -> Unit,
     chatRoomViewModel: ChatRoomViewModel = hiltViewModel(),
 ) {
@@ -51,6 +52,7 @@ fun ChattingRoomRoute(
         is UiState.Success -> {
             val chatRoomStateData = (chatRoomState as UiState.Success<ChatRoomState>).data
             ChattingRoomScreen(
+                navigateBack = navigateBack,
                 navigateToCertificationGuide = navigateToCertificationGuide,
                 chatListEntity = chatRoomStateData.chatListEntity,
             )
@@ -64,6 +66,7 @@ fun ChattingRoomRoute(
 
 @Composable
 fun ChattingRoomScreen(
+    navigateBack: () -> Unit,
     navigateToCertificationGuide: () -> Unit,
     chatListEntity: ChatListEntity,
 ) {
@@ -86,7 +89,7 @@ fun ChattingRoomScreen(
         BackChattingRoomTopAppBar(
             chattingRoomName = chatListEntity.chatRoomName,
             chattingRoomHeadCount = chatListEntity.chatParticiPantsCount,
-            onBackButtonClick = { },
+            onBackButtonClick = navigateBack,
         )
         ChatRoomTopNotice()
 
@@ -183,6 +186,7 @@ fun ChattingRoomScreen(
 @Composable
 fun ChattingScreenPreview() {
     ChattingRoomScreen(
+        navigateBack = {},
         navigateToCertificationGuide = {},
         ChatListEntity(),
     )

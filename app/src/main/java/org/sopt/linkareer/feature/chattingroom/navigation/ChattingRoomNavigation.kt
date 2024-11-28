@@ -22,6 +22,7 @@ fun NavGraphBuilder.chattingRoomGraph(
 ) {
     composable<ChattingRoom> {
         ChattingRoomRoute(
+            navigateBack = {navHostController.popBackStack()},
             navigateToCertificationGuide = { navHostController.navigateToCertificationGuide() },
         )
     }
