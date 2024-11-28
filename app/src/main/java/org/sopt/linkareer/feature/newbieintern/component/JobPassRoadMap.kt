@@ -13,13 +13,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import org.sopt.linkareer.R
 import org.sopt.linkareer.core.designsystem.theme.Gray200
 import org.sopt.linkareer.core.designsystem.theme.Gray600
 import org.sopt.linkareer.core.designsystem.theme.Gray900
-import org.sopt.linkareer.core.designsystem.theme.LINKareerAndroidTheme
 import org.sopt.linkareer.core.designsystem.theme.LINKareerTheme
 
 @Composable
@@ -32,7 +29,8 @@ fun JobPassRoadMap(
     Column(
         modifier =
             modifier
-                .background(color = Gray200, shape = RoundedCornerShape(10.dp)),
+                .background(color = Gray200, shape = RoundedCornerShape(10.dp))
+                .height(127.dp),
     ) {
         Text(
             text = subTitle,
@@ -58,20 +56,8 @@ fun JobPassRoadMap(
                 Modifier
                     .width(44.dp)
                     .height(44.dp)
-                    .align(Alignment.End)
-                    .padding(end = 4.dp, bottom = 12.dp),
-        )
-    }
-}
-
-@Preview
-@Composable
-fun JobPassRoadMapPreview() {
-    LINKareerAndroidTheme {
-        JobPassRoadMap(
-            subTitle = "합격을 위한 꿀팁과 전략",
-            mainTitle = "인/적성\n합격후기",
-            image = R.drawable.img_newbie_liberalartsmentor,
+                    .padding(bottom = 12.dp)
+                    .align(Alignment.End),
         )
     }
 }
