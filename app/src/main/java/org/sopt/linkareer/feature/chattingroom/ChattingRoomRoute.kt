@@ -93,7 +93,6 @@ fun ChattingRoomScreen(
         )
         ChatRoomTopNotice()
 
-        // 채팅 방
         LazyColumn(
             modifier =
                 Modifier
@@ -101,7 +100,6 @@ fun ChattingRoomScreen(
                     .background(White),
         ) {
             items(sortedChatList) { chat ->
-                // if -> 일반 채팅 / else -> 답장
                 if (chat.reply == null) {
                     if (chatListEntity.myChat.chatList.contains(chat)) {
                         Row(
