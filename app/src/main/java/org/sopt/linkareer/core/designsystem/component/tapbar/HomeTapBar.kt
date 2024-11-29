@@ -6,10 +6,10 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -49,38 +49,55 @@ fun HomeTapBar(
                 .padding(start = 11.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        Row(
-            horizontalArrangement = Arrangement.SpaceBetween,
+        LazyRow(
+            horizontalArrangement = Arrangement.spacedBy(12.dp),
             modifier =
                 Modifier
                     .weight(1f),
         ) {
-            TabItem(
-                tapName = newbieTab,
-                isSelected = rememberTap == newbieTab,
-                onClick = {
-                    rememberTap = newbieTab
-                    onTabClick(newbieTab)
-                },
-            )
-            Spacer(modifier = Modifier.padding(start = 12.dp))
-
-            TabItem(
-                tapName = stringResource(R.string.home_tab_contest),
-                isSelected = false,
-            )
-            Spacer(modifier = Modifier.padding(start = 12.dp))
-
-            TabItem(
-                tapName = stringResource(R.string.home_tab_channel),
-                isSelected = false,
-            )
-            Spacer(modifier = Modifier.padding(start = 12.dp))
-
-            TabItem(
-                tapName = stringResource(R.string.home_tab_community),
-                isSelected = false,
-            )
+            item {
+                TabItem(
+                    tapName = newbieTab,
+                    isSelected = rememberTap == newbieTab,
+                    onClick = {
+                        rememberTap = newbieTab
+                        onTabClick(newbieTab)
+                    },
+                )
+            }
+            item {
+                val contestTab = stringResource(R.string.home_tab_contest)
+                TabItem(
+                    tapName = contestTab,
+                    isSelected = rememberTap == contestTab,
+                    onClick = {
+                        rememberTap = contestTab
+                        onTabClick(contestTab)
+                    },
+                )
+            }
+            item {
+                val channelTab = stringResource(R.string.home_tab_channel)
+                TabItem(
+                    tapName = channelTab,
+                    isSelected = rememberTap == channelTab,
+                    onClick = {
+                        rememberTap = channelTab
+                        onTabClick(channelTab)
+                    },
+                )
+            }
+            item {
+                val communityTab = stringResource(R.string.home_tab_community)
+                TabItem(
+                    tapName = communityTab,
+                    isSelected = rememberTap == communityTab,
+                    onClick = {
+                        rememberTap = communityTab
+                        onTabClick(communityTab)
+                    },
+                )
+            }
         }
         Image(
             imageVector = ImageVector.vectorResource(R.drawable.ic_arrow_down_box_30),

@@ -6,8 +6,10 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import org.sopt.linkareer.data.repositoryimpl.ChatRepositoryImpl
 import org.sopt.linkareer.data.repositoryimpl.DummyRepositoryImpl
+import org.sopt.linkareer.data.repositoryimpl.HomeRepositoryImpl
 import org.sopt.linkareer.domain.repository.ChatRepository
 import org.sopt.linkareer.domain.repository.DummyRepository
+import org.sopt.linkareer.domain.repository.HomeRepository
 import javax.inject.Singleton
 
 @Module
@@ -16,6 +18,10 @@ abstract class RepositoryModule {
     @Binds
     @Singleton
     abstract fun bindDummyRepository(dummyRepositoryImpl: DummyRepositoryImpl): DummyRepository
+
+    @Binds
+    @Singleton
+    abstract fun bindHomeRepository(homeRepositoryImpl: HomeRepositoryImpl): HomeRepository
 
     @Binds
     @Singleton
