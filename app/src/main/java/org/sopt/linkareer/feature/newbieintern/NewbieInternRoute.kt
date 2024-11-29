@@ -125,7 +125,7 @@ fun NewbieInternScreen(
                 InternMainTitle(
                     blackTextFirst = stringResource(R.string.intern_official_title),
                     blueText = stringResource(R.string.intern_official_title_2),
-                    blackText = stringResource(R.string.intern_official_title_3),
+                    blackText = stringResource(R.string.intern_official_title_1),
                     chipList =
                         listOf(
                             stringResource(R.string.intern_official_chip_1),
