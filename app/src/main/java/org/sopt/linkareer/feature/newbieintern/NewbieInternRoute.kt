@@ -55,7 +55,6 @@ import org.sopt.linkareer.feature.newbieintern.component.JobPassRoadMap
 
 @Composable
 fun NewbieInternRoute(
-    navigateBack: () -> Unit,
     navigateToChattingRoom: () -> Unit,
     paddingValues: PaddingValues,
     newbieInternViewModel: NewbieInternViewModel = hiltViewModel(),
@@ -107,7 +106,6 @@ fun NewbieInternScreen(
 
                 HomeTapBar(
                     onTabClick = {},
-                    navigateToNewbieIntern = {},
                 )
 
                 HorizontalDivider(

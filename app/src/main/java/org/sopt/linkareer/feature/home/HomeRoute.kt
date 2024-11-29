@@ -52,12 +52,17 @@ fun HomeRoute(
         viewModel.getOfficials("recommend")
     }
 
-    HomeScreen(navigateToNewbieIntern, paddingValues, homeState, viewModel)
+    HomeScreen(
+        onTabClick = { navigateToNewbieIntern() },
+        paddingValues,
+        homeState,
+        viewModel,
+    )
 }
 
 @Composable
 fun HomeScreen(
-    navigateToNewbieIntern: () -> Unit,
+    onTabClick: (String) -> Unit,
     paddingValues: PaddingValues,
     homeState: HomeState,
     viewModel: HomeViewModel = hiltViewModel(),
@@ -82,8 +87,7 @@ fun HomeScreen(
                 )
 
                 HomeTapBar(
-                    onTabClick = {},
-                    navigateToNewbieIntern = navigateToNewbieIntern,
+                    onTabClick = onTabClick,
                 )
 
                 HorizontalDivider(
@@ -267,7 +271,7 @@ fun HomeScreen(
 fun HomeScreenPreview() {
     LINKareerAndroidTheme {
         HomeScreen(
-            navigateToNewbieIntern = {},
+            onTabClick = {},
             PaddingValues(1.dp),
             HomeState(),
         )

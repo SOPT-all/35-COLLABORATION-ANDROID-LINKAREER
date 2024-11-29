@@ -37,7 +37,6 @@ import org.sopt.linkareer.core.extension.noRippleClickable
 fun HomeTapBar(
     onTabClick: (String) -> Unit,
     modifier: Modifier = Modifier,
-    navigateToNewbieIntern: () -> Unit,
 ) {
     val newbieTab = stringResource(R.string.home_tab_newbie)
     var rememberTap by remember { mutableStateOf<String?>(null) }
@@ -63,7 +62,6 @@ fun HomeTapBar(
                     onClick = {
                         rememberTap = newbieTab
                         onTabClick(newbieTab)
-                        navigateToNewbieIntern()
                     },
                 )
             }
@@ -151,7 +149,6 @@ fun HomeTapBarPreview() {
     LINKareerAndroidTheme {
         HomeTapBar(
             onTabClick = {},
-            navigateToNewbieIntern = {},
         )
     }
 }

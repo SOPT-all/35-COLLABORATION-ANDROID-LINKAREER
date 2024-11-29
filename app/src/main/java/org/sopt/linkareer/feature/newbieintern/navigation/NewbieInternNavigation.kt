@@ -23,7 +23,6 @@ fun NavGraphBuilder.newbieInternNavGraph(
 ) {
     composable<NewbieIntern> {
         NewbieInternRoute(
-            navigateBack = { navHostController.popBackStack() },
             navigateToChattingRoom = { navHostController.navigateToChattingRoom() },
             paddingValues = paddingValues,
         )
