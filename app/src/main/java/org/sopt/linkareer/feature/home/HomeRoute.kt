@@ -51,13 +51,14 @@ fun HomeRoute(
         viewModel.getOfficials("recommend")
     }
 
-    HomeScreen(paddingValues, homeState)
+    HomeScreen(paddingValues, homeState, viewModel)
 }
 
 @Composable
 fun HomeScreen(
     paddingValues: PaddingValues,
     homeState: HomeState,
+    viewModel: HomeViewModel = hiltViewModel(),
 ) {
     var searchText by remember { mutableStateOf("") }
 
@@ -224,6 +225,12 @@ fun HomeScreen(
                             key = { homeState.officialList.data[it].id },
                         ) { official ->
                             with(homeState.officialList.data[official]) {
+                                val isBookmarked =
+                                    when (homeState.bookmarkStatus) {
+                                        is UiState.Success -> homeState.bookmarkStatus.data[id] ?: false
+                                        else -> false
+                                    }
+
                                 RecommendationNotice(
                                     noticeType = NoticeType.LIST,
                                     imageUrl = imageUrl,
@@ -234,6 +241,14 @@ fun HomeScreen(
                                     comments = comments,
                                     dDay = dDay,
                                     isBookmarked = isBookmarked,
+                                    onBookmarkClick = { bookmarked ->
+                                        if (bookmarked) {
+                                            // Todo : memberid
+                                            viewModel.addBookmark(id, 1)
+                                        } else {
+                                            viewModel.removeBookmark(id)
+                                        }
+                                    },
                                 )
                             }
                         }
