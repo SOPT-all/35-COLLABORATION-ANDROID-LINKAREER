@@ -7,4 +7,14 @@ interface HomeRepository {
     suspend fun getPosts(category: String): Result<List<PostEntity>>
 
     suspend fun getOfficials(category: String): Result<List<OfficialEntity>>
+
+    suspend fun addBookmark(
+        officialId: Int,
+        memberId: Int,
+    ): Result<String>
+
+    suspend fun removeBookmark(
+        officialId: Int,
+        memberId: Int,
+    ): Result<String>
 }
