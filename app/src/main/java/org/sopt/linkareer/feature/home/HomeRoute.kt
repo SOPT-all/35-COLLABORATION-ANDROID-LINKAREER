@@ -243,8 +243,7 @@ fun HomeScreen(
                                     isBookmarked = isBookmarked,
                                     onBookmarkClick = { bookmarked ->
                                         if (bookmarked) {
-                                            // Todo : memberid
-                                            viewModel.addBookmark(id, 1)
+                                            viewModel.addBookmark(id)
                                         } else {
                                             viewModel.removeBookmark(id)
                                         }

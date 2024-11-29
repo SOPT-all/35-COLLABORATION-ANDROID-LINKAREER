@@ -25,13 +25,11 @@ interface HomeService {
     @POST("/api/v1/bookmark/{officialId}")
     suspend fun addBookmark(
         @Path("officialId") officialId: Int,
-        @Header("memberId") memberId: Int,
     ): AddBookmarkResponse
 
     @DELETE("/api/v1/bookmark/{officialId}")
     suspend fun removeBookmark(
         @Path("officialId") officialId: Int,
         @Header("Content-Type") contentType: String = "application/json",
-        @Header("memberId") memberId: Int,
     ): RemoveBookmarkResponse
 }

@@ -17,11 +17,9 @@ class HomeRemoteDataSourceImpl @Inject constructor(
 
     override suspend fun addBookmark(
         officialId: Int,
-        memberId: Int,
-    ): AddBookmarkResponse = homeService.addBookmark(officialId, memberId)
+    ): AddBookmarkResponse = homeService.addBookmark(officialId)
 
     override suspend fun removeBookmark(
         officialId: Int,
-        memberId: Int,
-    ): RemoveBookmarkResponse = homeService.removeBookmark(officialId = officialId, memberId = memberId)
+    ): RemoveBookmarkResponse = homeService.removeBookmark(officialId = officialId)
 }

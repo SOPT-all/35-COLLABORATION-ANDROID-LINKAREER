@@ -19,8 +19,6 @@ class HomeViewModel @Inject constructor(
     var homeState: MutableStateFlow<HomeState> = MutableStateFlow(HomeState())
         private set
 
-    // Todo : member id 프로퍼티 추가
-
     fun getPosts(category: String) {
         viewModelScope.launch {
             homeRepository.getPosts(category)
@@ -49,10 +47,9 @@ class HomeViewModel @Inject constructor(
 
     fun addBookmark(
         officialId: Int,
-        memberId: Int,
     ) {
         viewModelScope.launch {
-            homeRepository.addBookmark(officialId, memberId)
+            homeRepository.addBookmark(officialId)
                 .onSuccess { message ->
                     homeState.update {
                         val updatedBookmarks =
@@ -74,10 +71,9 @@ class HomeViewModel @Inject constructor(
         }
     }
 
-    // Todo : memberid 수정
     fun removeBookmark(officialId: Int) {
         viewModelScope.launch {
-            homeRepository.removeBookmark(officialId, memberId = 1)
+            homeRepository.removeBookmark(officialId)
                 .onSuccess { message ->
                     homeState.update {
                         val updateBookmarks =

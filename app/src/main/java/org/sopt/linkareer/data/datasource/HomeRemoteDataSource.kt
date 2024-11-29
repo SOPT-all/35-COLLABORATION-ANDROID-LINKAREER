@@ -12,11 +12,9 @@ interface HomeRemoteDataSource {
 
     suspend fun addBookmark(
         officialId: Int,
-        memberId: Int,
     ): AddBookmarkResponse
 
     suspend fun removeBookmark(
         officialId: Int,
-        memberId: Int,
     ): RemoveBookmarkResponse
 }

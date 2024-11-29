@@ -10,11 +10,9 @@ interface HomeRepository {
 
     suspend fun addBookmark(
         officialId: Int,
-        memberId: Int,
     ): Result<String>
 
     suspend fun removeBookmark(
         officialId: Int,
-        memberId: Int,
     ): Result<String>
 }

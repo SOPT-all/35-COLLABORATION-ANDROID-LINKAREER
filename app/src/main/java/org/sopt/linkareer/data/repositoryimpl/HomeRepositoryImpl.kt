@@ -27,17 +27,15 @@ class HomeRepositoryImpl @Inject constructor(
 
     override suspend fun addBookmark(
         officialId: Int,
-        memberId: Int,
     ): Result<String> =
         runCatching {
-            homeRemoteDataSource.addBookmark(officialId, memberId).message
+            homeRemoteDataSource.addBookmark(officialId).message
         }
 
     override suspend fun removeBookmark(
         officialId: Int,
-        memberId: Int,
     ): Result<String> =
         runCatching {
-            homeRemoteDataSource.removeBookmark(officialId, memberId).message
+            homeRemoteDataSource.removeBookmark(officialId).message
         }
 }
