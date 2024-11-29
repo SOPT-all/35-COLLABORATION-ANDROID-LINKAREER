@@ -30,6 +30,5 @@ interface HomeService {
     @DELETE("/api/v1/bookmark/{officialId}")
     suspend fun removeBookmark(
         @Path("officialId") officialId: Int,
-        @Header("Content-Type") contentType: String = "application/json",
     ): RemoveBookmarkResponse
 }

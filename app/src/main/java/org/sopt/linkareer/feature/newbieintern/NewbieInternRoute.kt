@@ -286,7 +286,6 @@ fun NewbieInternScreen(
                         ),
             )
 
-            // Todo :  padding 설정 재확인
             CommunityChipList(
                 chipList =
                     listOf(
@@ -360,7 +359,6 @@ fun NewbieInternScreen(
                     company = company,
                     chattingTitle = title,
                     participationPerson = participation,
-                    // Todo : 성민오빠 채팅방으로
                     onClick = navigateToChattingRoom,
                     isInPersonConversation = isInPerson,
                     modifier =
