@@ -43,7 +43,7 @@ fun ProvideLINKareerColorsAndTypography(
 
 @Composable
 fun LINKareerAndroidTheme(
-    backgroundColor: Color = defaultLINKareerColors.white,
+    backgroundColor: Color = Blue,
     content: @Composable () -> Unit,
 ) {
     val view = LocalView.current
