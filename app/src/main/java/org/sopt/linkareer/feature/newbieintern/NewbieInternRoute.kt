@@ -15,6 +15,7 @@ import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -39,30 +40,41 @@ import org.sopt.linkareer.core.designsystem.theme.Blue50
 import org.sopt.linkareer.core.designsystem.theme.Gray300
 import org.sopt.linkareer.core.designsystem.theme.LINKareerAndroidTheme
 import org.sopt.linkareer.core.designsystem.theme.LINKareerTheme
+import org.sopt.linkareer.core.state.UiState
 import org.sopt.linkareer.domain.model.RoadMapEntity
+import org.sopt.linkareer.feature.home.HomeState
+import org.sopt.linkareer.feature.home.HomeViewModel
 import org.sopt.linkareer.feature.home.component.CommunityBest
 import org.sopt.linkareer.feature.home.component.HomeTitle
+import org.sopt.linkareer.feature.home.component.NoticeType
 import org.sopt.linkareer.feature.home.component.RecommendationNotice
 import org.sopt.linkareer.feature.newbieintern.component.CompanyPassGuide
 import org.sopt.linkareer.feature.newbieintern.component.InternMainTitle
 import org.sopt.linkareer.feature.newbieintern.component.InternSubTitle
 import org.sopt.linkareer.feature.newbieintern.component.JobPassRoadMap
 
-// Todo : JobPassRoadMap 컴포넌트 아이템 크기, 위치
 @Composable
 fun NewbieInternRoute(
     paddingValues: PaddingValues,
-    viewModel: NewbieInternViewModel = hiltViewModel(),
+    newbieInternViewModel: NewbieInternViewModel = hiltViewModel(),
+    homeViewModel: HomeViewModel = hiltViewModel(),
 ) {
-    val newbieInternState by viewModel.newbieInternState.collectAsStateWithLifecycle()
+    val newbieInternState by newbieInternViewModel.newbieInternState.collectAsStateWithLifecycle()
+    val homeState by homeViewModel.homeState.collectAsStateWithLifecycle()
 
-    NewbieInternScreen(paddingValues, newbieInternState)
+    LaunchedEffect(true) {
+        homeViewModel.getPosts("interest")
+        homeViewModel.getOfficials("recommend")
+    }
+
+    NewbieInternScreen(paddingValues, newbieInternState, homeState)
 }
 
 @Composable
 fun NewbieInternScreen(
     paddingValues: PaddingValues,
     newbieInternState: NewbieInternState,
+    homeState: HomeState,
 ) {
     var searchText by remember { mutableStateOf("") }
 
@@ -123,23 +135,24 @@ fun NewbieInternScreen(
                         Modifier
                             .padding(top = 12.dp, bottom = 16.dp),
                 ) {
-                    items(
-                        // Todo : 서버 통신 이라면, newbieInternState or homeState ?
-                        count = newbieInternState.officialList.size,
-                        key = { newbieInternState.officialList[it].id },
-                    ) { official ->
-                        with(newbieInternState.officialList[official]) {
-                            RecommendationNotice(
-                                noticeType = org.sopt.linkareer.feature.home.component.NoticeType.LIST,
-                                imageUrl = imageUrl,
-                                title = title,
-                                companyName = companyName,
-                                tag = tag,
-                                views = views,
-                                comments = comments,
-                                dDay = dDay,
-                                isBookmarked = isBookmarked,
-                            )
+                    if (homeState.officialList is UiState.Success) {
+                        items(
+                            count = homeState.officialList.data.size,
+                            key = { homeState.officialList.data[it].id },
+                        ) { official ->
+                            with(homeState.officialList.data[official]) {
+                                RecommendationNotice(
+                                    noticeType = NoticeType.LIST,
+                                    imageUrl = imageUrl,
+                                    title = title,
+                                    companyName = companyName,
+                                    tag = tag,
+                                    views = views,
+                                    comments = comments,
+                                    dDay = dDay,
+                                    isBookmarked = isBookmarked,
+                                )
+                            }
                         }
                     }
                 }
@@ -162,7 +175,6 @@ fun NewbieInternScreen(
                             stringResource(R.string.intern_road_map_chip_2),
                             stringResource(R.string.intern_road_map_chip_3),
                         ),
-                    onButtonClick = {},
                     modifier = Modifier.padding(start = 17.dp, end = 17.dp, top = 32.dp),
                 )
                 Column(
@@ -261,34 +273,36 @@ fun NewbieInternScreen(
                     ),
             )
         }
-        items(
-            count = 3,
-            key = { "${newbieInternState.postList[it].id}_community_$it" },
-        ) { post ->
-            with(newbieInternState.postList[post]) {
-                CommunityBest(
-                    community = community,
-                    imageUrl = imageUrl,
-                    title = title,
-                    content = content,
-                    writer = writer,
-                    beforeTime = beforeTime,
-                    favorites = favourites,
-                    comments = comments,
-                    views = views,
+        if (homeState.postList is UiState.Success) {
+            items(
+                count = homeState.postList.data.size,
+                key = { homeState.postList.data[it].id },
+            ) { post ->
+                with(homeState.postList.data[post]) {
+                    CommunityBest(
+                        community = community,
+                        imageUrl = imageUrl,
+                        title = title,
+                        content = content,
+                        writer = writer,
+                        beforeTime = beforeTime,
+                        favorites = favourites,
+                        comments = comments,
+                        views = views,
+                        modifier =
+                            Modifier
+                                .padding(start = 15.dp, end = 19.dp),
+                    )
+                }
+
+                HorizontalDivider(
+                    thickness = 1.dp,
+                    color = LINKareerTheme.colors.gray300,
                     modifier =
                         Modifier
                             .padding(start = 15.dp, end = 19.dp),
                 )
             }
-
-            HorizontalDivider(
-                thickness = 1.dp,
-                color = LINKareerTheme.colors.gray300,
-                modifier =
-                    Modifier
-                        .padding(start = 15.dp, end = 19.dp),
-            )
         }
 
         item {
@@ -401,6 +415,7 @@ fun NewbieInternScreenPreview() {
         NewbieInternScreen(
             PaddingValues(1.dp),
             NewbieInternState(),
+            HomeState(),
         )
     }
 }
