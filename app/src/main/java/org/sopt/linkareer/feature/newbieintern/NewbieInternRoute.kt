@@ -67,7 +67,7 @@ fun NewbieInternRoute(
         homeViewModel.getOfficials("recommend")
     }
 
-    NewbieInternScreen(paddingValues, newbieInternState, homeState)
+    NewbieInternScreen(paddingValues, newbieInternState, homeState, homeViewModel)
 }
 
 @Composable
@@ -75,6 +75,7 @@ fun NewbieInternScreen(
     paddingValues: PaddingValues,
     newbieInternState: NewbieInternState,
     homeState: HomeState,
+    homeViewModel: HomeViewModel = hiltViewModel(),
 ) {
     var searchText by remember { mutableStateOf("") }
 
@@ -141,6 +142,11 @@ fun NewbieInternScreen(
                             key = { homeState.officialList.data[it].id },
                         ) { official ->
                             with(homeState.officialList.data[official]) {
+                                val isBookmarked =
+                                    when (homeState.bookmarkStatus) {
+                                        is UiState.Success -> homeState.bookmarkStatus.data[id] ?: false
+                                        else -> false
+                                    }
                                 RecommendationNotice(
                                     noticeType = NoticeType.LIST,
                                     imageUrl = imageUrl,
@@ -151,6 +157,13 @@ fun NewbieInternScreen(
                                     comments = comments,
                                     dDay = dDay,
                                     isBookmarked = isBookmarked,
+                                    onBookmarkClick = { bookmarked ->
+                                        if (bookmarked) {
+                                            homeViewModel.addBookmark(id)
+                                        } else {
+                                            homeViewModel.removeBookmark(id)
+                                        }
+                                    },
                                 )
                             }
                         }
