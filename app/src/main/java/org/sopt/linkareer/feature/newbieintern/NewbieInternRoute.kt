@@ -55,6 +55,8 @@ import org.sopt.linkareer.feature.newbieintern.component.JobPassRoadMap
 
 @Composable
 fun NewbieInternRoute(
+    navigateBack: () -> Unit,
+    navigateToChattingRoom: () -> Unit,
     paddingValues: PaddingValues,
     newbieInternViewModel: NewbieInternViewModel = hiltViewModel(),
     homeViewModel: HomeViewModel = hiltViewModel(),
@@ -67,11 +69,18 @@ fun NewbieInternRoute(
         homeViewModel.getOfficials("recommend")
     }
 
-    NewbieInternScreen(paddingValues, newbieInternState, homeState, homeViewModel)
+    NewbieInternScreen(
+        navigateToChattingRoom = navigateToChattingRoom,
+        paddingValues = paddingValues,
+        newbieInternState = newbieInternState,
+        homeState = homeState,
+        homeViewModel = homeViewModel,
+    )
 }
 
 @Composable
 fun NewbieInternScreen(
+    navigateToChattingRoom: () -> Unit,
     paddingValues: PaddingValues,
     newbieInternState: NewbieInternState,
     homeState: HomeState,
@@ -98,6 +107,7 @@ fun NewbieInternScreen(
 
                 HomeTapBar(
                     onTabClick = {},
+                    navigateToNewbieIntern = {},
                 )
 
                 HorizontalDivider(
@@ -351,7 +361,7 @@ fun NewbieInternScreen(
                     chattingTitle = title,
                     participationPerson = participation,
                     // Todo : 성민오빠 채팅방으로
-                    onClick = {},
+                    onClick = navigateToChattingRoom,
                     isInPersonConversation = isInPerson,
                     modifier =
                         Modifier
@@ -426,6 +436,7 @@ fun CommunityChipList(chipList: List<String>) {
 fun NewbieInternScreenPreview() {
     LINKareerAndroidTheme {
         NewbieInternScreen(
+            navigateToChattingRoom = {},
             PaddingValues(1.dp),
             NewbieInternState(),
             HomeState(),
