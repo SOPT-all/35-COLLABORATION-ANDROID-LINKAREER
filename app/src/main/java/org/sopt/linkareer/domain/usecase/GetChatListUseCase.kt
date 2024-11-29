@@ -1,4 +1,4 @@
-package org.sopt.linkareer.data.model.usecase
+package org.sopt.linkareer.domain.usecase
 
 import org.sopt.linkareer.domain.model.ChatListEntity
 import org.sopt.linkareer.domain.repository.ChatRepository
