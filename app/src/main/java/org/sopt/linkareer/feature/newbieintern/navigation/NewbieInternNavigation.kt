@@ -6,8 +6,10 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavOptions
 import androidx.navigation.compose.composable
 import kotlinx.serialization.Serializable
+import org.sopt.linkareer.core.navigation.MainTabRoute
 import org.sopt.linkareer.core.navigation.Route
 import org.sopt.linkareer.feature.chattingroom.navigation.navigateToChattingRoom
+import org.sopt.linkareer.feature.main.MainTab
 import org.sopt.linkareer.feature.newbieintern.NewbieInternRoute
 
 fun NavController.navigateToNewbieIntern(navOptions: NavOptions? = null) {
@@ -30,4 +32,4 @@ fun NavGraphBuilder.newbieInternNavGraph(
 }
 
 @Serializable
-data object NewbieIntern : Route
+data object NewbieIntern : MainTabRoute

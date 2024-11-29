@@ -36,7 +36,7 @@ fun MainScreen(
 ) {
     Scaffold(
         topBar = {
-            if (navigator.currentTab == MainTab.HOME || navigator.currentTab == MainTab.CHATTING) {
+            if (navigator.currentTab == MainTab.HOME || navigator.currentTab == MainTab.CHATTING || navigator.currentTab == MainTab.NEWBIE) {
                 LogoTopAppBar()
             }
         },
@@ -105,25 +105,26 @@ private fun MainBottomBar(
 ) {
     NavigationBar(containerColor = White) {
         tabs.forEach { itemType ->
-            NavigationBarItem(
-                interactionSource = NoRippleInteraction,
-                selected = currentTab == itemType,
-                onClick = {
-                    onTabSelected(itemType)
-                },
-                icon = {
-                    Image(
-                        imageVector = ImageVector.vectorResource(id = if (currentTab == itemType) itemType.selectedIcon else itemType.unselectedIcon),
-                        contentDescription = stringResource(id = itemType.contentDescription),
-                    )
-                },
-                label = {
-                    Text(
-                        stringResource(id = itemType.contentDescription),
-                        style = LINKareerTheme.typography.label4M10,
-                    )
-                },
-                colors =
+            if(itemType != MainTab.NEWBIE) {
+                NavigationBarItem(
+                    interactionSource = NoRippleInteraction,
+                    selected = currentTab == itemType,
+                    onClick = {
+                        onTabSelected(itemType)
+                    },
+                    icon = {
+                        Image(
+                            imageVector = ImageVector.vectorResource(id = if (currentTab == itemType) itemType.selectedIcon else itemType.unselectedIcon),
+                            contentDescription = stringResource(id = itemType.contentDescription),
+                        )
+                    },
+                    label = {
+                        Text(
+                            stringResource(id = itemType.contentDescription),
+                            style = LINKareerTheme.typography.label4M10,
+                        )
+                    },
+                    colors =
                     NavigationBarItemColors(
                         selectedIconColor = Gray900,
                         selectedTextColor = Gray900,
@@ -133,7 +134,8 @@ private fun MainBottomBar(
                         disabledTextColor = Gray600,
                         disabledIconColor = Gray600,
                     ),
-            )
+                )
+            }
         }
     }
 }

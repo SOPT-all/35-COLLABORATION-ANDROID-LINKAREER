@@ -11,6 +11,7 @@ import org.sopt.linkareer.core.navigation.Home
 import org.sopt.linkareer.core.navigation.MainTabRoute
 import org.sopt.linkareer.core.navigation.Menu
 import org.sopt.linkareer.core.navigation.Route
+import org.sopt.linkareer.feature.newbieintern.navigation.NewbieIntern
 
 enum class MainTab(
     @DrawableRes val selectedIcon: Int,
@@ -35,6 +36,12 @@ enum class MainTab(
         unselectedIcon = R.drawable.ic_home_inactive_32,
         contentDescription = R.string.home,
         route = Home,
+    ),
+    NEWBIE(
+        selectedIcon = R.drawable.ic_home_active_32,
+        unselectedIcon = R.drawable.ic_home_active_32,
+        contentDescription = R.string.home,
+        route = NewbieIntern,
     ),
     CALENDAR(
         selectedIcon = R.drawable.ic_calendar_active_32,
