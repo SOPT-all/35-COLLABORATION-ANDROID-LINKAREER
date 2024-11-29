@@ -23,12 +23,12 @@ import org.sopt.linkareer.core.extension.noRippleClickable
 
 @Composable
 fun HomeTitle(
-    blueText: String? = null,
     blackText: String,
     grayText: String,
     chipList: List<String>,
     onButtonClick: () -> Unit = {},
     modifier: Modifier = Modifier,
+    blueText: String? = null,
 ) {
     Row(
         modifier =

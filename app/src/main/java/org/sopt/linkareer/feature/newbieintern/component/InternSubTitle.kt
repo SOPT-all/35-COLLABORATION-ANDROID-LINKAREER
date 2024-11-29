@@ -23,51 +23,48 @@ fun InternSubTitle(
     blackText: String,
     grayText: String,
     chipList: List<String>,
-    onButtonClick: () -> Unit = {},
     modifier: Modifier = Modifier,
 ) {
-    Row(
+    Column(
         modifier =
             modifier
                 .fillMaxWidth(),
     ) {
-        Column {
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                Text(
-                    text = blueText,
-                    style = LINKareerTheme.typography.title2B17,
-                    color = Blue,
-                )
-                Text(
-                    text = blackText,
-                    style = LINKareerTheme.typography.title1B18,
-                    color = Black,
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Text(
+                text = blueText,
+                style = LINKareerTheme.typography.title2B17,
+                color = Blue,
+            )
+            Text(
+                text = blackText,
+                style = LINKareerTheme.typography.title1B18,
+                color = Black,
+                modifier =
+                    Modifier
+                        .padding(start = 4.dp),
+            )
+        }
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier.padding(top = 4.dp),
+        ) {
+            for (text in chipList) {
+                BlueOutlinedChip(
+                    text = text,
                     modifier =
                         Modifier
-                            .padding(start = 4.dp),
+                            .padding(end = 4.dp),
                 )
             }
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier.padding(top = 4.dp),
-            ) {
-                for (text in chipList) {
-                    BlueOutlinedChip(
-                        text = text,
-                        modifier =
-                            Modifier
-                                .padding(end = 4.dp),
-                    )
-                }
 
-                Text(
-                    text = grayText,
-                    style = LINKareerTheme.typography.body14R10,
-                    color = Gray600,
-                )
-            }
+            Text(
+                text = grayText,
+                style = LINKareerTheme.typography.body14R10,
+                color = Gray600,
+            )
         }
     }
 }
@@ -81,7 +78,6 @@ fun InternSubTitlePreview() {
             blackText = "직무 합격 로드맵",
             grayText = "이(가) 언급되고 있어요.",
             chipList = listOf("유저 리서치", "사용자 조사", "UT"),
-            onButtonClick = {},
             modifier = Modifier.padding(start = 17.dp, end = 17.dp, top = 32.dp, bottom = 12.dp),
         )
     }

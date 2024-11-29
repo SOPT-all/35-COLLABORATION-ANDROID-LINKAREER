@@ -22,9 +22,9 @@ import org.sopt.linkareer.core.extension.noRippleClickable
 
 @Composable
 fun InternMainTitle(
-    blackTextFirst: String? = "",
     blueText: String,
     blackText: String,
+    blackTextFirst: String? = "",
     isMore: Boolean = false,
     chipList: List<String>? = null,
     modifier: Modifier = Modifier,

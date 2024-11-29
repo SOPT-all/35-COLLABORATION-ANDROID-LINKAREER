@@ -69,7 +69,7 @@ fun JobPassRoadMap(
 
 @Preview
 @Composable
-fun Preview() {
+fun JobPassRoadMapPreview() {
     Row {
         JobPassRoadMap(
             subTitle = "가장 궁금해 한 Q&A",
