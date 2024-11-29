@@ -42,10 +42,12 @@ fun ChattingRoomInPerson(
     participationPerson: Int,
     onClick: () -> Unit,
     isInPersonConversation: Boolean = true,
+    modifier: Modifier = Modifier,
 ) {
     Row(
         modifier =
             Modifier
+                .then(modifier)
                 .fillMaxWidth()
                 .noRippleClickable { onClick() }
                 .border(

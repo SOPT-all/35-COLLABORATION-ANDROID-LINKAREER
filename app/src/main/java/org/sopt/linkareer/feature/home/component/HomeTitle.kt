@@ -23,12 +23,12 @@ import org.sopt.linkareer.core.extension.noRippleClickable
 
 @Composable
 fun HomeTitle(
-    blueText: String,
     blackText: String,
     grayText: String,
     chipList: List<String>,
     onButtonClick: () -> Unit = {},
     modifier: Modifier = Modifier,
+    blueText: String? = null,
 ) {
     Row(
         modifier =
@@ -43,11 +43,13 @@ fun HomeTitle(
             Row(
                 verticalAlignment = Alignment.CenterVertically,
             ) {
-                Text(
-                    text = blueText,
-                    style = LINKareerTheme.typography.title2B17,
-                    color = Blue,
-                )
+                if (blueText != null) {
+                    Text(
+                        text = blueText,
+                        style = LINKareerTheme.typography.title2B17,
+                        color = Blue,
+                    )
+                }
                 Text(
                     text = blackText,
                     style = LINKareerTheme.typography.title1B18,

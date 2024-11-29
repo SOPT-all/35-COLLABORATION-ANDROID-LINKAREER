@@ -3,6 +3,7 @@ package org.sopt.linkareer.feature.newbieintern.component
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -19,7 +20,6 @@ import org.sopt.linkareer.R
 import org.sopt.linkareer.core.designsystem.theme.Gray200
 import org.sopt.linkareer.core.designsystem.theme.Gray600
 import org.sopt.linkareer.core.designsystem.theme.Gray900
-import org.sopt.linkareer.core.designsystem.theme.LINKareerAndroidTheme
 import org.sopt.linkareer.core.designsystem.theme.LINKareerTheme
 
 @Composable
@@ -32,7 +32,8 @@ fun JobPassRoadMap(
     Column(
         modifier =
             modifier
-                .background(color = Gray200, shape = RoundedCornerShape(10.dp)),
+                .background(color = Gray200, shape = RoundedCornerShape(10.dp))
+                .height(127.dp),
     ) {
         Text(
             text = subTitle,
@@ -50,7 +51,9 @@ fun JobPassRoadMap(
                 Modifier
                     .padding(start = 12.dp, top = 2.dp),
         )
-        Spacer(Modifier.height(7.dp))
+
+        Spacer(modifier = Modifier.weight(1f))
+
         Image(
             painter = painterResource(image),
             contentDescription = null,
@@ -58,8 +61,8 @@ fun JobPassRoadMap(
                 Modifier
                     .width(44.dp)
                     .height(44.dp)
-                    .align(Alignment.End)
-                    .padding(end = 4.dp, bottom = 12.dp),
+                    .padding(bottom = 12.dp)
+                    .align(Alignment.End),
         )
     }
 }
@@ -67,11 +70,12 @@ fun JobPassRoadMap(
 @Preview
 @Composable
 fun JobPassRoadMapPreview() {
-    LINKareerAndroidTheme {
+    Row {
         JobPassRoadMap(
-            subTitle = "합격을 위한 꿀팁과 전략",
-            mainTitle = "인/적성\n합격후기",
-            image = R.drawable.img_newbie_liberalartsmentor,
+            subTitle = "가장 궁금해 한 Q&A",
+            mainTitle = "BEST Q&A",
+            image = R.drawable.img_newbie_qna,
+            modifier = Modifier.weight(1f),
         )
     }
 }

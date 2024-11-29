@@ -44,6 +44,7 @@ fun CompanyPassGuide(
     personalityNum: Int,
     interviewNum: Int,
     finalPassNum: Int,
+    modifier: Modifier = Modifier,
 ) {
     val passGuideItems =
         listOf(
@@ -56,6 +57,7 @@ fun CompanyPassGuide(
     Column(
         modifier =
             Modifier
+                .then(modifier)
                 .fillMaxWidth()
                 .border(
                     border = BorderStroke(width = 1.dp, color = Gray300),

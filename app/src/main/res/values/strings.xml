@@ -80,6 +80,41 @@
     <string name="newbieintern_interview">면접</string>
     <string name="newbieintern_final_pass">면접</string>
 
+    <string name="intern_official_title">실시간</string>
+    <string name="intern_official_title_2">UX/UI</string>
+    <string name="intern_official_title_3">직무 기업 별 합격 가이드</string>
+    <string name="intern_official_chip_1">전체</string>
+    <string name="intern_official_chip_2">인턴</string>
+    <string name="intern_official_chip_3">신입</string>
+    <string name="intern_official_chip_4">대기업</string>
+    <string name="intern_official_chip_5">공기업</string>
+
+    <string name="intern_road_map_title">UX/UI</string>
+    <string name="intern_road_map_title_2">직무 합격 로드맵</string>
+    <string name="intern_road_map_chip_mention">이(가) 언급되고 있어요.</string>
+    <string name="intern_road_map_chip_1">유저 리서치</string>
+    <string name="intern_road_map_chip_2">사용자 조사</string>
+    <string name="intern_road_map_chip_3">UT</string>
+
+    <string name="intern_road_map_pass">합격후기</string>
+    <string name="intern_road_map_question">질문방</string>
+
+    <string name="intern_community_title">현직 멘토 게시판</string>
+    <string name="intern_community_chip_mention">이(가) 답해주고 있어요.</string>
+    <string name="intern_community_chip_1">당근 디자이너</string>
+    <string name="intern_community_chip_2">토스 리서치</string>
+    <string name="intern_community_chip_3">삼성 디자이너</string>
+    <string name="intern_community_chip_4">Best 현직자 Q&amp;A</string>
+    <string name="intern_community_chip_5">취업/문과 고민</string>
+    <string name="intern_community_chip_6">취업/이과 고민</string>
+
+    <string name="intern_chatting_title">직무 취준생들의 이야기</string>
+    <string name="intern_chatting_chip_mention">에 대한 이야기가 화두에요.</string>
+
+    <string name="intern_chatting_chip_1">부트캠프산학</string>
+    <string name="intern_chatting_chip_2">대학원</string>
+    <string name="intern_chatting_chip_3">인턴경력</string>
+
     <!-- Top App Bar -->
     <string name="chatting_room_head_count">%s명</string>
 
