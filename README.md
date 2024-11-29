@@ -9,8 +9,20 @@
 | 박효빈 <br> [@Hyobeen-Park](https://github.com/Hyobeen-Park) |             김성민 <br> [@1971123-seongmin](https://github.com/1971123-seongmin)             |              조휘원 <br>[@hwidung](https://github.com/hwidung)               |
 |:---:|:-----------------------------------------------------------------------------:|:-----------------------------------------------------------------------------:|
 | <img width="250" src="https://avatars.githubusercontent.com/u/98209004?v=4"/> | <img width="250" src="https://github.com/user-attachments/assets/dfc07810-5f70-429a-8f04-052ebb917dae"/> | <img width="250" src="https://github.com/user-attachments/assets/060aa840-f1d6-4011-9de7-b6563767fd5c"/> |
-| `View1` |`View2`|`View3`|
+| `홈` `채팅홈` |`채팅방`|`신입/인턴`|
 
+
+<br/>
+
+## 🟦 *****UI단 설계*****
+[🩵 UI단 설계](https://cottony-cheese-83b.notion.site/UI-14042fd89a7680d08c21dd9ab4a9b05e?pvs=4)
+
+<br/>
+
+## 🟨 *****SCREENSHOT*****
+| 홈 |             신입/인턴             |              채팅홈               |              채팅방               |
+|:---:|:-----------------------------------------------------------------------------:|:-----------------------------------------------------------------------------:|:-----------------------------------------------------------------------------:|
+| <img width="200" src="https://github.com/user-attachments/assets/3be9bce3-90c0-4e65-97ef-5f84f81d8b51"/> | <img width="200" src="https://github.com/user-attachments/assets/993fd1d7-8982-4521-a357-ce4130a253ad"/> | <img width="200" src="https://github.com/user-attachments/assets/d5e1ffe7-ea40-4a98-a3ec-309a74dda547"/> | <img width="200" src="https://github.com/user-attachments/assets/7dd370b2-f805-47ad-8f81-9d2be6ff5bac"/> |
 
 <br/>
 
