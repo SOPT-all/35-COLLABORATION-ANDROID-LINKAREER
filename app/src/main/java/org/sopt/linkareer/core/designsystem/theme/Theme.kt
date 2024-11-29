@@ -12,10 +12,11 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
 
-private val lightColorScheme = lightColorScheme(
-    primary = Blue,
-    background = White
-)
+private val lightColorScheme =
+    lightColorScheme(
+        primary = Blue,
+        background = White,
+    )
 
 object LINKareerTheme {
     val colors: LINKareerColors

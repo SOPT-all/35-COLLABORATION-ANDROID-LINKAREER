@@ -105,7 +105,7 @@ private fun MainBottomBar(
 ) {
     NavigationBar(containerColor = White) {
         tabs.forEach { itemType ->
-            if(itemType != MainTab.NEWBIE) {
+            if (itemType != MainTab.NEWBIE) {
                 NavigationBarItem(
                     interactionSource = NoRippleInteraction,
                     selected = currentTab == itemType,
@@ -125,15 +125,15 @@ private fun MainBottomBar(
                         )
                     },
                     colors =
-                    NavigationBarItemColors(
-                        selectedIconColor = Gray900,
-                        selectedTextColor = Gray900,
-                        selectedIndicatorColor = White,
-                        unselectedIconColor = Gray600,
-                        unselectedTextColor = Gray600,
-                        disabledTextColor = Gray600,
-                        disabledIconColor = Gray600,
-                    ),
+                        NavigationBarItemColors(
+                            selectedIconColor = Gray900,
+                            selectedTextColor = Gray900,
+                            selectedIndicatorColor = White,
+                            unselectedIconColor = Gray600,
+                            unselectedTextColor = Gray600,
+                            disabledTextColor = Gray600,
+                            disabledIconColor = Gray600,
+                        ),
                 )
             }
         }
