@@ -41,6 +41,7 @@ import org.sopt.linkareer.feature.home.component.RecommendationNotice
 
 @Composable
 fun HomeRoute(
+    navigateToNewbieIntern: () -> Unit,
     paddingValues: PaddingValues,
     viewModel: HomeViewModel = hiltViewModel(),
 ) {
@@ -51,11 +52,12 @@ fun HomeRoute(
         viewModel.getOfficials("recommend")
     }
 
-    HomeScreen(paddingValues, homeState, viewModel)
+    HomeScreen(navigateToNewbieIntern, paddingValues, homeState, viewModel)
 }
 
 @Composable
 fun HomeScreen(
+    navigateToNewbieIntern: () -> Unit,
     paddingValues: PaddingValues,
     homeState: HomeState,
     viewModel: HomeViewModel = hiltViewModel(),
@@ -81,6 +83,7 @@ fun HomeScreen(
 
                 HomeTapBar(
                     onTabClick = {},
+                    navigateToNewbieIntern = navigateToNewbieIntern,
                 )
 
                 HorizontalDivider(
@@ -263,6 +266,10 @@ fun HomeScreen(
 @Composable
 fun HomeScreenPreview() {
     LINKareerAndroidTheme {
-        HomeScreen(PaddingValues(1.dp), HomeState())
+        HomeScreen(
+            navigateToNewbieIntern = {},
+            PaddingValues(1.dp),
+            HomeState(),
+        )
     }
 }
