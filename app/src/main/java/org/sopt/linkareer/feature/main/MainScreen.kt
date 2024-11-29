@@ -36,16 +36,19 @@ fun MainScreen(
 ) {
     Scaffold(
         topBar = {
-            if (navigator.currentTab == MainTab.HOME || navigator.currentTab == MainTab.CHATTING || navigator.currentTab == MainTab.NEWBIE) {
+            if ((navigator.currentTab == MainTab.HOME) || (navigator.currentTab == MainTab.CHATTING) ||
+                navigator.currentDestination?.route.toString() == "org.sopt.linkareer.feature.newbieintern.navigation.NewbieIntern"
+            ) {
                 LogoTopAppBar()
             }
         },
         bottomBar = {
-            if (navigator.showBottomBar()) {
+            if (navigator.showBottomBar() || navigator.currentDestination?.route.toString() == "org.sopt.linkareer.feature.newbieintern.navigation.NewbieIntern") {
                 MainBottomBar(
                     tabs = MainTab.entries.toList(),
                     currentTab = navigator.currentTab,
                     onTabSelected = navigator::navigate,
+                    isNewbieIntern = navigator.currentDestination?.route.toString() == "org.sopt.linkareer.feature.newbieintern.navigation.NewbieIntern",
                 )
             }
         },
@@ -102,40 +105,39 @@ private fun MainBottomBar(
     tabs: List<MainTab>,
     currentTab: MainTab?,
     onTabSelected: (MainTab) -> Unit,
+    isNewbieIntern: Boolean,
 ) {
     NavigationBar(containerColor = White) {
         tabs.forEach { itemType ->
-            if (itemType != MainTab.NEWBIE) {
-                NavigationBarItem(
-                    interactionSource = NoRippleInteraction,
-                    selected = currentTab == itemType,
-                    onClick = {
-                        onTabSelected(itemType)
-                    },
-                    icon = {
-                        Image(
-                            imageVector = ImageVector.vectorResource(id = if (currentTab == itemType) itemType.selectedIcon else itemType.unselectedIcon),
-                            contentDescription = stringResource(id = itemType.contentDescription),
-                        )
-                    },
-                    label = {
-                        Text(
-                            stringResource(id = itemType.contentDescription),
-                            style = LINKareerTheme.typography.label4M10,
-                        )
-                    },
-                    colors =
-                        NavigationBarItemColors(
-                            selectedIconColor = Gray900,
-                            selectedTextColor = Gray900,
-                            selectedIndicatorColor = White,
-                            unselectedIconColor = Gray600,
-                            unselectedTextColor = Gray600,
-                            disabledTextColor = Gray600,
-                            disabledIconColor = Gray600,
-                        ),
-                )
-            }
+            NavigationBarItem(
+                interactionSource = NoRippleInteraction,
+                selected = currentTab == itemType,
+                onClick = {
+                    onTabSelected(itemType)
+                },
+                icon = {
+                    Image(
+                        imageVector = ImageVector.vectorResource(id = if (currentTab == itemType || (isNewbieIntern && itemType == MainTab.HOME)) itemType.selectedIcon else itemType.unselectedIcon),
+                        contentDescription = stringResource(id = itemType.contentDescription),
+                    )
+                },
+                label = {
+                    Text(
+                        stringResource(id = itemType.contentDescription),
+                        style = LINKareerTheme.typography.label4M10,
+                    )
+                },
+                colors =
+                    NavigationBarItemColors(
+                        selectedIconColor = Gray900,
+                        selectedTextColor = Gray900,
+                        selectedIndicatorColor = White,
+                        unselectedIconColor = Gray600,
+                        unselectedTextColor = Gray600,
+                        disabledTextColor = Gray600,
+                        disabledIconColor = Gray600,
+                    ),
+            )
         }
     }
 }
