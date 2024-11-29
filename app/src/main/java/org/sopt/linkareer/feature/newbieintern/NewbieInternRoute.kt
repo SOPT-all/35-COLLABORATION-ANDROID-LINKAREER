@@ -100,6 +100,7 @@ fun NewbieInternScreen(
 
                 HomeTapBar(
                     onTabClick = {},
+                    currentTab = stringResource(R.string.home_tab_newbie),
                 )
 
                 HorizontalDivider(

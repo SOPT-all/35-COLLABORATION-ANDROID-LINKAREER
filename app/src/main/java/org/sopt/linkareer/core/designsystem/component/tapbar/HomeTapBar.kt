@@ -36,10 +36,11 @@ import org.sopt.linkareer.core.extension.noRippleClickable
 @Composable
 fun HomeTapBar(
     onTabClick: (String) -> Unit,
+    currentTab: String? = null,
     modifier: Modifier = Modifier,
 ) {
     val newbieTab = stringResource(R.string.home_tab_newbie)
-    var rememberTap by remember { mutableStateOf<String?>(null) }
+    var rememberTap by remember { mutableStateOf(currentTab) }
 
     Row(
         modifier =
