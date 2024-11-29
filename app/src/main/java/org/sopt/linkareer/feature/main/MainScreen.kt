@@ -29,6 +29,7 @@ import org.sopt.linkareer.feature.certification.navigation.certificationSuccess
 import org.sopt.linkareer.feature.chattinghome.navigation.chattingHomeGraph
 import org.sopt.linkareer.feature.chattingroom.navigation.chattingRoomGraph
 import org.sopt.linkareer.feature.home.navigation.homeNavGraph
+import org.sopt.linkareer.feature.newbieintern.navigation.NewbieIntern
 
 @Composable
 fun MainScreen(
@@ -37,18 +38,18 @@ fun MainScreen(
     Scaffold(
         topBar = {
             if ((navigator.currentTab == MainTab.HOME) || (navigator.currentTab == MainTab.CHATTING) ||
-                navigator.currentDestination?.route.toString() == "org.sopt.linkareer.feature.newbieintern.navigation.NewbieIntern"
+                navigator.currentDestination?.route == NewbieIntern::class.qualifiedName
             ) {
                 LogoTopAppBar()
             }
         },
         bottomBar = {
-            if (navigator.showBottomBar() || navigator.currentDestination?.route.toString() == "org.sopt.linkareer.feature.newbieintern.navigation.NewbieIntern") {
+            if (navigator.showBottomBar() || navigator.currentDestination?.route == NewbieIntern::class.qualifiedName) {
                 MainBottomBar(
                     tabs = MainTab.entries.toList(),
                     currentTab = navigator.currentTab,
                     onTabSelected = navigator::navigate,
-                    isNewbieIntern = navigator.currentDestination?.route.toString() == "org.sopt.linkareer.feature.newbieintern.navigation.NewbieIntern",
+                    isNewbieIntern = navigator.currentDestination?.route == NewbieIntern::class.qualifiedName,
                 )
             }
         },
