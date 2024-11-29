@@ -8,6 +8,8 @@ import androidx.navigation.NavOptions
 import androidx.navigation.compose.composable
 import org.sopt.linkareer.core.navigation.Home
 import org.sopt.linkareer.feature.home.HomeRoute
+import org.sopt.linkareer.feature.newbieintern.navigation.navigateToNewbieIntern
+import org.sopt.linkareer.feature.newbieintern.navigation.newbieInternNavGraph
 
 fun NavController.navigateToHome(navOptions: NavOptions? = null) {
     navigate(
@@ -21,6 +23,10 @@ fun NavGraphBuilder.homeNavGraph(
     navHostController: NavHostController,
 ) {
     composable<Home> {
-        HomeRoute(paddingValues)
+        HomeRoute(
+            navigateToNewbieIntern = { navHostController.navigateToNewbieIntern() },
+            paddingValues = paddingValues,
+        )
     }
+    newbieInternNavGraph(paddingValues, navHostController)
 }

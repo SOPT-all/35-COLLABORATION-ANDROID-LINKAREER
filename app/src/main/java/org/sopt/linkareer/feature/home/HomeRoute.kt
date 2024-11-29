@@ -41,6 +41,7 @@ import org.sopt.linkareer.feature.home.component.RecommendationNotice
 
 @Composable
 fun HomeRoute(
+    navigateToNewbieIntern: () -> Unit,
     paddingValues: PaddingValues,
     viewModel: HomeViewModel = hiltViewModel(),
 ) {
@@ -51,13 +52,20 @@ fun HomeRoute(
         viewModel.getOfficials("recommend")
     }
 
-    HomeScreen(paddingValues, homeState)
+    HomeScreen(
+        onTabClick = { navigateToNewbieIntern() },
+        paddingValues,
+        homeState,
+        viewModel,
+    )
 }
 
 @Composable
 fun HomeScreen(
+    onTabClick: (String) -> Unit,
     paddingValues: PaddingValues,
     homeState: HomeState,
+    viewModel: HomeViewModel = hiltViewModel(),
 ) {
     var searchText by remember { mutableStateOf("") }
 
@@ -79,7 +87,7 @@ fun HomeScreen(
                 )
 
                 HomeTapBar(
-                    onTabClick = {},
+                    onTabClick = onTabClick,
                 )
 
                 HorizontalDivider(
@@ -224,6 +232,12 @@ fun HomeScreen(
                             key = { homeState.officialList.data[it].id },
                         ) { official ->
                             with(homeState.officialList.data[official]) {
+                                val isBookmarked =
+                                    when (homeState.bookmarkStatus) {
+                                        is UiState.Success -> homeState.bookmarkStatus.data[id] ?: false
+                                        else -> false
+                                    }
+
                                 RecommendationNotice(
                                     noticeType = NoticeType.LIST,
                                     imageUrl = imageUrl,
@@ -234,6 +248,13 @@ fun HomeScreen(
                                     comments = comments,
                                     dDay = dDay,
                                     isBookmarked = isBookmarked,
+                                    onBookmarkClick = { bookmarked ->
+                                        if (bookmarked) {
+                                            viewModel.addBookmark(id)
+                                        } else {
+                                            viewModel.removeBookmark(id)
+                                        }
+                                    },
                                 )
                             }
                         }
@@ -249,6 +270,10 @@ fun HomeScreen(
 @Composable
 fun HomeScreenPreview() {
     LINKareerAndroidTheme {
-        HomeScreen(PaddingValues(1.dp), HomeState())
+        HomeScreen(
+            onTabClick = {},
+            PaddingValues(1.dp),
+            HomeState(),
+        )
     }
 }

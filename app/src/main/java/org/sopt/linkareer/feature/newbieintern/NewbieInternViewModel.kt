@@ -64,8 +64,8 @@ fun getPassGuideList(): List<PassGuideEntity> =
         ),
         PassGuideEntity(
             id = 2,
-            companyImg = R.drawable.img_companypass_samsung_54,
-            companyName = "삼성전자",
+            companyImg = R.drawable.img_chattingroom_inperson_lgcns_70,
+            companyName = "LG CNS",
             personalStatementNum = 0,
             personalityNum = 0,
             interviewNum = 0,
@@ -73,8 +73,8 @@ fun getPassGuideList(): List<PassGuideEntity> =
         ),
         PassGuideEntity(
             id = 3,
-            companyImg = R.drawable.img_companypass_samsung_54,
-            companyName = "삼성전자",
+            companyImg = R.drawable.img_chattingroom_inperson_amore_70,
+            companyName = "AMORE PACIFIC",
             personalStatementNum = 0,
             personalityNum = 0,
             interviewNum = 0,

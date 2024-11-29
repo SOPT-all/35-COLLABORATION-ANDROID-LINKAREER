@@ -24,4 +24,18 @@ class HomeRepositoryImpl @Inject constructor(
                 it.toOfficialEntity()
             }
         }
+
+    override suspend fun addBookmark(
+        officialId: Int,
+    ): Result<String> =
+        runCatching {
+            homeRemoteDataSource.addBookmark(officialId).message
+        }
+
+    override suspend fun removeBookmark(
+        officialId: Int,
+    ): Result<String> =
+        runCatching {
+            homeRemoteDataSource.removeBookmark(officialId).message
+        }
 }

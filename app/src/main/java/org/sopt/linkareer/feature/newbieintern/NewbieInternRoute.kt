@@ -55,6 +55,7 @@ import org.sopt.linkareer.feature.newbieintern.component.JobPassRoadMap
 
 @Composable
 fun NewbieInternRoute(
+    navigateToChattingRoom: () -> Unit,
     paddingValues: PaddingValues,
     newbieInternViewModel: NewbieInternViewModel = hiltViewModel(),
     homeViewModel: HomeViewModel = hiltViewModel(),
@@ -67,14 +68,22 @@ fun NewbieInternRoute(
         homeViewModel.getOfficials("recommend")
     }
 
-    NewbieInternScreen(paddingValues, newbieInternState, homeState)
+    NewbieInternScreen(
+        navigateToChattingRoom = navigateToChattingRoom,
+        paddingValues = paddingValues,
+        newbieInternState = newbieInternState,
+        homeState = homeState,
+        homeViewModel = homeViewModel,
+    )
 }
 
 @Composable
 fun NewbieInternScreen(
+    navigateToChattingRoom: () -> Unit,
     paddingValues: PaddingValues,
     newbieInternState: NewbieInternState,
     homeState: HomeState,
+    homeViewModel: HomeViewModel = hiltViewModel(),
 ) {
     var searchText by remember { mutableStateOf("") }
 
@@ -116,7 +125,7 @@ fun NewbieInternScreen(
                 InternMainTitle(
                     blackTextFirst = stringResource(R.string.intern_official_title),
                     blueText = stringResource(R.string.intern_official_title_2),
-                    blackText = stringResource(R.string.intern_official_title_3),
+                    blackText = stringResource(R.string.intern_official_title_1),
                     chipList =
                         listOf(
                             stringResource(R.string.intern_official_chip_1),
@@ -141,6 +150,11 @@ fun NewbieInternScreen(
                             key = { homeState.officialList.data[it].id },
                         ) { official ->
                             with(homeState.officialList.data[official]) {
+                                val isBookmarked =
+                                    when (homeState.bookmarkStatus) {
+                                        is UiState.Success -> homeState.bookmarkStatus.data[id] ?: false
+                                        else -> false
+                                    }
                                 RecommendationNotice(
                                     noticeType = NoticeType.LIST,
                                     imageUrl = imageUrl,
@@ -151,6 +165,13 @@ fun NewbieInternScreen(
                                     comments = comments,
                                     dDay = dDay,
                                     isBookmarked = isBookmarked,
+                                    onBookmarkClick = { bookmarked ->
+                                        if (bookmarked) {
+                                            homeViewModel.addBookmark(id)
+                                        } else {
+                                            homeViewModel.removeBookmark(id)
+                                        }
+                                    },
                                 )
                             }
                         }
@@ -263,7 +284,6 @@ fun NewbieInternScreen(
                         ),
             )
 
-            // Todo :  padding 설정 재확인
             CommunityChipList(
                 chipList =
                     listOf(
@@ -337,8 +357,7 @@ fun NewbieInternScreen(
                     company = company,
                     chattingTitle = title,
                     participationPerson = participation,
-                    // Todo : 성민오빠 채팅방으로
-                    onClick = {},
+                    onClick = navigateToChattingRoom,
                     isInPersonConversation = isInPerson,
                     modifier =
                         Modifier
@@ -413,6 +432,7 @@ fun CommunityChipList(chipList: List<String>) {
 fun NewbieInternScreenPreview() {
     LINKareerAndroidTheme {
         NewbieInternScreen(
+            navigateToChattingRoom = {},
             PaddingValues(1.dp),
             NewbieInternState(),
             HomeState(),
