@@ -39,7 +39,7 @@ fun MyReplyChat(
     Column(
         modifier =
             Modifier
-                .padding(end = 9.dp),
+                .padding(top = 6.dp, end = 9.dp),
         horizontalAlignment = Alignment.End,
     ) {
         Row(

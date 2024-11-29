@@ -102,7 +102,7 @@ fun ChattingRoomScreen(
                 items = sortedChatList,
                 key = { chat -> chat.createdTime },
             ) { chat ->
-                if (chat.reply == null) {
+                if (chat.reply.replyMessage == null) {
                     if (chatListEntity.myChat.chatList.contains(chat)) {
                         Row(
                             modifier = Modifier.fillMaxWidth(),

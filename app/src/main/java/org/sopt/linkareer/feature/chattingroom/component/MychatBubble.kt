@@ -32,7 +32,7 @@ fun MychatBubble(
     Column(
         modifier =
             Modifier
-                .padding(end = 8.dp),
+                .padding(top = 6.dp, end = 8.dp),
         horizontalAlignment = Alignment.End,
     ) {
         Row(
