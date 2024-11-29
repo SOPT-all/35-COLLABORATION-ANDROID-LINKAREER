@@ -12,7 +12,7 @@ import org.sopt.linkareer.domain.model.TagEntity
 @Serializable
 data class ChatListResponse(
     @SerialName("chatRoomName") val chatRoomName: String,
-    @SerialName("chatParticiPantsCount") val chatParticiPantsCount: Int = 0,
+    @SerialName("chatParticiPantsCount") val chatParticiPantsCount: Int,
     @SerialName("chatPartner") val chatPartner: ChatPartner,
     @SerialName("myChat") val myChat: MyChat,
 ) {
@@ -63,7 +63,7 @@ data class Chat(
     @SerialName("likes") val likes: Int,
     @SerialName("pressedLike") val pressedLike: Boolean,
     @SerialName("createdTime") val createdTime: String,
-    @SerialName("reply") val reply: Reply?,
+    @SerialName("reply") val reply: Reply,
 ) {
     fun chatToEntity(): ChatEntity {
         return ChatEntity(
@@ -72,7 +72,7 @@ data class Chat(
             likes = this.likes,
             pressedLike = this.pressedLike,
             createdTime = this.createdTime,
-            reply = this.reply?.replyToEntity(),
+            reply = this.reply.replyToEntity(),
         )
     }
 }

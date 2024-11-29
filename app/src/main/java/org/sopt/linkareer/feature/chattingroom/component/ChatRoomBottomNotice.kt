@@ -88,7 +88,6 @@ fun ChatRoomBottomNotice(
                     modifier =
                         Modifier
                             .noRippleClickable { isVisible = false },
-                    // 이 뷰 닫기
                 )
             }
         }

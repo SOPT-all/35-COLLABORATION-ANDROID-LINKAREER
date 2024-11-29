@@ -51,9 +51,6 @@ fun CertificationEnterInformationScreen(
     ) {
         CertificationTopBar(
             onIconClick = {},
-            modifier =
-                Modifier
-                    .padding(top = 27.dp),
         )
         Text(
             text = stringResource(R.string.certification_write_title),

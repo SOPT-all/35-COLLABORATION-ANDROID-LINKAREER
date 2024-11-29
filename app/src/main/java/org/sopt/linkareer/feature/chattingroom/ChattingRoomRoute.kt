@@ -13,7 +13,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -93,15 +92,16 @@ fun ChattingRoomScreen(
         )
         ChatRoomTopNotice()
 
-        // 채팅 방
         LazyColumn(
             modifier =
                 Modifier
                     .weight(1f)
                     .background(White),
         ) {
-            items(sortedChatList) { chat ->
-                // if -> 일반 채팅 / else -> 답장
+            items(
+                items = sortedChatList,
+                key = { chat -> chat.createdTime },
+            ) { chat ->
                 if (chat.reply == null) {
                     if (chatListEntity.myChat.chatList.contains(chat)) {
                         Row(
@@ -180,14 +180,4 @@ fun ChattingRoomScreen(
                     .padding(horizontal = 18.dp, vertical = 12.dp),
         )
     }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun ChattingScreenPreview() {
-    ChattingRoomScreen(
-        navigateBack = {},
-        navigateToCertificationGuide = {},
-        ChatListEntity(),
-    )
 }

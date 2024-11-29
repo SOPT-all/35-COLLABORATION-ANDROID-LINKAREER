@@ -11,8 +11,10 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.paint
@@ -30,18 +32,18 @@ fun CertificationAddImageBox(
     @DrawableRes addImage: Int?,
     modifier: Modifier = Modifier,
 ) {
-    val isClicked = remember { mutableStateOf(false) }
+    var isClicked by remember { mutableStateOf(false) }
 
     Box(
         modifier =
             modifier
                 .fillMaxWidth()
                 .clickable {
-                    isClicked.value = true
+                    isClicked = true
                 }
                 .paint(
                     painterResource(
-                        if (isClicked.value && addImage != null) {
+                        if (isClicked && addImage != null) {
                             addImage
                         } else {
                             R.drawable.img_add_image_background
@@ -54,7 +56,7 @@ fun CertificationAddImageBox(
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            if (!isClicked.value) {
+            if (!isClicked) {
                 Text(
                     text = stringResource(R.string.certification_add_capture),
                     style = LINKareerTheme.typography.body14R10,
