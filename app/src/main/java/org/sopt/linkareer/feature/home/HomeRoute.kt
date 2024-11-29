@@ -232,12 +232,6 @@ fun HomeScreen(
                             key = { homeState.officialList.data[it].id },
                         ) { official ->
                             with(homeState.officialList.data[official]) {
-                                val isBookmarked =
-                                    when (homeState.bookmarkStatus) {
-                                        is UiState.Success -> homeState.bookmarkStatus.data[id] ?: false
-                                        else -> false
-                                    }
-
                                 RecommendationNotice(
                                     noticeType = NoticeType.LIST,
                                     imageUrl = imageUrl,
@@ -250,9 +244,9 @@ fun HomeScreen(
                                     isBookmarked = isBookmarked,
                                     onBookmarkClick = { bookmarked ->
                                         if (bookmarked) {
-                                            viewModel.addBookmark(id)
+                                            viewModel.addBookmark(id, "recommend")
                                         } else {
-                                            viewModel.removeBookmark(id)
+                                            viewModel.removeBookmark(id, "recommend")
                                         }
                                     },
                                 )

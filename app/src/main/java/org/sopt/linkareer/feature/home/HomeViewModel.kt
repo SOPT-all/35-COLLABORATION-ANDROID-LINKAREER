@@ -47,50 +47,24 @@ class HomeViewModel @Inject constructor(
 
     fun addBookmark(
         officialId: Int,
+        category: String,
     ) {
         viewModelScope.launch {
             homeRepository.addBookmark(officialId)
                 .onSuccess { message ->
-                    homeState.update {
-                        val updatedBookmarks =
-                            when (val currentStatus = it.bookmarkStatus) {
-                                is UiState.Success -> {
-                                    currentStatus.data.toMutableMap()
-                                }
-
-                                else -> {
-                                    mutableMapOf()
-                                }
-                            }
-                        updatedBookmarks[officialId] = true
-                        it.copy(
-                            bookmarkStatus = UiState.Success(updatedBookmarks),
-                        )
-                    }
+                    getOfficials(category)
                 }
         }
     }
 
-    fun removeBookmark(officialId: Int) {
+    fun removeBookmark(
+        officialId: Int,
+        category: String,
+    ) {
         viewModelScope.launch {
             homeRepository.removeBookmark(officialId)
                 .onSuccess { message ->
-                    homeState.update {
-                        val updateBookmarks =
-                            when (val currerntStatus = it.bookmarkStatus) {
-                                is UiState.Success -> {
-                                    currerntStatus.data.toMutableMap()
-                                }
-
-                                else -> {
-                                    mutableMapOf()
-                                }
-                            }
-                        updateBookmarks[officialId] = false
-                        it.copy(
-                            bookmarkStatus = UiState.Success(updateBookmarks),
-                        )
-                    }
+                    getOfficials(category)
                 }
         }
     }
