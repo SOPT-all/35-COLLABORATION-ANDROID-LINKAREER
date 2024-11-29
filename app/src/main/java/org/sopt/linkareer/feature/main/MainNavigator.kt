@@ -15,7 +15,7 @@ import org.sopt.linkareer.feature.home.navigation.navigateToHome
 class MainNavigator(
     val navController: NavHostController,
 ) {
-    private val currentDestination: NavDestination?
+    val currentDestination: NavDestination?
         @Composable get() =
             navController
                 .currentBackStackEntryAsState().value?.destination

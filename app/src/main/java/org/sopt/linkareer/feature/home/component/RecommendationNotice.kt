@@ -14,10 +14,6 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -54,7 +50,6 @@ fun RecommendationNotice(
     onBookmarkClick: (Boolean) -> Unit = {},
 ) {
     val titleMaxLines = if (noticeType == NoticeType.BANNER) 1 else 2
-    var bookmarkedState by remember { mutableStateOf(isBookmarked) }
 
     Column(
         modifier =
@@ -70,10 +65,9 @@ fun RecommendationNotice(
         RecommendationNoticeCardSection(
             imageUrl = imageUrl,
             dDay = dDay,
-            isBookmarked = bookmarkedState,
+            isBookmarked = isBookmarked,
             noticeType = noticeType,
             onBookmarkClick = {
-                bookmarkedState = it
                 onBookmarkClick(it)
             },
             modifier = Modifier.aspectRatio(1f),

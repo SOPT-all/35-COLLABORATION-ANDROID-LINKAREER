@@ -9,5 +9,4 @@ data class HomeState(
     val bannerList: List<BannerEntity> = getBannerList(),
     val postList: UiState<List<PostEntity>> = UiState.Loading,
     val officialList: UiState<List<OfficialEntity>> = UiState.Loading,
-    val bookmarkStatus: UiState<Map<Int, Boolean>> = UiState.Loading,
 )

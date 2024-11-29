@@ -42,8 +42,6 @@ import org.sopt.linkareer.core.designsystem.theme.LINKareerAndroidTheme
 import org.sopt.linkareer.core.designsystem.theme.LINKareerTheme
 import org.sopt.linkareer.core.state.UiState
 import org.sopt.linkareer.domain.model.RoadMapEntity
-import org.sopt.linkareer.feature.home.HomeState
-import org.sopt.linkareer.feature.home.HomeViewModel
 import org.sopt.linkareer.feature.home.component.CommunityBest
 import org.sopt.linkareer.feature.home.component.HomeTitle
 import org.sopt.linkareer.feature.home.component.NoticeType
@@ -58,22 +56,19 @@ fun NewbieInternRoute(
     navigateToChattingRoom: () -> Unit,
     paddingValues: PaddingValues,
     newbieInternViewModel: NewbieInternViewModel = hiltViewModel(),
-    homeViewModel: HomeViewModel = hiltViewModel(),
 ) {
     val newbieInternState by newbieInternViewModel.newbieInternState.collectAsStateWithLifecycle()
-    val homeState by homeViewModel.homeState.collectAsStateWithLifecycle()
 
     LaunchedEffect(true) {
-        homeViewModel.getPosts("interest")
-        homeViewModel.getOfficials("recommend")
+        newbieInternViewModel.getPosts("job")
+        newbieInternViewModel.getOfficials("popular")
     }
 
     NewbieInternScreen(
         navigateToChattingRoom = navigateToChattingRoom,
         paddingValues = paddingValues,
         newbieInternState = newbieInternState,
-        homeState = homeState,
-        homeViewModel = homeViewModel,
+        viewModel = newbieInternViewModel,
     )
 }
 
@@ -82,8 +77,7 @@ fun NewbieInternScreen(
     navigateToChattingRoom: () -> Unit,
     paddingValues: PaddingValues,
     newbieInternState: NewbieInternState,
-    homeState: HomeState,
-    homeViewModel: HomeViewModel = hiltViewModel(),
+    viewModel: NewbieInternViewModel = hiltViewModel(),
 ) {
     var searchText by remember { mutableStateOf("") }
 
@@ -106,6 +100,7 @@ fun NewbieInternScreen(
 
                 HomeTapBar(
                     onTabClick = {},
+                    currentTab = stringResource(R.string.home_tab_newbie),
                 )
 
                 HorizontalDivider(
@@ -144,17 +139,12 @@ fun NewbieInternScreen(
                         Modifier
                             .padding(top = 12.dp, bottom = 16.dp),
                 ) {
-                    if (homeState.officialList is UiState.Success) {
+                    if (newbieInternState.officialList is UiState.Success) {
                         items(
-                            count = homeState.officialList.data.size,
-                            key = { homeState.officialList.data[it].id },
+                            count = newbieInternState.officialList.data.size,
+                            key = { newbieInternState.officialList.data[it].id },
                         ) { official ->
-                            with(homeState.officialList.data[official]) {
-                                val isBookmarked =
-                                    when (homeState.bookmarkStatus) {
-                                        is UiState.Success -> homeState.bookmarkStatus.data[id] ?: false
-                                        else -> false
-                                    }
+                            with(newbieInternState.officialList.data[official]) {
                                 RecommendationNotice(
                                     noticeType = NoticeType.LIST,
                                     imageUrl = imageUrl,
@@ -167,9 +157,9 @@ fun NewbieInternScreen(
                                     isBookmarked = isBookmarked,
                                     onBookmarkClick = { bookmarked ->
                                         if (bookmarked) {
-                                            homeViewModel.addBookmark(id)
+                                            viewModel.addBookmark(id, "popular")
                                         } else {
-                                            homeViewModel.removeBookmark(id)
+                                            viewModel.removeBookmark(id, "popular")
                                         }
                                     },
                                 )
@@ -293,12 +283,12 @@ fun NewbieInternScreen(
                     ),
             )
         }
-        if (homeState.postList is UiState.Success) {
+        if (newbieInternState.postList is UiState.Success) {
             items(
-                count = homeState.postList.data.size,
-                key = { homeState.postList.data[it].id },
+                count = newbieInternState.postList.data.size,
+                key = { newbieInternState.postList.data[it].id },
             ) { post ->
-                with(homeState.postList.data[post]) {
+                with(newbieInternState.postList.data[post]) {
                     CommunityBest(
                         community = community,
                         imageUrl = imageUrl,
@@ -435,7 +425,6 @@ fun NewbieInternScreenPreview() {
             navigateToChattingRoom = {},
             PaddingValues(1.dp),
             NewbieInternState(),
-            HomeState(),
         )
     }
 }
