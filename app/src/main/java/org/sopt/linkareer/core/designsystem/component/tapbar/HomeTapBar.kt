@@ -71,10 +71,7 @@ fun HomeTapBar(
                 TabItem(
                     tapName = contestTab,
                     isSelected = false,
-                    onClick = {
-                        rememberTap = contestTab
-                        onTabClick(contestTab)
-                    },
+                    onClick = { },
                 )
             }
             item {
@@ -82,10 +79,7 @@ fun HomeTapBar(
                 TabItem(
                     tapName = channelTab,
                     isSelected = false,
-                    onClick = {
-                        rememberTap = channelTab
-                        onTabClick(channelTab)
-                    },
+                    onClick = { },
                 )
             }
             item {
@@ -93,10 +87,7 @@ fun HomeTapBar(
                 TabItem(
                     tapName = communityTab,
                     isSelected = false,
-                    onClick = {
-                        rememberTap = communityTab
-                        onTabClick(communityTab)
-                    },
+                    onClick = { },
                 )
             }
         }
