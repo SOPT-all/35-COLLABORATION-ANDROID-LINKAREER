@@ -19,6 +19,8 @@ class HomeViewModel @Inject constructor(
     var homeState: MutableStateFlow<HomeState> = MutableStateFlow(HomeState())
         private set
 
+    // Todo : member id 프로퍼티 추가
+
     fun getPosts(category: String) {
         viewModelScope.launch {
             homeRepository.getPosts(category)
@@ -39,6 +41,58 @@ class HomeViewModel @Inject constructor(
                     homeState.update {
                         it.copy(
                             officialList = UiState.Success(officials),
+                        )
+                    }
+                }
+        }
+    }
+
+    fun addBookmark(
+        officialId: Int,
+        memberId: Int,
+    ) {
+        viewModelScope.launch {
+            homeRepository.addBookmark(officialId, memberId)
+                .onSuccess { message ->
+                    homeState.update {
+                        val updatedBookmarks =
+                            when (val currentStatus = it.bookmarkStatus) {
+                                is UiState.Success -> {
+                                    currentStatus.data.toMutableMap()
+                                }
+
+                                else -> {
+                                    mutableMapOf()
+                                }
+                            }
+                        updatedBookmarks[officialId] = true
+                        it.copy(
+                            bookmarkStatus = UiState.Success(updatedBookmarks),
+                        )
+                    }
+                }
+        }
+    }
+
+    // Todo : memberid 수정
+    fun removeBookmark(officialId: Int) {
+        viewModelScope.launch {
+            homeRepository.removeBookmark(officialId, memberId = 1)
+                .onSuccess { message ->
+                    homeState.update {
+                        val updateBookmarks =
+                            when (val currerntStatus = it.bookmarkStatus) {
+                                is UiState.Success -> {
+                                    currerntStatus.data.toMutableMap()
+                                }
+
+                                else -> {
+                                    mutableMapOf()
+                                }
+                            }
+                        updateBookmarks[officialId] = false
+                        it.copy(
+                            bookmarkStatus = UiState.Success(updateBookmarks),
                         )
                     }
                 }

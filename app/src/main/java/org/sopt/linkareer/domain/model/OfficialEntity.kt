@@ -9,5 +9,5 @@ data class OfficialEntity(
     val views: Int,
     val comments: Int,
     val dDay: String,
-    val isBookmarked: Boolean,
+    var isBookmarked: Boolean,
 )
